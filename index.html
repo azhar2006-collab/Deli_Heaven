@@ -3,1428 +3,1163 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Max Rep Fitness Centre | Chennai</title>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700;900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet" />
+  <title>Lakshmi Jewellery – Timeless Elegance in Every Piece</title>
+  <meta name="description" content="Lakshmi Jewellery offers exquisite gold, diamond and traditional jewellery collections. Visit us for bridal sets, necklaces, bangles, earrings and more. Call 9444722677." />
+  <meta name="keywords" content="Lakshmi Jewellery, gold jewellery, diamond jewellery, bridal jewellery, necklaces, bangles, earrings" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    :root {
-      --black:   #0a0a0a;
-      --dark:    #111111;
-      --panel:   #181818;
-      --border:  #242424;
-      --fire:    #ff4d00;
-      --amber:   #ffab00;
-      --white:   #f5f0eb;
-      --muted:   #888;
-      --radius:  4px;
-    }
-
+    /* ===========================
+       CSS VARIABLES & RESET
+    =========================== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold-deep:   #8B5C0A;
+      --gold-mid:    #C9962A;
+      --gold-bright: #E8B84B;
+      --gold-light:  #F5D88A;
+      --gold-pale:   #FDF3D7;
+      --cream:       #FBF5E6;
+      --dark:        #1A0E00;
+      --dark-card:   #221400;
+      --maroon:      #6B0F1A;
+      --text-main:   #2D1A00;
+      --text-light:  #7A5C2E;
+      --border-gold: rgba(200,150,42,0.35);
+    }
 
     html { scroll-behavior: smooth; }
 
     body {
-      background: var(--black);
-      color: var(--white);
-      font-family: 'Barlow', sans-serif;
-      font-weight: 300;
+      font-family: 'Outfit', sans-serif;
+      background: var(--cream);
+      color: var(--text-main);
       overflow-x: hidden;
     }
 
-    /* ── NAV ── */
-    nav {
+    h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; }
+
+    /* ===========================
+       NAVBAR
+    =========================== */
+    #navbar {
       position: fixed;
       top: 0; left: 0; right: 0;
-      z-index: 100;
+      z-index: 1000;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1.25rem 3rem;
-      background: rgba(10,10,10,0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
+      padding: 0 5%;
+      height: 72px;
+      background: rgba(26, 14, 0, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-gold);
+      transition: background 0.3s;
     }
 
     .nav-logo {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.9rem;
-      letter-spacing: 0.08em;
-      color: var(--white);
-      text-decoration: none;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 10px;
+      text-decoration: none;
     }
-    .nav-logo span { color: var(--fire); }
-
-    .nav-links {
+    .nav-logo .logo-icon {
+      width: 38px; height: 38px;
+      background: linear-gradient(135deg, var(--gold-mid), var(--gold-bright));
+      border-radius: 50%;
       display: flex;
-      gap: 2.4rem;
-      list-style: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: var(--dark);
+      flex-shrink: 0;
     }
-    .nav-links a {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 600;
-      font-size: 0.85rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--fire); }
-
-    .nav-cta {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 0.82rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--black);
-      background: var(--fire);
-      border: none;
-      padding: 0.65rem 1.6rem;
-      border-radius: var(--radius);
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.2s, transform 0.15s;
-    }
-    .nav-cta:hover { background: var(--amber); transform: translateY(-1px); }
-
-    /* hamburger */
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
-    .hamburger span { width: 24px; height: 2px; background: var(--white); display: block; transition: 0.3s; }
-
-    /* ── HERO ── */
-    #hero {
-      min-height: 100vh;
+    .nav-logo-text {
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
-      padding: 0 3rem 5rem;
+      line-height: 1;
+    }
+    .nav-logo-text .brand { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 700; color: var(--gold-bright); letter-spacing: 1px; }
+    .nav-logo-text .tagline { font-size: 0.6rem; color: var(--gold-light); opacity: 0.8; letter-spacing: 2px; text-transform: uppercase; }
+
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { text-decoration: none; color: #d4b06a; font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 500; transition: color 0.25s; }
+    .nav-links a:hover { color: var(--gold-bright); }
+
+    .nav-cta {
+      background: linear-gradient(135deg, var(--gold-mid), var(--gold-bright));
+      color: var(--dark) !important;
+      padding: 8px 20px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      transition: transform 0.2s, box-shadow 0.2s !important;
+    }
+    .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(200,150,42,0.4) !important; color: var(--dark) !important; }
+
+    /* Hamburger */
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 1100; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--gold-bright); border-radius: 2px; transition: all 0.3s; }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(26,14,0,0.97);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 36px;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--gold-bright); text-decoration: none; letter-spacing: 2px; }
+    .mobile-nav a:hover { color: var(--gold-light); }
+    .mobile-close { position: absolute; top: 24px; right: 24px; font-size: 1.8rem; color: var(--gold-bright); cursor: pointer; background: none; border: none; }
+
+    /* ===========================
+       HERO SECTION
+    =========================== */
+    #hero {
+      min-height: 100vh;
+      background:
+        linear-gradient(160deg, rgba(26,14,0,0.82) 0%, rgba(107,15,26,0.6) 50%, rgba(26,14,0,0.9) 100%),
+        url('C:/Users/SYED AZHAR HUSSAIN A/.gemini/antigravity/brain/7ad94c05-5bb4-4eaa-bf2e-bedd4c925b3c/jewellery_hero_1776509850355.png') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 100px 5% 60px;
       position: relative;
       overflow: hidden;
     }
 
-    .hero-bg {
+    /* gold particle lines */
+    #hero::before {
+      content: '';
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 60% 50% at 70% 40%, rgba(255,77,0,0.18) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 60% at 10% 80%, rgba(255,171,0,0.08) 0%, transparent 60%),
-        linear-gradient(160deg, #0a0a0a 40%, #1a0800 100%);
+        radial-gradient(ellipse at 20% 60%, rgba(200,150,42,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 30%, rgba(200,150,42,0.10) 0%, transparent 50%);
+      pointer-events: none;
     }
 
-    /* Animated grid lines */
-    .hero-grid {
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,77,0,0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,77,0,0.05) 1px, transparent 1px);
-      background-size: 60px 60px;
-      animation: gridShift 20s linear infinite;
-    }
-    @keyframes gridShift {
-      from { background-position: 0 0; }
-      to   { background-position: 60px 60px; }
-    }
-
-    /* decorative diagonal bar */
-    .hero-slash {
-      position: absolute;
-      top: -20%;
-      right: -5%;
-      width: 3px;
-      height: 160%;
-      background: linear-gradient(180deg, transparent, var(--fire), transparent);
-      transform: rotate(-8deg);
-      opacity: 0.5;
-    }
-    .hero-slash-2 {
-      position: absolute;
-      top: -20%;
-      right: 6%;
-      width: 1px;
-      height: 160%;
-      background: linear-gradient(180deg, transparent, rgba(255,77,0,0.4), transparent);
-      transform: rotate(-8deg);
-    }
-
-    .hero-eyebrow {
-      position: relative;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 0.78rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--fire);
-      margin-bottom: 1.2rem;
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      animation: fadeUp 0.8s ease both;
-    }
-    .hero-eyebrow::before {
-      content: '';
+    .hero-ornament {
+      font-size: 2rem;
+      color: var(--gold-bright);
+      letter-spacing: 12px;
+      opacity: 0.7;
+      animation: shimmer 3s infinite;
       display: block;
-      width: 36px;
-      height: 2px;
-      background: var(--fire);
+      margin-bottom: 16px;
+    }
+
+    @keyframes shimmer {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+
+    .hero-content { position: relative; z-index: 2; max-width: 780px; }
+    .hero-badge {
+      display: inline-block;
+      border: 1px solid var(--gold-mid);
+      padding: 6px 20px;
+      border-radius: 30px;
+      font-size: 0.72rem;
+      color: var(--gold-light);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      background: rgba(200,150,42,0.08);
     }
 
     .hero-title {
-      position: relative;
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(5rem, 12vw, 13rem);
-      line-height: 0.88;
-      letter-spacing: 0.02em;
-      color: var(--white);
-      animation: fadeUp 0.8s 0.1s ease both;
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      font-weight: 700;
+      line-height: 1.05;
+      color: #fff;
+      margin-bottom: 10px;
     }
-    .hero-title .accent { color: var(--fire); }
-    .hero-title .stroke {
-      -webkit-text-stroke: 2px var(--white);
-      color: transparent;
+    .hero-title span {
+      background: linear-gradient(90deg, var(--gold-mid), var(--gold-bright), var(--gold-light), var(--gold-bright));
+      background-size: 300% 100%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: goldFlow 4s linear infinite;
+    }
+    @keyframes goldFlow {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 300% 50%; }
     }
 
     .hero-sub {
-      position: relative;
-      font-size: 1.1rem;
-      color: var(--muted);
-      max-width: 520px;
-      margin-top: 1.6rem;
-      line-height: 1.65;
-      animation: fadeUp 0.8s 0.2s ease both;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      color: rgba(245, 216, 138, 0.85);
+      margin-bottom: 28px;
+      font-style: italic;
     }
 
-    .hero-actions {
-      position: relative;
-      display: flex;
-      gap: 1rem;
-      margin-top: 2.4rem;
-      animation: fadeUp 0.8s 0.3s ease both;
+    .hero-desc {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.8;
+      max-width: 560px;
+      margin: 0 auto 42px;
     }
 
+    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
     .btn-primary {
-      font-family: 'Barlow Condensed', sans-serif;
+      padding: 14px 36px;
+      border-radius: 40px;
+      background: linear-gradient(135deg, var(--gold-mid), var(--gold-bright));
+      color: var(--dark);
       font-weight: 700;
-      font-size: 0.88rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--black);
-      background: var(--fire);
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      text-decoration: none;
       border: none;
-      padding: 1rem 2.4rem;
-      border-radius: var(--radius);
       cursor: pointer;
-      text-decoration: none;
-      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(200,150,42,0.4);
     }
-    .btn-primary:hover {
-      background: var(--amber);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 32px rgba(255,77,0,0.4);
-    }
-
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(200,150,42,0.5); }
     .btn-outline {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 0.88rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--white);
+      padding: 14px 36px;
+      border-radius: 40px;
       background: transparent;
-      border: 1.5px solid var(--border);
-      padding: 1rem 2.4rem;
-      border-radius: var(--radius);
-      cursor: pointer;
+      color: var(--gold-bright);
+      border: 1.5px solid var(--gold-mid);
+      font-size: 0.9rem;
+      letter-spacing: 1px;
       text-decoration: none;
-      transition: border-color 0.2s, color 0.2s, transform 0.15s;
+      transition: all 0.25s;
     }
-    .btn-outline:hover { border-color: var(--fire); color: var(--fire); transform: translateY(-2px); }
+    .btn-outline:hover { background: rgba(200,150,42,0.1); border-color: var(--gold-bright); transform: translateY(-3px); }
 
-    /* Hero stats strip */
     .hero-stats {
-      position: absolute;
-      right: 3rem;
-      top: 50%;
-      transform: translateY(-50%);
+      margin-top: 60px;
       display: flex;
-      flex-direction: column;
-      gap: 2.4rem;
-      animation: fadeIn 1s 0.4s ease both;
+      justify-content: center;
+      gap: 50px;
+      flex-wrap: wrap;
     }
-    .hero-stat { text-align: center; }
-    .hero-stat-num {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 3rem;
-      color: var(--fire);
-      line-height: 1;
-    }
-    .hero-stat-label {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-    .stat-divider {
-      width: 1px;
-      height: 40px;
-      background: var(--border);
-      margin: 0 auto;
-    }
+    .stat { text-align: center; }
+    .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; font-weight: 700; color: var(--gold-bright); line-height: 1; }
+    .stat-label { font-size: 0.72rem; color: rgba(255,255,255,0.55); letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
 
-    /* scroll cue */
-    .scroll-cue {
-      position: absolute;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
+    /* ===========================
+       SECTION UTILITIES
+    =========================== */
+    section { padding: 90px 5%; }
+
+    .section-eyebrow {
       display: flex;
-      flex-direction: column;
       align-items: center;
-      gap: 0.4rem;
-      animation: bounce 2s infinite;
-    }
-    .scroll-cue span {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
+      justify-content: center;
+      gap: 12px;
+      font-size: 0.7rem;
+      letter-spacing: 4px;
       text-transform: uppercase;
-      color: var(--muted);
+      color: var(--gold-mid);
+      margin-bottom: 14px;
     }
-    .scroll-cue svg { color: var(--fire); }
-    @keyframes bounce {
-      0%, 100% { transform: translateX(-50%) translateY(0); }
-      50%       { transform: translateX(-50%) translateY(6px); }
+    .section-eyebrow::before, .section-eyebrow::after {
+      content: '';
+      flex: 1;
+      max-width: 60px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-mid));
+    }
+    .section-eyebrow::after { background: linear-gradient(90deg, var(--gold-mid), transparent); }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 12px;
+    }
+    .section-title span { color: var(--gold-deep); }
+    .section-sub {
+      text-align: center;
+      font-size: 1rem;
+      color: var(--text-light);
+      max-width: 560px;
+      margin: 0 auto 52px;
+      line-height: 1.8;
     }
 
-    /* ── TICKER ── */
-    .ticker {
-      background: var(--fire);
-      padding: 0.6rem 0;
+    /* ===========================
+       MARQUEE TICKER
+    =========================== */
+    .ticker-wrap {
+      background: linear-gradient(90deg, var(--gold-deep), var(--gold-mid), var(--gold-deep));
+      padding: 12px 0;
       overflow: hidden;
       white-space: nowrap;
     }
     .ticker-inner {
-      display: inline-block;
-      animation: tick 24s linear infinite;
+      display: inline-flex;
+      gap: 48px;
+      animation: ticker 22s linear infinite;
     }
-    .ticker-item {
-      display: inline-block;
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1rem;
-      letter-spacing: 0.1em;
-      color: var(--black);
-      padding: 0 2rem;
-    }
-    .ticker-item::after {
-      content: '●';
-      margin-left: 2rem;
-      font-size: 0.5rem;
-      vertical-align: middle;
-    }
-    @keyframes tick {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-
-    /* ── SECTIONS COMMON ── */
-    section { padding: 6rem 3rem; }
-
-    .section-eyebrow {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 0.75rem;
-      letter-spacing: 0.22em;
+    .ticker-inner span {
+      color: var(--dark);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      color: var(--fire);
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
-      margin-bottom: 1rem;
+      flex-shrink: 0;
     }
-    .section-eyebrow::before {
-      content: '';
-      display: block;
-      width: 28px;
-      height: 2px;
-      background: var(--fire);
-    }
+    .ticker-inner .dot { opacity: 0.6; }
+    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-    .section-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(2.8rem, 5vw, 5rem);
-      line-height: 0.92;
-      letter-spacing: 0.02em;
-    }
+    /* ===========================
+       COLLECTIONS GRID
+    =========================== */
+    #collections { background: var(--cream); }
 
-    /* ── ABOUT ── */
-    #about {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: center;
-    }
-
-    .about-visual {
-      position: relative;
-    }
-    .about-card {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 2.4rem;
-      position: relative;
-      overflow: hidden;
-    }
-    .about-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--fire), var(--amber));
-    }
-
-    .big-letter {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 10rem;
-      line-height: 1;
-      color: transparent;
-      -webkit-text-stroke: 1px rgba(255,77,0,0.3);
-      position: absolute;
-      bottom: -1rem;
-      right: 1rem;
-      pointer-events: none;
-    }
-
-    .about-feature-list {
-      list-style: none;
-      margin-top: 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    .about-feature-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.9rem;
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
-    .feature-icon {
-      width: 22px;
-      height: 22px;
-      min-width: 22px;
-      background: rgba(255,77,0,0.15);
-      border-radius: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 1px;
-    }
-    .feature-icon svg { width: 12px; height: 12px; color: var(--fire); }
-
-    .about-badge {
-      position: absolute;
-      bottom: -1.5rem;
-      right: -1.5rem;
-      width: 120px;
-      height: 120px;
-      background: var(--fire);
-      border-radius: 50%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 1rem;
-      animation: spin-slow 12s linear infinite;
-    }
-    @keyframes spin-slow { to { transform: rotate(360deg); } }
-    .badge-inner { animation: spin-slow 12s linear infinite reverse; }
-    .badge-num {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2.2rem;
-      color: var(--black);
-      line-height: 1;
-    }
-    .badge-text {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 0.55rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--black);
-    }
-
-    .about-body { font-size: 1rem; line-height: 1.75; color: var(--muted); }
-    .about-body strong { color: var(--white); font-weight: 500; }
-    .about-body p + p { margin-top: 1.2rem; }
-
-    /* ── SERVICES ── */
-    #services { background: var(--dark); }
-    #services .section-header { margin-bottom: 3.5rem; }
-
-    .services-grid {
+    .collections-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.5px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
+      grid-template-rows: auto auto;
+      gap: 24px;
     }
 
-    .service-card {
-      background: var(--panel);
-      padding: 2.4rem;
-      position: relative;
+    .collection-card {
+      border-radius: 16px;
       overflow: hidden;
-      transition: background 0.3s;
-      cursor: default;
+      position: relative;
+      aspect-ratio: 4/5;
+      cursor: pointer;
+      group: true;
     }
-    .service-card:hover { background: #1e1e1e; }
-    .service-card::after {
-      content: '';
+    .collection-card:first-child {
+      grid-row: span 2;
+      aspect-ratio: unset;
+    }
+
+    .card-bg {
+      position: absolute;
+      inset: 0;
+      transition: transform 0.5s ease;
+    }
+    .collection-card:hover .card-bg { transform: scale(1.06); }
+
+    /* Beautiful CSS art jewellery cards */
+    .card-bg-1 { background: linear-gradient(160deg, #3d1a00 0%, #7a3a00 30%, #b5700a 60%, #e8b84b 100%); }
+    .card-bg-2 { background: linear-gradient(135deg, #1a0e38 0%, #3d2060 40%, #8b5cf6 80%, #c4b5fd 100%); }
+    .card-bg-3 { background: linear-gradient(135deg, #0a2e1a 0%, #145a32 40%, #1e8449 80%, #52be80 100%); }
+    .card-bg-4 { background: linear-gradient(135deg, #3d0014 0%, #7b0025 40%, #c0392b 80%, #e74c3c 100%); }
+    .card-bg-5 { background: linear-gradient(135deg, #0d2137 0%, #1a4a6e 40%, #2980b9 80%, #5dade2 100%); }
+
+    .card-icon {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: clamp(3rem, 6vw, 7rem);
+      opacity: 0.25;
+      filter: blur(1px);
+    }
+    .card-content {
       position: absolute;
       bottom: 0; left: 0; right: 0;
-      height: 0;
-      background: var(--fire);
-      transition: height 0.3s;
+      padding: 28px 24px;
+      background: linear-gradient(0deg, rgba(0,0,0,0.75) 0%, transparent 100%);
     }
-    .service-card:hover::after { height: 2px; }
-
-    .service-icon {
-      font-size: 2rem;
-      margin-bottom: 1.2rem;
-    }
-    .service-name {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 1.4rem;
-      letter-spacing: 0.02em;
-      margin-bottom: 0.6rem;
-    }
-    .service-desc {
-      font-size: 0.88rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-    .service-bg-num {
-      position: absolute;
-      bottom: -1rem;
-      right: 1rem;
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 6rem;
-      color: rgba(255,255,255,0.03);
-      line-height: 1;
-      pointer-events: none;
-    }
-
-    /* ── HOURS & LOCATION ── */
-    #visit {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: start;
-    }
-
-    .info-card {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-    .info-card-header {
-      padding: 1.5rem 2rem;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
-    .info-card-header h3 {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 1rem;
-      letter-spacing: 0.1em;
+    .card-label {
+      font-size: 0.65rem;
+      letter-spacing: 3px;
+      color: var(--gold-light);
       text-transform: uppercase;
+      margin-bottom: 6px;
     }
-    .info-card-body { padding: 2rem; }
-
-    .open-badge {
+    .card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.3rem, 2.5vw, 2rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+    }
+    .card-arrow {
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
-      background: rgba(34,197,94,0.12);
-      border: 1px solid rgba(34,197,94,0.3);
-      color: #4ade80;
-      padding: 0.25rem 0.75rem;
-      border-radius: 99px;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 600;
-      font-size: 0.75rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 1.4rem;
+      gap: 6px;
+      margin-top: 10px;
+      font-size: 0.78rem;
+      color: var(--gold-light);
+      letter-spacing: 1px;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: all 0.3s;
     }
-    .open-badge::before {
-      content: '';
-      width: 7px;
-      height: 7px;
-      background: #4ade80;
+    .collection-card:hover .card-arrow { opacity: 1; transform: translateY(0); }
+
+    /* ornamentation geometry on cards */
+    .card-circle {
+      position: absolute;
       border-radius: 50%;
-      animation: pulse-green 2s infinite;
-    }
-    @keyframes pulse-green {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.4; }
+      border: 1px solid rgba(255,255,255,0.15);
     }
 
-    .hours-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.6rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.04);
-      font-size: 0.9rem;
-    }
-    .hours-row:last-child { border-bottom: none; }
-    .hours-day { color: var(--muted); font-size: 0.85rem; }
-    .hours-time { font-weight: 500; font-size: 0.9rem; }
-    .hours-time.highlight { color: var(--fire); }
+    /* ===========================
+       FEATURES / WHY US
+    =========================== */
+    #why-us { background: var(--dark); padding: 90px 5%; }
+    #why-us .section-title { color: #fff; }
+    #why-us .section-sub { color: rgba(255,255,255,0.55); }
 
-    .contact-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      margin-bottom: 1.4rem;
-    }
-    .contact-item:last-child { margin-bottom: 0; }
-    .contact-icon {
-      width: 38px;
-      height: 38px;
-      min-width: 38px;
-      background: rgba(255,77,0,0.1);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .contact-icon svg { width: 18px; height: 18px; color: var(--fire); }
-    .contact-label {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 600;
-      font-size: 0.7rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.25rem;
-    }
-    .contact-value {
-      font-size: 0.95rem;
-      font-weight: 400;
-      line-height: 1.4;
-      color: var(--white);
-    }
-    .contact-value a { color: var(--fire); text-decoration: none; }
-    .contact-value a:hover { text-decoration: underline; }
-
-    /* map placeholder */
-    .map-embed {
-      border-radius: 8px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      height: 220px;
-      background: var(--panel);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 1.5rem;
-      position: relative;
-    }
-    .map-embed iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      filter: invert(90%) hue-rotate(180deg) saturate(0.6);
-    }
-
-    /* ── MEMBERSHIP ── */
-    #membership { background: var(--dark); }
-    .plans-grid {
+    .features-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin-top: 3.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 28px;
     }
 
-    .plan-card {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 2.5rem 2rem;
+    .feature-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border-gold);
+      border-radius: 20px;
+      padding: 36px 30px;
+      text-align: center;
+      transition: transform 0.3s, background 0.3s;
       position: relative;
       overflow: hidden;
-      transition: transform 0.2s, box-shadow 0.2s;
     }
-    .plan-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 48px rgba(0,0,0,0.4);
-    }
-    .plan-card.featured {
-      border-color: var(--fire);
-      background: #180d00;
-    }
-    .plan-card.featured::before {
+    .feature-card::before {
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--fire), var(--amber));
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold-mid), var(--gold-bright), var(--gold-mid));
+      transform: scaleX(0);
+      transition: transform 0.4s;
     }
+    .feature-card:hover::before { transform: scaleX(1); }
+    .feature-card:hover { transform: translateY(-6px); background: rgba(200,150,42,0.06); }
 
-    .plan-badge {
-      position: absolute;
-      top: 1.2rem; right: 1.2rem;
-      background: var(--fire);
-      color: var(--black);
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 0.65rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 0.2rem 0.6rem;
-      border-radius: 99px;
-    }
-
-    .plan-name {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 0.8rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 1rem;
-    }
-    .plan-price {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 3.5rem;
-      color: var(--white);
-      line-height: 1;
-    }
-    .plan-price span {
-      font-family: 'Barlow', sans-serif;
-      font-size: 1rem;
-      font-weight: 300;
-      color: var(--muted);
-    }
-    .plan-period {
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-bottom: 2rem;
-    }
-    .plan-features {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.7rem;
-      margin-bottom: 2rem;
-    }
-    .plan-features li {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      font-size: 0.88rem;
-    }
-    .plan-features li.off { color: var(--muted); }
-    .check { color: var(--fire); font-size: 1rem; }
-    .cross { color: #444; font-size: 1rem; }
-
-    .plan-btn {
-      display: block;
-      text-align: center;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 0.85rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 0.85rem;
-      border-radius: var(--radius);
-      text-decoration: none;
-      transition: 0.2s;
-    }
-    .plan-btn.solid {
-      background: var(--fire);
-      color: var(--black);
-    }
-    .plan-btn.solid:hover { background: var(--amber); }
-    .plan-btn.ghost {
-      border: 1.5px solid var(--border);
-      color: var(--white);
-    }
-    .plan-btn.ghost:hover { border-color: var(--fire); color: var(--fire); }
-
-    /* ── TESTIMONIALS ── */
-    #testimonials .section-header { margin-bottom: 3.5rem; }
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
-    .review-card {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 2rem;
-    }
-    .stars { color: var(--amber); font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 1rem; }
-    .review-text {
-      font-size: 0.92rem;
-      line-height: 1.7;
-      color: var(--muted);
-      margin-bottom: 1.4rem;
-    }
-    .review-author {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
-    .avatar {
-      width: 36px;
-      height: 36px;
+    .feature-icon {
+      width: 64px; height: 64px;
+      background: linear-gradient(135deg, rgba(200,150,42,0.15), rgba(200,150,42,0.05));
+      border: 1px solid var(--border-gold);
       border-radius: 50%;
-      background: linear-gradient(135deg, var(--fire), var(--amber));
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.1rem;
-      color: var(--black);
+      font-size: 1.6rem;
+      margin: 0 auto 20px;
+      transition: background 0.3s;
     }
-    .author-name {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 0.9rem;
-      letter-spacing: 0.05em;
-    }
-    .author-tag {
-      font-size: 0.75rem;
-      color: var(--muted);
-    }
+    .feature-card:hover .feature-icon { background: linear-gradient(135deg, rgba(200,150,42,0.3), rgba(200,150,42,0.1)); }
+    .feature-card h3 { font-size: 1.25rem; color: var(--gold-bright); margin-bottom: 10px; }
+    .feature-card p { font-size: 0.88rem; color: rgba(255,255,255,0.55); line-height: 1.75; }
 
-    /* ── CTA BANNER ── */
-    #cta {
-      background: linear-gradient(135deg, var(--fire) 0%, #cc2900 100%);
-      padding: 5rem 3rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    #cta::before {
-      content: 'MAX REP';
-      position: absolute;
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 16rem;
-      color: rgba(0,0,0,0.12);
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      white-space: nowrap;
-      letter-spacing: 0.05em;
-      pointer-events: none;
-    }
-    #cta .section-title { color: var(--black); }
-    #cta .section-eyebrow { color: rgba(0,0,0,0.6); justify-content: center; }
-    #cta .section-eyebrow::before { background: rgba(0,0,0,0.4); }
-    #cta p { color: rgba(0,0,0,0.7); margin: 1rem 0 2.5rem; font-size: 1.05rem; }
-    .cta-btn {
-      display: inline-block;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 0.9rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--fire);
-      background: var(--black);
-      border: none;
-      padding: 1rem 2.8rem;
-      border-radius: var(--radius);
-      text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--black);
-      border-top: 1px solid var(--border);
-      padding: 3rem;
+    /* ===========================
+       TESTIMONIALS
+    =========================== */
+    #testimonials { background: var(--gold-pale); }
+    .testimonials-grid {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 3rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
     }
-    .footer-logo {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2rem;
-      letter-spacing: 0.08em;
-      color: var(--white);
-      margin-bottom: 0.8rem;
+    .testi-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 32px 28px;
+      box-shadow: 0 4px 24px rgba(180,130,40,0.10);
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid rgba(200,150,42,0.2);
     }
-    .footer-logo span { color: var(--fire); }
-    .footer-tagline {
-      font-size: 0.85rem;
-      color: var(--muted);
-      line-height: 1.6;
-      max-width: 280px;
+    .testi-card:hover { transform: translateY(-6px); box-shadow: 0 12px 36px rgba(180,130,40,0.18); }
+    .testi-stars { color: var(--gold-bright); font-size: 1.1rem; margin-bottom: 16px; letter-spacing: 3px; }
+    .testi-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--text-main);
+      line-height: 1.8;
+      margin-bottom: 22px;
     }
-    .footer-col h4 {
-      font-family: 'Barlow Condensed', sans-serif;
+    .testi-author { display: flex; align-items: center; gap: 12px; }
+    .testi-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-weight: 700;
-      font-size: 0.75rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--fire);
-      margin-bottom: 1.2rem;
+      font-size: 1rem;
+      color: #fff;
+      flex-shrink: 0;
     }
-    .footer-col ul { list-style: none; }
-    .footer-col ul li + li { margin-top: 0.6rem; }
-    .footer-col ul a {
-      font-size: 0.88rem;
-      color: var(--muted);
+    .av1 { background: linear-gradient(135deg, #b5700a, #e8b84b); }
+    .av2 { background: linear-gradient(135deg, #6b0f1a, #c0392b); }
+    .av3 { background: linear-gradient(135deg, #1a4a6e, #2980b9); }
+    .testi-name { font-weight: 600; font-size: 0.9rem; color: var(--text-main); }
+    .testi-loc { font-size: 0.75rem; color: var(--text-light); margin-top: 2px; }
+
+    /* ===========================
+       CONTACT SECTION
+    =========================== */
+    #contact { background: var(--dark); }
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .contact-info h2 { font-size: clamp(2rem, 3.5vw, 2.8rem); color: #fff; margin-bottom: 16px; }
+    .contact-info p { font-size: 0.95rem; color: rgba(255,255,255,0.6); line-height: 1.8; margin-bottom: 36px; }
+
+    .contact-items { display: flex; flex-direction: column; gap: 20px; }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 18px 22px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border-gold);
+      border-radius: 14px;
+      transition: background 0.3s;
+    }
+    .contact-item:hover { background: rgba(200,150,42,0.08); }
+    .contact-item-icon {
+      width: 44px; height: 44px;
+      background: linear-gradient(135deg, var(--gold-mid), var(--gold-bright));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1rem;
+      color: var(--dark);
+    }
+    .contact-item-text .label { font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-mid); }
+    .contact-item-text .value { font-size: 1rem; color: #fff; font-weight: 500; margin-top: 2px; }
+    .contact-item-text a { color: #fff; text-decoration: none; transition: color 0.2s; }
+    .contact-item-text a:hover { color: var(--gold-bright); }
+
+    /* Contact Form */
+    .contact-form { display: flex; flex-direction: column; gap: 18px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .form-group { display: flex; flex-direction: column; gap: 8px; }
+    .form-group label { font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold-mid); }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 13px 16px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border-gold);
+      border-radius: 10px;
+      color: #fff;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.9rem;
+      transition: border-color 0.25s, background 0.25s;
+      outline: none;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: rgba(255,255,255,0.3); }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--gold-bright); background: rgba(200,150,42,0.06); }
+    .form-group select option { background: #221400; color: #fff; }
+    .form-group textarea { resize: none; min-height: 110px; }
+    .form-submit {
+      padding: 15px;
+      border: none;
+      border-radius: 40px;
+      background: linear-gradient(135deg, var(--gold-mid), var(--gold-bright));
+      color: var(--dark);
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(200,150,42,0.35);
+    }
+    .form-submit:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(200,150,42,0.5); }
+
+    /* success msg */
+    .success-msg {
+      display: none;
+      background: rgba(82,190,128,0.1);
+      border: 1px solid rgba(82,190,128,0.4);
+      border-radius: 10px;
+      padding: 14px 18px;
+      color: #52be80;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    /* ===========================
+       FOOTER
+    =========================== */
+    footer {
+      background: #0d0600;
+      border-top: 1px solid var(--border-gold);
+      padding: 48px 5% 30px;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 50px;
+      margin-bottom: 40px;
+    }
+    .footer-brand .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 700; color: var(--gold-bright); }
+    .footer-brand p { font-size: 0.85rem; color: rgba(255,255,255,0.45); line-height: 1.8; margin-top: 12px; max-width: 280px; }
+
+    .footer-col h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: var(--gold-bright);
+      margin-bottom: 16px;
+      letter-spacing: 1px;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li a {
+      font-size: 0.83rem;
+      color: rgba(255,255,255,0.45);
       text-decoration: none;
       transition: color 0.2s;
     }
-    .footer-col ul a:hover { color: var(--white); }
+    .footer-col ul li a:hover { color: var(--gold-bright); }
+
     .footer-bottom {
-      border-top: 1px solid var(--border);
-      padding: 1.5rem 3rem;
+      border-top: 1px solid rgba(200,150,42,0.12);
+      padding-top: 22px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 0.78rem;
-      color: var(--muted);
+      flex-wrap: wrap;
+      gap: 12px;
     }
-    .footer-fire { color: var(--fire); }
+    .footer-bottom p { font-size: 0.78rem; color: rgba(255,255,255,0.3); }
+    .footer-socials { display: flex; gap: 14px; }
+    .footer-socials a {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--border-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold-mid);
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: all 0.25s;
+    }
+    .footer-socials a:hover { background: var(--gold-mid); color: var(--dark); border-color: var(--gold-mid); }
 
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
+    /* ===========================
+       FLOATING WHATSAPP
+    =========================== */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 900;
+      width: 56px; height: 56px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.4rem;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.5);
+      text-decoration: none;
+      animation: pulse-wa 2.5s infinite;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to   { opacity: 1; }
+    @keyframes pulse-wa {
+      0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.5); }
+      50% { box-shadow: 0 6px 30px rgba(37,211,102,0.75), 0 0 0 10px rgba(37,211,102,0.1); }
+    }
+    .whatsapp-float:hover { transform: scale(1.12); }
+
+    /* ===========================
+       SCROLL TO TOP
+    =========================== */
+    #scrollTop {
+      position: fixed;
+      bottom: 96px;
+      right: 28px;
+      z-index: 900;
+      width: 44px; height: 44px;
+      background: rgba(200,150,42,0.2);
+      border: 1px solid var(--gold-mid);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold-bright);
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: all 0.3s;
+      font-size: 0.9rem;
+    }
+    #scrollTop.visible { opacity: 1; transform: translateY(0); }
+    #scrollTop:hover { background: var(--gold-mid); color: var(--dark); }
+
+    /* ===========================
+       DECORATIVE DIVIDER
+    =========================== */
+    .ornament-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin: 0 auto;
+      max-width: 300px;
+      padding: 16px 0;
+    }
+    .ornament-divider::before, .ornament-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-mid));
+    }
+    .ornament-divider::after { background: linear-gradient(90deg, var(--gold-mid), transparent); }
+    .ornament-gem { color: var(--gold-bright); font-size: 1rem; }
+
+    /* ===========================
+       RESPONSIVE
+    =========================== */
+    @media (max-width: 900px) {
+      .collections-grid { grid-template-columns: 1fr 1fr; }
+      .collection-card:first-child { grid-row: unset; aspect-ratio: 4/5; }
+      .contact-wrapper { grid-template-columns: 1fr; gap: 40px; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
     }
 
-    .reveal {
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .collections-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .hero-stats { gap: 30px; }
+      section { padding: 60px 5%; }
+    }
+
+    /* ===========================
+       ANIMATION UTILS
+    =========================== */
+    .fade-up {
       opacity: 0;
       transform: translateY(30px);
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
-    .reveal.visible {
-      opacity: 1;
-      transform: none;
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 1024px) {
-      #about, #visit { grid-template-columns: 1fr; gap: 2.5rem; }
-      .services-grid, .plans-grid, .reviews-grid { grid-template-columns: 1fr 1fr; }
-      .hero-stats { display: none; }
-      footer { grid-template-columns: 1fr 1fr; }
-    }
-
-    @media (max-width: 640px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links, .nav-cta { display: none; }
-      .hamburger { display: flex; }
-      #hero { padding: 0 1.5rem 4rem; }
-      section { padding: 4rem 1.5rem; }
-      .services-grid, .plans-grid, .reviews-grid { grid-template-columns: 1fr; }
-      footer { grid-template-columns: 1fr; padding: 2rem 1.5rem; }
-      .footer-bottom { padding: 1rem 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
-    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo">MAX<span>REP</span></a>
+<!-- ====== NAVBAR ====== -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo" id="nav-logo-link">
+    <div class="logo-icon">💎</div>
+    <div class="nav-logo-text">
+      <span class="brand">Lakshmi Jewellery</span>
+      <span class="tagline">Timeless Elegance</span>
+    </div>
+  </a>
   <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#membership">Membership</a></li>
-    <li><a href="#visit">Visit</a></li>
+    <li><a href="#collections">Collections</a></li>
+    <li><a href="#why-us">Why Us</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="tel:9444722677" class="nav-cta">📞 Call Us</a></li>
   </ul>
-  <a href="tel:09171678861" class="nav-cta">Call Now</a>
-  <div class="hamburger" onclick="this.classList.toggle('open')">
+  <div class="hamburger" id="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-close" id="mobileClose">✕</button>
+  <a href="#collections" class="mobile-link">Collections</a>
+  <a href="#why-us" class="mobile-link">Why Us</a>
+  <a href="#testimonials" class="mobile-link">Reviews</a>
+  <a href="#contact" class="mobile-link">Contact</a>
+  <a href="tel:9444722677" class="mobile-link">📞 9444722677</a>
+</div>
+
+<!-- ====== HERO ====== -->
 <section id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
-  <div class="hero-slash"></div>
-  <div class="hero-slash-2"></div>
-
-  <div class="hero-stats">
-    <div class="hero-stat">
-      <div class="hero-stat-num">500+</div>
-      <div class="hero-stat-label">Members</div>
+  <div class="hero-content">
+    <span class="hero-ornament">✦ ✦ ✦</span>
+    <div class="hero-badge">Est. Since Years &nbsp;·&nbsp; Trusted by Thousands</div>
+    <h1 class="hero-title">
+      <span>Lakshmi</span><br />Jewellery
+    </h1>
+    <p class="hero-sub">Where Tradition Meets Timeless Beauty</p>
+    <p class="hero-desc">
+      Discover our exquisite handcrafted collections — from traditional gold ornaments to dazzling diamond jewellery. Each piece tells a story of heritage, artistry, and pure elegance.
+    </p>
+    <div class="hero-btns">
+      <a href="#collections" class="btn-primary" id="hero-explore-btn">Explore Collections</a>
+      <a href="tel:9444722677" class="btn-outline" id="hero-call-btn">📞 9444722677</a>
     </div>
-    <div class="stat-divider"></div>
-    <div class="hero-stat">
-      <div class="hero-stat-num">10+</div>
-      <div class="hero-stat-label">Expert Trainers</div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">2000+</div><div class="stat-label">Happy Customers</div></div>
+      <div class="stat"><div class="stat-num">500+</div><div class="stat-label">Designs Available</div></div>
+      <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Certified Purity</div></div>
     </div>
-    <div class="stat-divider"></div>
-    <div class="hero-stat">
-      <div class="hero-stat-num">15h</div>
-      <div class="hero-stat-label">Open Daily</div>
-    </div>
-  </div>
-
-  <div class="hero-eyebrow">No. 27, Poonamallee High Rd · Arumbakkam, Chennai</div>
-  <div class="hero-title">
-    MAX<br>
-    <span class="accent">REP</span><br>
-    <span class="stroke">FITNESS</span>
-  </div>
-  <p class="hero-sub">
-    Where Chennai's strongest train. Push past your limits every single day — with elite equipment, expert coaches, and a community that refuses to quit.
-  </p>
-  <div class="hero-actions">
-    <a href="#membership" class="btn-primary">Start Training</a>
-    <a href="#visit" class="btn-outline">Find Us</a>
-  </div>
-
-  <div class="scroll-cue">
-    <span>Scroll</span>
-    <svg width="16" height="20" viewBox="0 0 16 20" fill="none">
-      <path d="M8 2v16M2 13l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-    </svg>
   </div>
 </section>
 
-<!-- TICKER -->
-<div class="ticker">
+<!-- ====== TICKER ====== -->
+<div class="ticker-wrap" aria-hidden="true">
   <div class="ticker-inner">
-    <span class="ticker-item">Strength Training</span>
-    <span class="ticker-item">Personal Coaching</span>
-    <span class="ticker-item">Cardio Zone</span>
-    <span class="ticker-item">Functional Fitness</span>
-    <span class="ticker-item">CrossFit</span>
-    <span class="ticker-item">Yoga & Stretching</span>
-    <span class="ticker-item">Nutrition Guidance</span>
-    <span class="ticker-item">Open Until 11 PM</span>
-    <span class="ticker-item">Strength Training</span>
-    <span class="ticker-item">Personal Coaching</span>
-    <span class="ticker-item">Cardio Zone</span>
-    <span class="ticker-item">Functional Fitness</span>
-    <span class="ticker-item">CrossFit</span>
-    <span class="ticker-item">Yoga & Stretching</span>
-    <span class="ticker-item">Nutrition Guidance</span>
-    <span class="ticker-item">Open Until 11 PM</span>
+    <span>✦ Gold Jewellery</span><span class="dot">◆</span>
+    <span>✦ Diamond Collections</span><span class="dot">◆</span>
+    <span>✦ Bridal Sets</span><span class="dot">◆</span>
+    <span>✦ Temple Jewellery</span><span class="dot">◆</span>
+    <span>✦ Custom Designs</span><span class="dot">◆</span>
+    <span>✦ BIS Hallmarked</span><span class="dot">◆</span>
+    <span>✦ Antique Jewellery</span><span class="dot">◆</span>
+    <span>✦ Silver Jewellery</span><span class="dot">◆</span>
+    <!-- duplicate for seamless loop -->
+    <span>✦ Gold Jewellery</span><span class="dot">◆</span>
+    <span>✦ Diamond Collections</span><span class="dot">◆</span>
+    <span>✦ Bridal Sets</span><span class="dot">◆</span>
+    <span>✦ Temple Jewellery</span><span class="dot">◆</span>
+    <span>✦ Custom Designs</span><span class="dot">◆</span>
+    <span>✦ BIS Hallmarked</span><span class="dot">◆</span>
+    <span>✦ Antique Jewellery</span><span class="dot">◆</span>
+    <span>✦ Silver Jewellery</span><span class="dot">◆</span>
   </div>
 </div>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="about-visual reveal">
-    <div class="about-card">
-      <div class="big-letter">MR</div>
-      <div class="section-eyebrow">Est. in Chennai</div>
-      <div class="section-title">Built for <span style="color:var(--fire)">Results.</span></div>
-      <ul class="about-feature-list">
-        <li>
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <path d="M5 12l5 5L20 7"/>
-            </svg>
-          </div>
-          Premium equipment — barbells, racks, cables, and more
-        </li>
-        <li>
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <path d="M5 12l5 5L20 7"/>
-            </svg>
-          </div>
-          Certified personal trainers with proven programming
-        </li>
-        <li>
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <path d="M5 12l5 5L20 7"/>
-            </svg>
-          </div>
-          Spacious, air-conditioned training floor
-        </li>
-        <li>
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <path d="M5 12l5 5L20 7"/>
-            </svg>
-          </div>
-          Dedicated cardio, stretching & functional zones
-        </li>
-        <li>
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <path d="M5 12l5 5L20 7"/>
-            </svg>
-          </div>
-          Open from early morning until 11 PM every day
-        </li>
-      </ul>
-      <div class="about-badge">
-        <div class="badge-inner">
-          <div class="badge-num">15h</div>
-          <div class="badge-text">Daily Open Hours</div>
-        </div>
-      </div>
-    </div>
-  </div>
+<!-- ====== COLLECTIONS ====== -->
+<section id="collections">
+  <div class="section-eyebrow"><span>Our</span> Collections <span></span></div>
+  <h2 class="section-title">Crafted with <span>Love & Gold</span></h2>
+  <p class="section-sub">Explore our premium range of jewellery curated for every occasion — weddings, festivals, and everyday elegance.</p>
 
-  <div class="reveal" style="transition-delay: 0.15s">
-    <div class="section-eyebrow">About Us</div>
-    <h2 class="section-title" style="margin-bottom:1.5rem">Your Strongest Self <span style="color:var(--fire)">Starts Here</span></h2>
-    <div class="about-body">
-      <p>
-        <strong>Max Rep Fitness Centre</strong> is Chennai's destination for serious training. Located in the heart of Arumbakkam, we're easily accessible from across the city and built with one purpose: helping you hit your max every session.
-      </p>
-      <p>
-        Whether you're a <strong>beginner taking your first steps</strong> or an experienced athlete pushing your ceiling, our coaches meet you where you are and take you further. We believe in training that's smart, structured, and relentlessly progressive.
-      </p>
-      <p>
-        Walk in. Sweat hard. Leave better than you arrived. That's the Max Rep way.
-      </p>
+  <div class="collections-grid">
+
+    <!-- Card 1: Bridal (tall) -->
+    <div class="collection-card fade-up" id="card-bridal">
+      <div class="card-bg card-bg-1">
+        <div class="card-circle" style="width:300px;height:300px;top:-80px;right:-80px;"></div>
+        <div class="card-circle" style="width:180px;height:180px;bottom:40px;left:20px;"></div>
+      </div>
+      <div class="card-icon">👰</div>
+      <div class="card-content">
+        <div class="card-label">Premium Collection</div>
+        <div class="card-title">Bridal Jewellery Sets</div>
+        <div class="card-arrow">View Collection <i class="fas fa-arrow-right"></i></div>
+      </div>
     </div>
-    <div style="display:flex; gap:2rem; margin-top:2.5rem;">
-      <div>
-        <div style="font-family:'Bebas Neue',sans-serif; font-size:3rem; color:var(--fire); line-height:1;">500+</div>
-        <div style="font-size:0.82rem; color:var(--muted); font-family:'Barlow Condensed',sans-serif; font-weight:600; letter-spacing:0.12em; text-transform:uppercase;">Active Members</div>
+
+    <!-- Card 2 -->
+    <div class="collection-card fade-up" id="card-necklace" style="transition-delay:0.1s">
+      <div class="card-bg card-bg-2">
+        <div class="card-circle" style="width:160px;height:160px;top:-40px;right:-40px;"></div>
       </div>
-      <div>
-        <div style="font-family:'Bebas Neue',sans-serif; font-size:3rem; color:var(--fire); line-height:1;">10+</div>
-        <div style="font-size:0.82rem; color:var(--muted); font-family:'Barlow Condensed',sans-serif; font-weight:600; letter-spacing:0.12em; text-transform:uppercase;">Expert Coaches</div>
+      <div class="card-icon">📿</div>
+      <div class="card-content">
+        <div class="card-label">Classics</div>
+        <div class="card-title">Necklaces & Chains</div>
+        <div class="card-arrow">View Collection <i class="fas fa-arrow-right"></i></div>
       </div>
-      <div>
-        <div style="font-family:'Bebas Neue',sans-serif; font-size:3rem; color:var(--fire); line-height:1;">∞</div>
-        <div style="font-size:0.82rem; color:var(--muted); font-family:'Barlow Condensed',sans-serif; font-weight:600; letter-spacing:0.12em; text-transform:uppercase;">Gains to Chase</div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="collection-card fade-up" id="card-bangles" style="transition-delay:0.15s">
+      <div class="card-bg card-bg-3">
+        <div class="card-circle" style="width:140px;height:140px;bottom:-30px;right:-30px;"></div>
       </div>
+      <div class="card-icon">🔮</div>
+      <div class="card-content">
+        <div class="card-label">Tradition</div>
+        <div class="card-title">Bangles & Bracelets</div>
+        <div class="card-arrow">View Collection <i class="fas fa-arrow-right"></i></div>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="collection-card fade-up" id="card-earrings" style="transition-delay:0.2s">
+      <div class="card-bg card-bg-4">
+        <div class="card-circle" style="width:100px;height:100px;top:-20px;left:30px;"></div>
+      </div>
+      <div class="card-icon">💎</div>
+      <div class="card-content">
+        <div class="card-label">Statement Pieces</div>
+        <div class="card-title">Earrings & Jhumkas</div>
+        <div class="card-arrow">View Collection <i class="fas fa-arrow-right"></i></div>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="collection-card fade-up" id="card-rings" style="transition-delay:0.25s">
+      <div class="card-bg card-bg-5">
+        <div class="card-circle" style="width:120px;height:120px;top:10px;right:10px;"></div>
+      </div>
+      <div class="card-icon">💍</div>
+      <div class="card-content">
+        <div class="card-label">Forever Love</div>
+        <div class="card-title">Rings & Noserings</div>
+        <div class="card-arrow">View Collection <i class="fas fa-arrow-right"></i></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ====== WHY US ====== -->
+<section id="why-us">
+  <div class="section-eyebrow" style="color:var(--gold-mid)"><span></span>Why Choose Us<span></span></div>
+  <h2 class="section-title" style="color:#fff">The <span>Lakshmi</span> Promise</h2>
+  <p class="section-sub">We've built our reputation on trust, purity, and unmatched craftsmanship across every piece we sell.</p>
+  <div class="features-grid">
+    <div class="feature-card fade-up" id="feat-hallmark">
+      <div class="feature-icon">🏅</div>
+      <h3>BIS Hallmarked</h3>
+      <p>All our gold jewellery is BIS hallmarked, ensuring 100% certified purity on every purchase you make.</p>
+    </div>
+    <div class="feature-card fade-up" id="feat-exchange" style="transition-delay:0.1s">
+      <div class="feature-icon">🔄</div>
+      <h3>Easy Exchange</h3>
+      <p>Upgrade your jewellery anytime with our hassle-free exchange scheme at the best market rates.</p>
+    </div>
+    <div class="feature-card fade-up" id="feat-custom" style="transition-delay:0.15s">
+      <div class="feature-icon">✏️</div>
+      <h3>Custom Designs</h3>
+      <p>Dream of a unique piece? We create fully bespoke jewellery tailored to your vision and occasion.</p>
+    </div>
+    <div class="feature-card fade-up" id="feat-price" style="transition-delay:0.2s">
+      <div class="feature-icon">💰</div>
+      <h3>Best Prices</h3>
+      <p>We offer transparent pricing with today's gold rate and no hidden making charges. Honesty first.</p>
     </div>
   </div>
 </section>
 
-<!-- SERVICES -->
-<section id="services">
-  <div class="section-header reveal">
-    <div class="section-eyebrow">What We Offer</div>
-    <h2 class="section-title">Everything You Need to <span style="color:var(--fire)">Train Harder</span></h2>
-  </div>
-  <div class="services-grid reveal" style="transition-delay:0.1s">
-    <div class="service-card">
-      <div class="service-icon">🏋️</div>
-      <div class="service-name">Strength & Weightlifting</div>
-      <div class="service-desc">Full power racks, Olympic bars, dumbbells up to 60 kg, and plate-loaded machines. Built to get you strong.</div>
-      <div class="service-bg-num">01</div>
+<!-- ====== TESTIMONIALS ====== -->
+<section id="testimonials">
+  <div class="section-eyebrow"><span></span>Customer Reviews<span></span></div>
+  <h2 class="section-title">What Our <span>Customers Say</span></h2>
+  <p class="section-sub">Thousands of happy customers trust Lakshmi Jewellery for their most cherished moments.</p>
+  <div class="testimonials-grid">
+
+    <div class="testi-card fade-up" id="testi-1">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Got my bridal set from Lakshmi Jewellery and I couldn't be happier! The design was stunning and the gold quality was top notch. Highly recommended!"</p>
+      <div class="testi-author">
+        <div class="testi-avatar av1">P</div>
+        <div><div class="testi-name">Priya Ramaswamy</div><div class="testi-loc">Chennai, Tamil Nadu</div></div>
+      </div>
     </div>
-    <div class="service-card">
-      <div class="service-icon">🏃</div>
-      <div class="service-name">Cardio Zone</div>
-      <div class="service-desc">Treadmills, ellipticals, assault bikes, and rowing machines for every endurance goal from fat loss to marathon prep.</div>
-      <div class="service-bg-num">02</div>
+
+    <div class="testi-card fade-up" id="testi-2" style="transition-delay:0.1s">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"The best jewellery shop I have visited. Very honest pricing, beautiful designs and excellent customer service. My family buys only from Lakshmi Jewellery."</p>
+      <div class="testi-author">
+        <div class="testi-avatar av2">S</div>
+        <div><div class="testi-name">Sunita Krishnan</div><div class="testi-loc">Coimbatore, Tamil Nadu</div></div>
+      </div>
     </div>
-    <div class="service-card">
-      <div class="service-icon">🧑‍🏫</div>
-      <div class="service-name">Personal Training</div>
-      <div class="service-desc">One-on-one coaching with certified trainers who build programs around your goals, schedule, and lifestyle.</div>
-      <div class="service-bg-num">03</div>
+
+    <div class="testi-card fade-up" id="testi-3" style="transition-delay:0.2s">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Amazing custom design service! They created exactly what I had in mind for my daughter's wedding. The craftsmanship was extraordinary and the price was fair."</p>
+      <div class="testi-author">
+        <div class="testi-avatar av3">M</div>
+        <div><div class="testi-name">Meenakshi Iyer</div><div class="testi-loc">Madurai, Tamil Nadu</div></div>
+      </div>
     </div>
-    <div class="service-card">
-      <div class="service-icon">🤸</div>
-      <div class="service-name">Functional Fitness</div>
-      <div class="service-desc">Kettlebells, battle ropes, sleds, and plyometric boxes to build real-world power and athleticism.</div>
-      <div class="service-bg-num">04</div>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">🧘</div>
-      <div class="service-name">Yoga & Recovery</div>
-      <div class="service-desc">Dedicated stretching and mobility zone. Recovery sessions and guided yoga to keep you moving pain-free.</div>
-      <div class="service-bg-num">05</div>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">🥗</div>
-      <div class="service-name">Nutrition Guidance</div>
-      <div class="service-desc">Diet consultation and meal planning support so your training gets the fuel it deserves — from our in-house advisors.</div>
-      <div class="service-bg-num">06</div>
-    </div>
+
   </div>
 </section>
 
-<!-- MEMBERSHIP -->
-<section id="membership">
-  <div class="reveal">
-    <div class="section-eyebrow">Membership Plans</div>
-    <h2 class="section-title">Simple Pricing. <span style="color:var(--fire)">Serious Gains.</span></h2>
-    <p style="color:var(--muted); margin-top:0.8rem; max-width:500px; font-size:0.95rem; line-height:1.6;">
-      No hidden fees. Just show up, put in the work, and leave stronger than you came.
-    </p>
-  </div>
-  <div class="plans-grid reveal" style="transition-delay:0.1s">
-    <!-- Monthly -->
-    <div class="plan-card">
-      <div class="plan-name">Monthly</div>
-      <div class="plan-price">₹999 <span>/mo</span></div>
-      <div class="plan-period">Billed monthly · No lock-in</div>
-      <ul class="plan-features">
-        <li><span class="check">✓</span> Unlimited gym access</li>
-        <li><span class="check">✓</span> All equipment zones</li>
-        <li><span class="check">✓</span> Group classes</li>
-        <li class="off"><span class="cross">✗</span> Personal training sessions</li>
-        <li class="off"><span class="cross">✗</span> Nutrition consultation</li>
-      </ul>
-      <a href="tel:09171678861" class="plan-btn ghost">Get Started</a>
-    </div>
+<!-- ====== CONTACT ====== -->
+<section id="contact">
+  <div class="contact-wrapper">
 
-    <!-- Quarterly — featured -->
-    <div class="plan-card featured">
-      <div class="plan-badge">Most Popular</div>
-      <div class="plan-name">Quarterly</div>
-      <div class="plan-price">₹2,499 <span>/3mo</span></div>
-      <div class="plan-period">Save ₹498 vs monthly</div>
-      <ul class="plan-features">
-        <li><span class="check">✓</span> Unlimited gym access</li>
-        <li><span class="check">✓</span> All equipment zones</li>
-        <li><span class="check">✓</span> Group classes</li>
-        <li><span class="check">✓</span> 2 PT sessions / month</li>
-        <li class="off"><span class="cross">✗</span> Nutrition consultation</li>
-      </ul>
-      <a href="tel:09171678861" class="plan-btn solid">Get Started</a>
-    </div>
+    <div class="contact-info fade-up">
+      <div class="section-eyebrow" style="color:var(--gold-mid);justify-content:flex-start">Get In Touch</div>
+      <h2>Visit Us or<br /><span style="color:var(--gold-bright)">Give Us a Call</span></h2>
+      <p>We'd love to help you find your perfect piece. Walk in to our showroom or reach out through any of the channels below.</p>
 
-    <!-- Annual -->
-    <div class="plan-card">
-      <div class="plan-name">Annual</div>
-      <div class="plan-price">₹7,999 <span>/yr</span></div>
-      <div class="plan-period">Best value · Save over ₹4,000</div>
-      <ul class="plan-features">
-        <li><span class="check">✓</span> Unlimited gym access</li>
-        <li><span class="check">✓</span> All equipment zones</li>
-        <li><span class="check">✓</span> Group classes</li>
-        <li><span class="check">✓</span> 4 PT sessions / month</li>
-        <li><span class="check">✓</span> Nutrition consultation</li>
-      </ul>
-      <a href="tel:09171678861" class="plan-btn ghost">Get Started</a>
-    </div>
-  </div>
-  <p style="color:var(--muted); font-size:0.8rem; margin-top:1.5rem; text-align:center;">
-    * Prices are indicative. Call us at <a href="tel:09171678861" style="color:var(--fire); text-decoration:none;">091716 78861</a> for the latest rates and offers.
-  </p>
-</section>
-
-<!-- TESTIMONIALS -->
-<section id="testimonials" style="background:var(--dark)">
-  <div class="section-header reveal">
-    <div class="section-eyebrow">Member Stories</div>
-    <h2 class="section-title">Proof in the <span style="color:var(--fire)">Reps.</span></h2>
-  </div>
-  <div class="reviews-grid reveal" style="transition-delay:0.1s">
-    <div class="review-card">
-      <div class="stars">★★★★★</div>
-      <p class="review-text">"Best gym in Arumbakkam, hands down. The equipment is top-notch and the trainers actually know what they're doing. I've made more progress in 3 months here than in a year elsewhere."</p>
-      <div class="review-author">
-        <div class="avatar">R</div>
-        <div>
-          <div class="author-name">Rahul M.</div>
-          <div class="author-tag">Member since 2023</div>
+      <div class="contact-items">
+        <div class="contact-item" id="contact-phone">
+          <div class="contact-item-icon"><i class="fas fa-phone"></i></div>
+          <div class="contact-item-text">
+            <div class="label">Phone / WhatsApp</div>
+            <div class="value"><a href="tel:9444722677">9444722677</a></div>
+          </div>
+        </div>
+        <div class="contact-item" id="contact-hours">
+          <div class="contact-item-icon"><i class="fas fa-clock"></i></div>
+          <div class="contact-item-text">
+            <div class="label">Shop Hours</div>
+            <div class="value">Mon–Sat: 9:00 AM – 8:00 PM</div>
+          </div>
+        </div>
+        <div class="contact-item" id="contact-location">
+          <div class="contact-item-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="contact-item-text">
+            <div class="label">Location</div>
+            <div class="value">Tamil Nadu, India</div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="review-card">
-      <div class="stars">★★★★★</div>
-      <p class="review-text">"I come here after work and the late closing time is a lifesaver. Clean, spacious, great vibe. The personal training sessions were worth every rupee."</p>
-      <div class="review-author">
-        <div class="avatar">P</div>
-        <div>
-          <div class="author-name">Priya S.</div>
-          <div class="author-tag">Member since 2022</div>
+
+    <div class="fade-up" style="transition-delay:0.15s">
+      <form class="contact-form" id="enquiry-form" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="f-name">Your Name *</label>
+            <input type="text" id="f-name" placeholder="Eg: Priya Devi" required />
+          </div>
+          <div class="form-group">
+            <label for="f-mobile">Mobile Number *</label>
+            <input type="tel" id="f-mobile" placeholder="10-digit number" maxlength="10" required />
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="review-card">
-      <div class="stars">★★★★★</div>
-      <p class="review-text">"Max Rep changed my life. Lost 18 kg in 6 months with proper guidance from their trainers. The nutrition advice they gave me was a game-changer. Highly recommend."</p>
-      <div class="review-author">
-        <div class="avatar">A</div>
-        <div>
-          <div class="author-name">Arjun K.</div>
-          <div class="author-tag">Member since 2021</div>
+        <div class="form-group">
+          <label for="f-interest">Interested In</label>
+          <select id="f-interest">
+            <option value="">Select a category</option>
+            <option>Gold Jewellery</option>
+            <option>Diamond Jewellery</option>
+            <option>Bridal Sets</option>
+            <option>Necklaces & Chains</option>
+            <option>Bangles & Bracelets</option>
+            <option>Earrings & Jhumkas</option>
+            <option>Rings</option>
+            <option>Custom Design</option>
+          </select>
         </div>
-      </div>
+        <div class="form-group">
+          <label for="f-msg">Message</label>
+          <textarea id="f-msg" placeholder="Tell us what you're looking for…"></textarea>
+        </div>
+        <button type="submit" class="form-submit" id="submit-enquiry-btn">Send Enquiry via WhatsApp</button>
+        <div class="success-msg" id="success-msg">✅ Redirecting you to WhatsApp…</div>
+      </form>
     </div>
+
   </div>
 </section>
 
-<!-- VISIT / HOURS / CONTACT -->
-<section id="visit">
-  <!-- Hours -->
-  <div class="reveal">
-    <div class="section-eyebrow">Opening Hours</div>
-    <h2 class="section-title" style="margin-bottom:2rem">We're Open <span style="color:var(--fire)">Long.</span></h2>
-    <div class="info-card">
-      <div class="info-card-header">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--fire)">
-          <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
-        </svg>
-        <h3>Hours of Operation</h3>
-      </div>
-      <div class="info-card-body">
-        <div class="open-badge">Open Now</div>
-        <div class="hours-row">
-          <span class="hours-day">Monday</span>
-          <span class="hours-time highlight">Open · Closes 11 PM</span>
-        </div>
-        <div class="hours-row">
-          <span class="hours-day">Tuesday</span>
-          <span class="hours-time highlight">Open · Closes 11 PM</span>
-        </div>
-        <div class="hours-row">
-          <span class="hours-day">Wednesday</span>
-          <span class="hours-time highlight">Open · Closes 11 PM</span>
-        </div>
-        <div class="hours-row">
-          <span class="hours-day">Thursday</span>
-          <span class="hours-time highlight">Open · Closes 11 PM</span>
-        </div>
-        <div class="hours-row">
-          <span class="hours-day">Friday</span>
-          <span class="hours-time highlight">Open · Closes 11 PM</span>
-        </div>
-        <div class="hours-row">
-          <span class="hours-day">Saturday</span>
-          <span class="hours-time highlight">Open · Closes 11 PM</span>
-        </div>
-        <div class="hours-row">
-          <span class="hours-day">Sunday</span>
-          <span class="hours-time highlight">Open · Closes 11 PM</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Contact & Map -->
-  <div class="reveal" style="transition-delay:0.15s">
-    <div class="section-eyebrow">Find Us</div>
-    <h2 class="section-title" style="margin-bottom:2rem">Come <span style="color:var(--fire)">Train.</span></h2>
-    <div class="info-card">
-      <div class="info-card-header">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--fire)">
-          <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
-        </svg>
-        <h3>Location & Contact</h3>
-      </div>
-      <div class="info-card-body">
-        <div class="contact-item">
-          <div class="contact-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
-            </svg>
-          </div>
-          <div>
-            <div class="contact-label">Address</div>
-            <div class="contact-value">No 27, Poonamallee High Rd,<br>Dr. Radhakrishnan Nagar, Arumbakkam,<br>Chennai, Tamil Nadu 600106</div>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.08 5.18 2 2 0 015.1 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
-            </svg>
-          </div>
-          <div>
-            <div class="contact-label">Phone</div>
-            <div class="contact-value"><a href="tel:09171678861">091716 78861</a></div>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
-            </svg>
-          </div>
-          <div>
-            <div class="contact-label">Hours</div>
-            <div class="contact-value">Open Daily · Closes 11 PM</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="map-embed">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.3927837628!2d80.20760617454905!3d13.071285712724538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265dbde43afc5%3A0xa3c7f35f3aa5b0cd!2sMax%20Rep%20Fitness%20Centre!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin"
-        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
-    </div>
-  </div>
-</section>
-
-<!-- CTA BANNER -->
-<section id="cta">
-  <div class="section-eyebrow">Ready to Begin?</div>
-  <h2 class="section-title">Stop Waiting. Start <br>Lifting.</h2>
-  <p>Walk in any day, any time before 11 PM. Your first session could change everything.</p>
-  <a href="tel:09171678861" class="cta-btn">Call 091716 78861</a>
-</section>
-
-<!-- FOOTER -->
+<!-- ====== FOOTER ====== -->
 <footer>
-  <div>
-    <div class="footer-logo">MAX<span>REP</span></div>
-    <div class="footer-tagline">No 27, Poonamallee High Rd, Arumbakkam, Chennai 600106. Open daily until 11 PM.</div>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="logo">💎 Lakshmi Jewellery</div>
+      <p>Bringing you timeless elegance and certified gold jewellery for every milestone — from the simplest ring to the grandest bridal set.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Collections</h4>
+      <ul>
+        <li><a href="#collections">Bridal Jewellery</a></li>
+        <li><a href="#collections">Necklaces & Chains</a></li>
+        <li><a href="#collections">Bangles & Bracelets</a></li>
+        <li><a href="#collections">Earrings & Jhumkas</a></li>
+        <li><a href="#collections">Rings</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#why-us">Why Choose Us</a></li>
+        <li><a href="#testimonials">Customer Reviews</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+        <li><a href="tel:9444722677">📞 9444722677</a></li>
+        <li><a href="https://wa.me/919444722677" target="_blank">💬 WhatsApp Us</a></li>
+      </ul>
+    </div>
   </div>
-  <div class="footer-col">
-    <h4>Navigate</h4>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#membership">Membership</a></li>
-      <li><a href="#visit">Visit Us</a></li>
-    </ul>
-  </div>
-  <div class="footer-col">
-    <h4>Contact</h4>
-    <ul>
-      <li><a href="tel:09171678861">091716 78861</a></li>
-      <li><a href="#visit">Get Directions</a></li>
-      <li><a href="#visit">Hours</a></li>
-    </ul>
+  <div class="footer-bottom">
+    <p>© 2024 Lakshmi Jewellery. All rights reserved.</p>
+    <div class="footer-socials">
+      <a href="https://wa.me/919444722677" target="_blank" title="WhatsApp" id="footer-wa"><i class="fab fa-whatsapp"></i></a>
+      <a href="tel:9444722677" title="Call Us" id="footer-call"><i class="fas fa-phone"></i></a>
+      <a href="#" title="Instagram" id="footer-ig"><i class="fab fa-instagram"></i></a>
+      <a href="#" title="Facebook" id="footer-fb"><i class="fab fa-facebook-f"></i></a>
+    </div>
   </div>
 </footer>
-<div class="footer-bottom">
-  <span>© 2025 <span class="footer-fire">Max Rep Fitness Centre</span>. All rights reserved.</span>
-  <span>Arumbakkam, Chennai, Tamil Nadu</span>
-</div>
 
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/919444722677" class="whatsapp-float" target="_blank" id="whatsapp-fab" title="Chat on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- Scroll to Top -->
+<div id="scrollTop" title="Back to top"><i class="fas fa-chevron-up"></i></div>
+
+<!-- ====== SCRIPTS ====== -->
 <script>
-  // Intersection Observer for reveal animations
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
+  /* ---- Hamburger ---- */
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  const mobileClose = document.getElementById('mobileClose');
 
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileNav.classList.toggle('open');
+    document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+  });
+  mobileClose.addEventListener('click', close);
+  document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', close));
+  function close() {
+    hamburger.classList.remove('open');
+    mobileNav.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  /* ---- Scroll to Top ---- */
+  const scrollBtn = document.getElementById('scrollTop');
+  window.addEventListener('scroll', () => {
+    scrollBtn.classList.toggle('visible', window.scrollY > 400);
+  });
+  scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  /* ---- Fade Up Intersection Observer ---- */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  /* ---- Form Submit ---- */
+  function handleSubmit(e) {
+    e.preventDefault();
+    const name = document.getElementById('f-name').value.trim();
+    const mobile = document.getElementById('f-mobile').value.trim();
+    if (!name || !mobile || mobile.length < 10) {
+      alert('Please enter your name and a valid 10-digit mobile number.');
+      return;
+    }
+    const interest = document.getElementById('f-interest').value;
+    const msg = document.getElementById('f-msg').value.trim();
+    const text = `Hello Lakshmi Jewellery! 👋\nName: ${name}\nMobile: ${mobile}${interest ? '\nInterested in: ' + interest : ''}${msg ? '\nMessage: ' + msg : ''}`;
+    document.getElementById('success-msg').style.display = 'block';
+    setTimeout(() => { window.open('https://wa.me/919444722677?text=' + encodeURIComponent(text), '_blank'); }, 600);
+  }
+
+  /* ---- Navbar scroll opacity ---- */
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').style.background =
+      window.scrollY > 60 ? 'rgba(26,14,0,0.98)' : 'rgba(26,14,0,0.92)';
+  });
 </script>
 </body>
 </html>
