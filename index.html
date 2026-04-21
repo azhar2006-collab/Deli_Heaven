@@ -1,1165 +1,1035 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lakshmi Jewellery – Timeless Elegance in Every Piece</title>
-  <meta name="description" content="Lakshmi Jewellery offers exquisite gold, diamond and traditional jewellery collections. Visit us for bridal sets, necklaces, bangles, earrings and more. Call 9444722677." />
-  <meta name="keywords" content="Lakshmi Jewellery, gold jewellery, diamond jewellery, bridal jewellery, necklaces, bangles, earrings" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <style>
-    /* ===========================
-       CSS VARIABLES & RESET
-    =========================== */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kissan Foods — Food Court</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    :root {
-      --gold-deep:   #8B5C0A;
-      --gold-mid:    #C9962A;
-      --gold-bright: #E8B84B;
-      --gold-light:  #F5D88A;
-      --gold-pale:   #FDF3D7;
-      --cream:       #FBF5E6;
-      --dark:        #1A0E00;
-      --dark-card:   #221400;
-      --maroon:      #6B0F1A;
-      --text-main:   #2D1A00;
-      --text-light:  #7A5C2E;
-      --border-gold: rgba(200,150,42,0.35);
-    }
+  :root {
+    --saffron: #E8821A;
+    --saffron-light: #F5A94A;
+    --saffron-pale: #FDF0E0;
+    --crimson: #C0392B;
+    --crimson-dark: #8B1A11;
+    --cream: #FBF5EC;
+    --spice: #4A1C0A;
+    --spice-mid: #7A3A1E;
+    --leaf: #2D6A2D;
+    --leaf-light: #4A9B4A;
+    --gold: #D4A017;
+    --text-dark: #1E0E05;
+    --text-mid: #5C3A1E;
+    --text-light: #9B7355;
+  }
 
-    html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; }
 
-    body {
-      font-family: 'Outfit', sans-serif;
-      background: var(--cream);
-      color: var(--text-main);
-      overflow-x: hidden;
-    }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
 
-    h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; }
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem 4vw;
+    background: rgba(251,245,236,0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(232,130,26,0.2);
+  }
+  .logo {
+    display: flex; align-items: center; gap: 10px;
+  }
+  .logo-icon {
+    width: 42px; height: 42px; background: var(--saffron);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 20px; font-weight: 900; color: white;
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 1px;
+  }
+  .logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem; font-weight: 900;
+    color: var(--spice);
+    line-height: 1;
+  }
+  .logo-text span { color: var(--saffron); }
+  .logo-sub {
+    font-size: 0.6rem; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--text-light); font-family: 'DM Sans', sans-serif; font-weight: 500;
+  }
+  nav ul { list-style: none; display: flex; gap: 2.5rem; }
+  nav ul a {
+    text-decoration: none; color: var(--text-mid);
+    font-size: 0.875rem; font-weight: 500; letter-spacing: 0.5px;
+    text-transform: uppercase; transition: color 0.2s;
+  }
+  nav ul a:hover { color: var(--saffron); }
+  .nav-cta {
+    background: var(--saffron); color: white !important;
+    padding: 0.5rem 1.4rem; border-radius: 30px; transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--crimson) !important; color: white !important; }
 
-    /* ===========================
-       NAVBAR
-    =========================== */
-    #navbar {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 5%;
-      height: 72px;
-      background: rgba(26, 14, 0, 0.92);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border-gold);
-      transition: background 0.3s;
-    }
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    padding-top: 80px;
+    overflow: hidden;
+    position: relative;
+  }
+  .hero-bg-pattern {
+    position: absolute; inset: 0; pointer-events: none;
+    background-image: radial-gradient(circle at 20% 50%, rgba(232,130,26,0.08) 0%, transparent 60%),
+                      radial-gradient(circle at 80% 20%, rgba(192,57,43,0.06) 0%, transparent 50%);
+  }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 5rem 4rem 5rem 6vw;
+    position: relative; z-index: 1;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(232,130,26,0.12); border: 1px solid rgba(232,130,26,0.3);
+    color: var(--saffron); font-size: 0.75rem; font-weight: 600;
+    letter-spacing: 2px; text-transform: uppercase;
+    padding: 0.4rem 1rem; border-radius: 30px;
+    width: fit-content; margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--saffron); border-radius: 50%; }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 900; line-height: 1.1;
+    color: var(--spice);
+    animation: fadeUp 0.6s ease 0.1s both;
+  }
+  .hero h1 .highlight {
+    color: var(--saffron);
+    font-style: italic;
+  }
+  .hero-desc {
+    margin-top: 1.5rem; max-width: 420px;
+    font-size: 1.05rem; line-height: 1.75;
+    color: var(--text-mid); font-weight: 300;
+    animation: fadeUp 0.6s ease 0.2s both;
+  }
+  .hero-actions {
+    display: flex; gap: 1rem; margin-top: 2.5rem;
+    animation: fadeUp 0.6s ease 0.3s both;
+  }
+  .btn-primary {
+    background: var(--saffron); color: white;
+    padding: 0.85rem 2rem; border-radius: 50px;
+    font-weight: 600; font-size: 0.925rem;
+    text-decoration: none; letter-spacing: 0.3px;
+    transition: all 0.25s; border: none; cursor: pointer;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-primary:hover { background: var(--crimson); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(192,57,43,0.3); }
+  .btn-secondary {
+    background: transparent; color: var(--spice);
+    padding: 0.85rem 2rem; border-radius: 50px;
+    font-weight: 600; font-size: 0.925rem;
+    text-decoration: none; letter-spacing: 0.3px;
+    transition: all 0.25s;
+    border: 1.5px solid rgba(74,28,10,0.3);
+  }
+  .btn-secondary:hover { border-color: var(--saffron); color: var(--saffron); }
+  .hero-stats {
+    display: flex; gap: 2.5rem; margin-top: 3.5rem;
+    animation: fadeUp 0.6s ease 0.4s both;
+  }
+  .stat-num {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 2.2rem; color: var(--saffron); line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.75rem; color: var(--text-light);
+    text-transform: uppercase; letter-spacing: 1px;
+    margin-top: 2px;
+  }
 
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-    }
-    .nav-logo .logo-icon {
-      width: 38px; height: 38px;
-      background: linear-gradient(135deg, var(--gold-mid), var(--gold-bright));
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      color: var(--dark);
-      flex-shrink: 0;
-    }
-    .nav-logo-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1;
-    }
-    .nav-logo-text .brand { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 700; color: var(--gold-bright); letter-spacing: 1px; }
-    .nav-logo-text .tagline { font-size: 0.6rem; color: var(--gold-light); opacity: 0.8; letter-spacing: 2px; text-transform: uppercase; }
+  .hero-right {
+    position: relative; display: flex; align-items: center; justify-content: center;
+    background: var(--spice);
+    overflow: hidden;
+  }
+  .hero-right-bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, var(--spice) 0%, var(--crimson-dark) 60%, var(--spice-mid) 100%);
+  }
+  .food-grid {
+    position: relative; z-index: 2;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1rem; padding: 2rem;
+    animation: fadeUp 0.6s ease 0.2s both;
+  }
+  .food-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 16px; padding: 1.25rem;
+    text-align: center; transition: all 0.3s;
+    cursor: pointer;
+  }
+  .food-card:hover { background: rgba(255,255,255,0.14); transform: translateY(-4px); }
+  .food-emoji { font-size: 3rem; display: block; margin-bottom: 0.6rem; }
+  .food-card-name {
+    font-size: 0.8rem; font-weight: 600; color: rgba(255,255,255,0.9);
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .food-card-price {
+    font-size: 0.85rem; color: var(--saffron-light); margin-top: 4px;
+    font-family: 'Bebas Neue', cursive; letter-spacing: 1px; font-size: 1rem;
+  }
+  .hero-label {
+    position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+    font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase;
+    color: rgba(255,255,255,0.3); white-space: nowrap;
+  }
 
-    .nav-links { display: flex; gap: 32px; list-style: none; }
-    .nav-links a { text-decoration: none; color: #d4b06a; font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 500; transition: color 0.25s; }
-    .nav-links a:hover { color: var(--gold-bright); }
+  /* ── MARQUEE ── */
+  .marquee-bar {
+    background: var(--saffron); padding: 0.7rem 0;
+    overflow: hidden; white-space: nowrap;
+  }
+  .marquee-inner {
+    display: inline-flex; animation: marquee 20s linear infinite;
+  }
+  .marquee-item {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.1rem; letter-spacing: 3px;
+    color: white; padding: 0 2.5rem;
+  }
+  .marquee-dot { color: rgba(255,255,255,0.5); }
 
-    .nav-cta {
-      background: linear-gradient(135deg, var(--gold-mid), var(--gold-bright));
-      color: var(--dark) !important;
-      padding: 8px 20px;
-      border-radius: 30px;
-      font-weight: 600;
-      font-size: 0.8rem;
-      letter-spacing: 1px;
-      transition: transform 0.2s, box-shadow 0.2s !important;
-    }
-    .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(200,150,42,0.4) !important; color: var(--dark) !important; }
+  /* ── MENU SECTION ── */
+  .section { padding: 6rem 6vw; }
+  .section-header { text-align: center; margin-bottom: 4rem; }
+  .section-tag {
+    font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--saffron); font-weight: 700;
+    display: block; margin-bottom: 0.75rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem); font-weight: 900;
+    color: var(--spice); line-height: 1.2;
+  }
+  .section-title em { color: var(--saffron); font-style: italic; }
+  .section-desc {
+    margin-top: 1rem; font-size: 1rem; color: var(--text-light);
+    max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.7;
+  }
 
-    /* Hamburger */
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 1100; }
-    .hamburger span { display: block; width: 24px; height: 2px; background: var(--gold-bright); border-radius: 2px; transition: all 0.3s; }
-    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+  /* Category Filter */
+  .filter-tabs {
+    display: flex; gap: 0.6rem; justify-content: center;
+    flex-wrap: wrap; margin-bottom: 3rem;
+  }
+  .filter-tab {
+    padding: 0.5rem 1.5rem; border-radius: 30px;
+    font-size: 0.825rem; font-weight: 600;
+    cursor: pointer; transition: all 0.2s;
+    border: 1.5px solid rgba(74,28,10,0.15);
+    background: transparent; color: var(--text-mid);
+    text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .filter-tab.active, .filter-tab:hover {
+    background: var(--saffron); color: white; border-color: var(--saffron);
+  }
 
-    .mobile-nav {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(26,14,0,0.97);
-      z-index: 999;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 36px;
-    }
-    .mobile-nav.open { display: flex; }
-    .mobile-nav a { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--gold-bright); text-decoration: none; letter-spacing: 2px; }
-    .mobile-nav a:hover { color: var(--gold-light); }
-    .mobile-close { position: absolute; top: 24px; right: 24px; font-size: 1.8rem; color: var(--gold-bright); cursor: pointer; background: none; border: none; }
+  .menu-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+  .menu-item {
+    background: white; border-radius: 20px;
+    overflow: hidden; transition: all 0.3s;
+    border: 1px solid rgba(232,130,26,0.1);
+    position: relative;
+  }
+  .menu-item:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(74,28,10,0.12); }
+  .menu-item-img {
+    height: 160px; display: flex; align-items: center; justify-content: center;
+    font-size: 5rem;
+    position: relative; overflow: hidden;
+  }
+  .menu-item-img.bg-warm { background: linear-gradient(135deg, #FDF0E0, #FAD7A0); }
+  .menu-item-img.bg-spice { background: linear-gradient(135deg, #FADBD8, #F1948A22); }
+  .menu-item-img.bg-green { background: linear-gradient(135deg, #D5F5E3, #A9DFBF44); }
+  .menu-item-img.bg-gold { background: linear-gradient(135deg, #FEF9E7, #F9E79F44); }
+  .veg-badge {
+    position: absolute; top: 10px; right: 10px;
+    width: 20px; height: 20px; border-radius: 3px;
+    border: 1.5px solid;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .veg-badge.veg { border-color: var(--leaf); }
+  .veg-badge.veg::before { content: ''; width: 8px; height: 8px; background: var(--leaf); border-radius: 50%; }
+  .veg-badge.nonveg { border-color: var(--crimson); }
+  .veg-badge.nonveg::before { content: ''; width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-bottom: 8px solid var(--crimson); }
+  .menu-item-body { padding: 1.1rem 1.25rem 1.25rem; }
+  .item-name {
+    font-size: 1rem; font-weight: 600; color: var(--spice);
+    margin-bottom: 4px;
+  }
+  .item-desc {
+    font-size: 0.8rem; color: var(--text-light); line-height: 1.5; margin-bottom: 1rem;
+  }
+  .item-footer { display: flex; align-items: center; justify-content: space-between; }
+  .item-price {
+    font-family: 'Bebas Neue', cursive; font-size: 1.4rem;
+    color: var(--saffron); letter-spacing: 1px;
+  }
+  .item-price sup { font-family: 'DM Sans', sans-serif; font-size: 0.75rem; font-weight: 600; vertical-align: top; margin-top: 4px; }
+  .add-btn {
+    width: 34px; height: 34px; border-radius: 50%;
+    background: var(--saffron); color: white;
+    border: none; cursor: pointer; font-size: 1.2rem;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s; line-height: 1;
+  }
+  .add-btn:hover { background: var(--crimson); transform: scale(1.1); }
+  .bestseller-tag {
+    position: absolute; top: 12px; left: -2px;
+    background: var(--crimson); color: white;
+    font-size: 0.65rem; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 3px 10px 3px 8px;
+    border-radius: 0 4px 4px 0;
+  }
 
-    /* ===========================
-       HERO SECTION
-    =========================== */
-    #hero {
-      min-height: 100vh;
-      background:
-        linear-gradient(160deg, rgba(26,14,0,0.82) 0%, rgba(107,15,26,0.6) 50%, rgba(26,14,0,0.9) 100%),
-        url('C:/Users/SYED AZHAR HUSSAIN A/.gemini/antigravity/brain/7ad94c05-5bb4-4eaa-bf2e-bedd4c925b3c/jewellery_hero_1776509850355.png') center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 100px 5% 60px;
-      position: relative;
-      overflow: hidden;
-    }
+  /* ── ABOUT ── */
+  .about { background: var(--spice); position: relative; overflow: hidden; }
+  .about-pattern {
+    position: absolute; inset: 0; opacity: 0.04;
+    background-image: repeating-linear-gradient(45deg, white 0px, white 1px, transparent 1px, transparent 20px),
+                      repeating-linear-gradient(-45deg, white 0px, white 1px, transparent 1px, transparent 20px);
+  }
+  .about-inner {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem;
+    align-items: center; position: relative; z-index: 1;
+  }
+  .about .section-tag { color: var(--saffron-light); text-align: left; }
+  .about .section-title { color: white; text-align: left; }
+  .about-desc {
+    color: rgba(255,255,255,0.65); line-height: 1.8; margin-top: 1.25rem; font-size: 0.975rem;
+  }
+  .about-features { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1rem; }
+  .feature-row {
+    display: flex; align-items: flex-start; gap: 1rem;
+  }
+  .feature-icon {
+    width: 44px; height: 44px; background: rgba(232,130,26,0.15);
+    border-radius: 12px; display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; flex-shrink: 0;
+  }
+  .feature-text strong { color: white; font-weight: 600; font-size: 0.925rem; }
+  .feature-text p { color: rgba(255,255,255,0.5); font-size: 0.825rem; margin-top: 2px; line-height: 1.5; }
+  .about-right { display: flex; flex-direction: column; gap: 1.25rem; }
+  .about-card {
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px; padding: 1.5rem;
+  }
+  .about-card-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+  .about-card h4 { color: white; font-weight: 600; margin-bottom: 6px; }
+  .about-card p { color: rgba(255,255,255,0.5); font-size: 0.85rem; line-height: 1.6; }
+  .about-card.featured { background: rgba(232,130,26,0.18); border-color: rgba(232,130,26,0.35); }
 
-    /* gold particle lines */
-    #hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse at 20% 60%, rgba(200,150,42,0.12) 0%, transparent 60%),
-        radial-gradient(ellipse at 80% 30%, rgba(200,150,42,0.10) 0%, transparent 50%);
-      pointer-events: none;
-    }
+  /* ── SPECIALS ── */
+  .specials-grid {
+    display: grid; grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 1.5rem; margin-top: 3rem;
+  }
+  .special-hero {
+    background: var(--saffron); border-radius: 20px;
+    padding: 2.5rem; position: relative; overflow: hidden;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    min-height: 360px;
+  }
+  .special-hero-bg {
+    position: absolute; top: -10%; right: -10%;
+    font-size: 12rem; opacity: 0.18; pointer-events: none;
+    line-height: 1;
+  }
+  .special-hero-tag {
+    font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase;
+    color: rgba(255,255,255,0.75); font-weight: 700; margin-bottom: 0.75rem;
+  }
+  .special-hero h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem; font-weight: 900; color: white;
+    line-height: 1.2; margin-bottom: 0.75rem;
+  }
+  .special-hero p { color: rgba(255,255,255,0.8); font-size: 0.875rem; line-height: 1.6; margin-bottom: 1.5rem; }
+  .special-price {
+    font-family: 'Bebas Neue', cursive; font-size: 2rem;
+    color: white; letter-spacing: 1px;
+  }
+  .special-price .old-price {
+    text-decoration: line-through; opacity: 0.5;
+    font-size: 1.2rem; margin-right: 8px;
+  }
+  .special-card {
+    background: white; border-radius: 20px; padding: 2rem;
+    display: flex; flex-direction: column; justify-content: space-between;
+    border: 1px solid rgba(232,130,26,0.1);
+    transition: all 0.3s;
+  }
+  .special-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(74,28,10,0.1); }
+  .special-card-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+  .special-card h4 { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; color: var(--spice); margin-bottom: 6px; }
+  .special-card p { color: var(--text-light); font-size: 0.825rem; line-height: 1.6; flex: 1; }
+  .special-card-footer { margin-top: 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+  .special-card .price { font-family: 'Bebas Neue', cursive; font-size: 1.5rem; color: var(--saffron); }
+  .order-link { font-size: 0.8rem; color: var(--saffron); font-weight: 600; text-decoration: none; }
+  .order-link:hover { color: var(--crimson); }
 
-    .hero-ornament {
-      font-size: 2rem;
-      color: var(--gold-bright);
-      letter-spacing: 12px;
-      opacity: 0.7;
-      animation: shimmer 3s infinite;
-      display: block;
-      margin-bottom: 16px;
-    }
+  /* ── TESTIMONIALS ── */
+  .testimonials { background: #FBF5EC; }
+  .testimonials-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+  }
+  .testimonial-card {
+    background: white; border-radius: 16px; padding: 1.75rem;
+    border: 1px solid rgba(232,130,26,0.1);
+  }
+  .stars { color: var(--gold); font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 1rem; }
+  .testimonial-text {
+    color: var(--text-mid); font-size: 0.9rem; line-height: 1.7;
+    font-style: italic; margin-bottom: 1.25rem;
+  }
+  .reviewer { display: flex; align-items: center; gap: 10px; }
+  .reviewer-avatar {
+    width: 38px; height: 38px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 0.875rem; color: white;
+  }
+  .reviewer-name { font-weight: 600; font-size: 0.875rem; color: var(--spice); }
+  .reviewer-label { font-size: 0.75rem; color: var(--text-light); }
 
-    @keyframes shimmer {
-      0%, 100% { opacity: 0.5; }
-      50% { opacity: 1; }
-    }
+  /* ── CONTACT ── */
+  .contact-section { background: var(--cream); }
+  .contact-inner {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;
+  }
+  .contact-info h3 {
+    font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700;
+    color: var(--spice); margin-bottom: 1rem;
+  }
+  .contact-info p { color: var(--text-mid); line-height: 1.8; font-size: 0.95rem; }
+  .contact-items { margin-top: 2rem; display: flex; flex-direction: column; gap: 1.25rem; }
+  .contact-item { display: flex; align-items: flex-start; gap: 1rem; }
+  .contact-icon {
+    width: 44px; height: 44px; background: rgba(232,130,26,0.1);
+    border-radius: 12px; display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; flex-shrink: 0;
+  }
+  .contact-item strong { display: block; color: var(--spice); font-weight: 600; font-size: 0.875rem; margin-bottom: 2px; }
+  .contact-item span { color: var(--text-mid); font-size: 0.85rem; }
+  .contact-form { background: white; border-radius: 20px; padding: 2.5rem; border: 1px solid rgba(232,130,26,0.12); }
+  .form-group { margin-bottom: 1.25rem; }
+  .form-group label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--spice); letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 6px; }
+  .form-group input, .form-group textarea, .form-group select {
+    width: 100%; padding: 0.75rem 1rem;
+    border: 1.5px solid rgba(74,28,10,0.12); border-radius: 10px;
+    font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
+    color: var(--text-dark); background: var(--cream);
+    transition: border-color 0.2s; outline: none;
+  }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--saffron); }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .submit-btn {
+    width: 100%; background: var(--saffron); color: white;
+    padding: 0.9rem; border-radius: 50px; border: none;
+    font-family: 'DM Sans', sans-serif; font-weight: 700;
+    font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;
+    cursor: pointer; transition: all 0.25s; margin-top: 0.5rem;
+  }
+  .submit-btn:hover { background: var(--crimson); }
 
-    .hero-content { position: relative; z-index: 2; max-width: 780px; }
-    .hero-badge {
-      display: inline-block;
-      border: 1px solid var(--gold-mid);
-      padding: 6px 20px;
-      border-radius: 30px;
-      font-size: 0.72rem;
-      color: var(--gold-light);
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 24px;
-      background: rgba(200,150,42,0.08);
-    }
+  /* ── FOOTER ── */
+  footer {
+    background: var(--text-dark); color: rgba(255,255,255,0.65);
+    padding: 4rem 6vw 2rem;
+  }
+  .footer-grid {
+    display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 3rem; padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .footer-brand .logo-text { color: white; }
+  .footer-brand p { font-size: 0.85rem; line-height: 1.7; margin-top: 1rem; }
+  .footer-col h5 {
+    color: white; font-size: 0.8rem; letter-spacing: 2px;
+    text-transform: uppercase; font-weight: 700; margin-bottom: 1.25rem;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .footer-col ul a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; }
+  .footer-col ul a:hover { color: var(--saffron); }
+  .footer-bottom {
+    margin-top: 2rem; display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.8rem;
+  }
+  .footer-bottom span { color: rgba(255,255,255,0.35); }
+  .footer-bottom a { color: var(--saffron); text-decoration: none; }
 
-    .hero-title {
-      font-size: clamp(3rem, 8vw, 5.5rem);
-      font-weight: 700;
-      line-height: 1.05;
-      color: #fff;
-      margin-bottom: 10px;
-    }
-    .hero-title span {
-      background: linear-gradient(90deg, var(--gold-mid), var(--gold-bright), var(--gold-light), var(--gold-bright));
-      background-size: 300% 100%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: goldFlow 4s linear infinite;
-    }
-    @keyframes goldFlow {
-      0% { background-position: 0% 50%; }
-      100% { background-position: 300% 50%; }
-    }
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
 
-    .hero-sub {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-      color: rgba(245, 216, 138, 0.85);
-      margin-bottom: 28px;
-      font-style: italic;
-    }
+  /* ── SCROLL ANIMATION ── */
+  .reveal {
+    opacity: 0; transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    .hero-desc {
-      font-size: 1rem;
-      color: rgba(255,255,255,0.72);
-      line-height: 1.8;
-      max-width: 560px;
-      margin: 0 auto 42px;
-    }
-
-    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
-    .btn-primary {
-      padding: 14px 36px;
-      border-radius: 40px;
-      background: linear-gradient(135deg, var(--gold-mid), var(--gold-bright));
-      color: var(--dark);
-      font-weight: 700;
-      font-size: 0.9rem;
-      letter-spacing: 1px;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 4px 20px rgba(200,150,42,0.4);
-    }
-    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(200,150,42,0.5); }
-    .btn-outline {
-      padding: 14px 36px;
-      border-radius: 40px;
-      background: transparent;
-      color: var(--gold-bright);
-      border: 1.5px solid var(--gold-mid);
-      font-size: 0.9rem;
-      letter-spacing: 1px;
-      text-decoration: none;
-      transition: all 0.25s;
-    }
-    .btn-outline:hover { background: rgba(200,150,42,0.1); border-color: var(--gold-bright); transform: translateY(-3px); }
-
-    .hero-stats {
-      margin-top: 60px;
-      display: flex;
-      justify-content: center;
-      gap: 50px;
-      flex-wrap: wrap;
-    }
-    .stat { text-align: center; }
-    .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; font-weight: 700; color: var(--gold-bright); line-height: 1; }
-    .stat-label { font-size: 0.72rem; color: rgba(255,255,255,0.55); letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
-
-    /* ===========================
-       SECTION UTILITIES
-    =========================== */
-    section { padding: 90px 5%; }
-
-    .section-eyebrow {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      font-size: 0.7rem;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--gold-mid);
-      margin-bottom: 14px;
-    }
-    .section-eyebrow::before, .section-eyebrow::after {
-      content: '';
-      flex: 1;
-      max-width: 60px;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold-mid));
-    }
-    .section-eyebrow::after { background: linear-gradient(90deg, var(--gold-mid), transparent); }
-
-    .section-title {
-      text-align: center;
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 700;
-      color: var(--text-main);
-      margin-bottom: 12px;
-    }
-    .section-title span { color: var(--gold-deep); }
-    .section-sub {
-      text-align: center;
-      font-size: 1rem;
-      color: var(--text-light);
-      max-width: 560px;
-      margin: 0 auto 52px;
-      line-height: 1.8;
-    }
-
-    /* ===========================
-       MARQUEE TICKER
-    =========================== */
-    .ticker-wrap {
-      background: linear-gradient(90deg, var(--gold-deep), var(--gold-mid), var(--gold-deep));
-      padding: 12px 0;
-      overflow: hidden;
-      white-space: nowrap;
-    }
-    .ticker-inner {
-      display: inline-flex;
-      gap: 48px;
-      animation: ticker 22s linear infinite;
-    }
-    .ticker-inner span {
-      color: var(--dark);
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      flex-shrink: 0;
-    }
-    .ticker-inner .dot { opacity: 0.6; }
-    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-
-    /* ===========================
-       COLLECTIONS GRID
-    =========================== */
-    #collections { background: var(--cream); }
-
-    .collections-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: auto auto;
-      gap: 24px;
-    }
-
-    .collection-card {
-      border-radius: 16px;
-      overflow: hidden;
-      position: relative;
-      aspect-ratio: 4/5;
-      cursor: pointer;
-      group: true;
-    }
-    .collection-card:first-child {
-      grid-row: span 2;
-      aspect-ratio: unset;
-    }
-
-    .card-bg {
-      position: absolute;
-      inset: 0;
-      transition: transform 0.5s ease;
-    }
-    .collection-card:hover .card-bg { transform: scale(1.06); }
-
-    /* Beautiful CSS art jewellery cards */
-    .card-bg-1 { background: linear-gradient(160deg, #3d1a00 0%, #7a3a00 30%, #b5700a 60%, #e8b84b 100%); }
-    .card-bg-2 { background: linear-gradient(135deg, #1a0e38 0%, #3d2060 40%, #8b5cf6 80%, #c4b5fd 100%); }
-    .card-bg-3 { background: linear-gradient(135deg, #0a2e1a 0%, #145a32 40%, #1e8449 80%, #52be80 100%); }
-    .card-bg-4 { background: linear-gradient(135deg, #3d0014 0%, #7b0025 40%, #c0392b 80%, #e74c3c 100%); }
-    .card-bg-5 { background: linear-gradient(135deg, #0d2137 0%, #1a4a6e 40%, #2980b9 80%, #5dade2 100%); }
-
-    .card-icon {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: clamp(3rem, 6vw, 7rem);
-      opacity: 0.25;
-      filter: blur(1px);
-    }
-    .card-content {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      padding: 28px 24px;
-      background: linear-gradient(0deg, rgba(0,0,0,0.75) 0%, transparent 100%);
-    }
-    .card-label {
-      font-size: 0.65rem;
-      letter-spacing: 3px;
-      color: var(--gold-light);
-      text-transform: uppercase;
-      margin-bottom: 6px;
-    }
-    .card-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.3rem, 2.5vw, 2rem);
-      font-weight: 700;
-      color: #fff;
-      line-height: 1.2;
-    }
-    .card-arrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 10px;
-      font-size: 0.78rem;
-      color: var(--gold-light);
-      letter-spacing: 1px;
-      opacity: 0;
-      transform: translateY(8px);
-      transition: all 0.3s;
-    }
-    .collection-card:hover .card-arrow { opacity: 1; transform: translateY(0); }
-
-    /* ornamentation geometry on cards */
-    .card-circle {
-      position: absolute;
-      border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.15);
-    }
-
-    /* ===========================
-       FEATURES / WHY US
-    =========================== */
-    #why-us { background: var(--dark); padding: 90px 5%; }
-    #why-us .section-title { color: #fff; }
-    #why-us .section-sub { color: rgba(255,255,255,0.55); }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 28px;
-    }
-
-    .feature-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--border-gold);
-      border-radius: 20px;
-      padding: 36px 30px;
-      text-align: center;
-      transition: transform 0.3s, background 0.3s;
-      position: relative;
-      overflow: hidden;
-    }
-    .feature-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--gold-mid), var(--gold-bright), var(--gold-mid));
-      transform: scaleX(0);
-      transition: transform 0.4s;
-    }
-    .feature-card:hover::before { transform: scaleX(1); }
-    .feature-card:hover { transform: translateY(-6px); background: rgba(200,150,42,0.06); }
-
-    .feature-icon {
-      width: 64px; height: 64px;
-      background: linear-gradient(135deg, rgba(200,150,42,0.15), rgba(200,150,42,0.05));
-      border: 1px solid var(--border-gold);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.6rem;
-      margin: 0 auto 20px;
-      transition: background 0.3s;
-    }
-    .feature-card:hover .feature-icon { background: linear-gradient(135deg, rgba(200,150,42,0.3), rgba(200,150,42,0.1)); }
-    .feature-card h3 { font-size: 1.25rem; color: var(--gold-bright); margin-bottom: 10px; }
-    .feature-card p { font-size: 0.88rem; color: rgba(255,255,255,0.55); line-height: 1.75; }
-
-    /* ===========================
-       TESTIMONIALS
-    =========================== */
-    #testimonials { background: var(--gold-pale); }
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 28px;
-    }
-    .testi-card {
-      background: #fff;
-      border-radius: 20px;
-      padding: 32px 28px;
-      box-shadow: 0 4px 24px rgba(180,130,40,0.10);
-      transition: transform 0.3s, box-shadow 0.3s;
-      border: 1px solid rgba(200,150,42,0.2);
-    }
-    .testi-card:hover { transform: translateY(-6px); box-shadow: 0 12px 36px rgba(180,130,40,0.18); }
-    .testi-stars { color: var(--gold-bright); font-size: 1.1rem; margin-bottom: 16px; letter-spacing: 3px; }
-    .testi-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
-      font-style: italic;
-      color: var(--text-main);
-      line-height: 1.8;
-      margin-bottom: 22px;
-    }
-    .testi-author { display: flex; align-items: center; gap: 12px; }
-    .testi-avatar {
-      width: 44px; height: 44px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 1rem;
-      color: #fff;
-      flex-shrink: 0;
-    }
-    .av1 { background: linear-gradient(135deg, #b5700a, #e8b84b); }
-    .av2 { background: linear-gradient(135deg, #6b0f1a, #c0392b); }
-    .av3 { background: linear-gradient(135deg, #1a4a6e, #2980b9); }
-    .testi-name { font-weight: 600; font-size: 0.9rem; color: var(--text-main); }
-    .testi-loc { font-size: 0.75rem; color: var(--text-light); margin-top: 2px; }
-
-    /* ===========================
-       CONTACT SECTION
-    =========================== */
-    #contact { background: var(--dark); }
-    .contact-wrapper {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-    .contact-info h2 { font-size: clamp(2rem, 3.5vw, 2.8rem); color: #fff; margin-bottom: 16px; }
-    .contact-info p { font-size: 0.95rem; color: rgba(255,255,255,0.6); line-height: 1.8; margin-bottom: 36px; }
-
-    .contact-items { display: flex; flex-direction: column; gap: 20px; }
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      padding: 18px 22px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--border-gold);
-      border-radius: 14px;
-      transition: background 0.3s;
-    }
-    .contact-item:hover { background: rgba(200,150,42,0.08); }
-    .contact-item-icon {
-      width: 44px; height: 44px;
-      background: linear-gradient(135deg, var(--gold-mid), var(--gold-bright));
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      font-size: 1rem;
-      color: var(--dark);
-    }
-    .contact-item-text .label { font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-mid); }
-    .contact-item-text .value { font-size: 1rem; color: #fff; font-weight: 500; margin-top: 2px; }
-    .contact-item-text a { color: #fff; text-decoration: none; transition: color 0.2s; }
-    .contact-item-text a:hover { color: var(--gold-bright); }
-
-    /* Contact Form */
-    .contact-form { display: flex; flex-direction: column; gap: 18px; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-    .form-group { display: flex; flex-direction: column; gap: 8px; }
-    .form-group label { font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold-mid); }
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      width: 100%;
-      padding: 13px 16px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid var(--border-gold);
-      border-radius: 10px;
-      color: #fff;
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.9rem;
-      transition: border-color 0.25s, background 0.25s;
-      outline: none;
-    }
-    .form-group input::placeholder,
-    .form-group textarea::placeholder { color: rgba(255,255,255,0.3); }
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus { border-color: var(--gold-bright); background: rgba(200,150,42,0.06); }
-    .form-group select option { background: #221400; color: #fff; }
-    .form-group textarea { resize: none; min-height: 110px; }
-    .form-submit {
-      padding: 15px;
-      border: none;
-      border-radius: 40px;
-      background: linear-gradient(135deg, var(--gold-mid), var(--gold-bright));
-      color: var(--dark);
-      font-weight: 700;
-      font-size: 0.95rem;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 4px 20px rgba(200,150,42,0.35);
-    }
-    .form-submit:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(200,150,42,0.5); }
-
-    /* success msg */
-    .success-msg {
-      display: none;
-      background: rgba(82,190,128,0.1);
-      border: 1px solid rgba(82,190,128,0.4);
-      border-radius: 10px;
-      padding: 14px 18px;
-      color: #52be80;
-      font-size: 0.9rem;
-      text-align: center;
-    }
-
-    /* ===========================
-       FOOTER
-    =========================== */
-    footer {
-      background: #0d0600;
-      border-top: 1px solid var(--border-gold);
-      padding: 48px 5% 30px;
-    }
-    .footer-top {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr;
-      gap: 50px;
-      margin-bottom: 40px;
-    }
-    .footer-brand .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 700; color: var(--gold-bright); }
-    .footer-brand p { font-size: 0.85rem; color: rgba(255,255,255,0.45); line-height: 1.8; margin-top: 12px; max-width: 280px; }
-
-    .footer-col h4 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
-      color: var(--gold-bright);
-      margin-bottom: 16px;
-      letter-spacing: 1px;
-    }
-    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .footer-col ul li a {
-      font-size: 0.83rem;
-      color: rgba(255,255,255,0.45);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .footer-col ul li a:hover { color: var(--gold-bright); }
-
-    .footer-bottom {
-      border-top: 1px solid rgba(200,150,42,0.12);
-      padding-top: 22px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .footer-bottom p { font-size: 0.78rem; color: rgba(255,255,255,0.3); }
-    .footer-socials { display: flex; gap: 14px; }
-    .footer-socials a {
-      width: 36px; height: 36px;
-      border-radius: 50%;
-      border: 1px solid var(--border-gold);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--gold-mid);
-      font-size: 0.85rem;
-      text-decoration: none;
-      transition: all 0.25s;
-    }
-    .footer-socials a:hover { background: var(--gold-mid); color: var(--dark); border-color: var(--gold-mid); }
-
-    /* ===========================
-       FLOATING WHATSAPP
-    =========================== */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 28px;
-      right: 28px;
-      z-index: 900;
-      width: 56px; height: 56px;
-      background: #25D366;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-size: 1.4rem;
-      box-shadow: 0 4px 20px rgba(37,211,102,0.5);
-      text-decoration: none;
-      animation: pulse-wa 2.5s infinite;
-    }
-    @keyframes pulse-wa {
-      0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.5); }
-      50% { box-shadow: 0 6px 30px rgba(37,211,102,0.75), 0 0 0 10px rgba(37,211,102,0.1); }
-    }
-    .whatsapp-float:hover { transform: scale(1.12); }
-
-    /* ===========================
-       SCROLL TO TOP
-    =========================== */
-    #scrollTop {
-      position: fixed;
-      bottom: 96px;
-      right: 28px;
-      z-index: 900;
-      width: 44px; height: 44px;
-      background: rgba(200,150,42,0.2);
-      border: 1px solid var(--gold-mid);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--gold-bright);
-      cursor: pointer;
-      opacity: 0;
-      transform: translateY(16px);
-      transition: all 0.3s;
-      font-size: 0.9rem;
-    }
-    #scrollTop.visible { opacity: 1; transform: translateY(0); }
-    #scrollTop:hover { background: var(--gold-mid); color: var(--dark); }
-
-    /* ===========================
-       DECORATIVE DIVIDER
-    =========================== */
-    .ornament-divider {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      margin: 0 auto;
-      max-width: 300px;
-      padding: 16px 0;
-    }
-    .ornament-divider::before, .ornament-divider::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold-mid));
-    }
-    .ornament-divider::after { background: linear-gradient(90deg, var(--gold-mid), transparent); }
-    .ornament-gem { color: var(--gold-bright); font-size: 1rem; }
-
-    /* ===========================
-       RESPONSIVE
-    =========================== */
-    @media (max-width: 900px) {
-      .collections-grid { grid-template-columns: 1fr 1fr; }
-      .collection-card:first-child { grid-row: unset; aspect-ratio: 4/5; }
-      .contact-wrapper { grid-template-columns: 1fr; gap: 40px; }
-      .footer-top { grid-template-columns: 1fr 1fr; }
-    }
-
-    @media (max-width: 640px) {
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
-      .collections-grid { grid-template-columns: 1fr; }
-      .form-row { grid-template-columns: 1fr; }
-      .footer-top { grid-template-columns: 1fr; }
-      .hero-stats { gap: 30px; }
-      section { padding: 60px 5%; }
-    }
-
-    /* ===========================
-       ANIMATION UTILS
-    =========================== */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .fade-up.visible { opacity: 1; transform: translateY(0); }
-  </style>
+  /* ── MOBILE ── */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { min-height: 350px; }
+    .hero-left { padding: 3rem 1.5rem; }
+    .about-inner, .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .specials-grid { grid-template-columns: 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    nav ul { display: none; }
+    .section { padding: 4rem 5vw; }
+  }
+</style>
 </head>
 <body>
 
-<!-- ====== NAVBAR ====== -->
-<nav id="navbar">
-  <a href="#hero" class="nav-logo" id="nav-logo-link">
-    <div class="logo-icon">💎</div>
-    <div class="nav-logo-text">
-      <span class="brand">Lakshmi Jewellery</span>
-      <span class="tagline">Timeless Elegance</span>
+<!-- NAV -->
+<nav>
+  <div class="logo">
+    <div class="logo-icon">KF</div>
+    <div>
+      <div class="logo-text">Kissan <span>Foods</span></div>
+      <div class="logo-sub">Food Court</div>
     </div>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#collections">Collections</a></li>
-    <li><a href="#why-us">Why Us</a></li>
-    <li><a href="#testimonials">Reviews</a></li>
-    <li><a href="tel:9444722677" class="nav-cta">📞 Call Us</a></li>
-  </ul>
-  <div class="hamburger" id="hamburger" aria-label="Menu">
-    <span></span><span></span><span></span>
   </div>
+  <ul>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#specials">Specials</a></li>
+    <li><a href="#contact" class="nav-cta">Order Now</a></li>
+  </ul>
 </nav>
 
-<!-- Mobile Nav -->
-<div class="mobile-nav" id="mobileNav">
-  <button class="mobile-close" id="mobileClose">✕</button>
-  <a href="#collections" class="mobile-link">Collections</a>
-  <a href="#why-us" class="mobile-link">Why Us</a>
-  <a href="#testimonials" class="mobile-link">Reviews</a>
-  <a href="#contact" class="mobile-link">Contact</a>
-  <a href="tel:9444722677" class="mobile-link">📞 9444722677</a>
-</div>
-
-<!-- ====== HERO ====== -->
-<section id="hero">
-  <div class="hero-content">
-    <span class="hero-ornament">✦ ✦ ✦</span>
-    <div class="hero-badge">Est. Since Years &nbsp;·&nbsp; Trusted by Thousands</div>
-    <h1 class="hero-title">
-      <span>Lakshmi</span><br />Jewellery
-    </h1>
-    <p class="hero-sub">Where Tradition Meets Timeless Beauty</p>
-    <p class="hero-desc">
-      Discover our exquisite handcrafted collections — from traditional gold ornaments to dazzling diamond jewellery. Each piece tells a story of heritage, artistry, and pure elegance.
-    </p>
-    <div class="hero-btns">
-      <a href="#collections" class="btn-primary" id="hero-explore-btn">Explore Collections</a>
-      <a href="tel:9444722677" class="btn-outline" id="hero-call-btn">📞 9444722677</a>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-left">
+    <div class="hero-badge">Now Open at City Food Court</div>
+    <h1>Fresh from the<br><span class="highlight">Farmer's Heart</span><br>to Your Plate</h1>
+    <p class="hero-desc">Authentic farm-fresh flavours crafted with love. From sizzling street bites to wholesome meals — Kissan Foods brings the soul of India's kitchen to your table.</p>
+    <div class="hero-actions">
+      <a href="#menu" class="btn-primary">🍽️ Explore Menu</a>
+      <a href="#contact" class="btn-secondary">Reserve Table</a>
     </div>
     <div class="hero-stats">
-      <div class="stat"><div class="stat-num">2000+</div><div class="stat-label">Happy Customers</div></div>
-      <div class="stat"><div class="stat-num">500+</div><div class="stat-label">Designs Available</div></div>
-      <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Certified Purity</div></div>
+      <div>
+        <div class="stat-num">50+</div>
+        <div class="stat-label">Menu Items</div>
+      </div>
+      <div>
+        <div class="stat-num">4.9★</div>
+        <div class="stat-label">Avg Rating</div>
+      </div>
+      <div>
+        <div class="stat-num">10K+</div>
+        <div class="stat-label">Happy Guests</div>
+      </div>
     </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-bg"></div>
+    <div class="food-grid">
+      <div class="food-card">
+        <span class="food-emoji">🍛</span>
+        <div class="food-card-name">Thali</div>
+        <div class="food-card-price">₹149</div>
+      </div>
+      <div class="food-card">
+        <span class="food-emoji">🥙</span>
+        <div class="food-card-name">Wraps</div>
+        <div class="food-card-price">₹89</div>
+      </div>
+      <div class="food-card">
+        <span class="food-emoji">🍢</span>
+        <div class="food-card-name">Chaat</div>
+        <div class="food-card-price">₹59</div>
+      </div>
+      <div class="food-card">
+        <span class="food-emoji">🥤</span>
+        <div class="food-card-name">Lassi</div>
+        <div class="food-card-price">₹49</div>
+      </div>
+    </div>
+    <div class="hero-label">Freshly Made Every Day</div>
   </div>
 </section>
 
-<!-- ====== TICKER ====== -->
-<div class="ticker-wrap" aria-hidden="true">
-  <div class="ticker-inner">
-    <span>✦ Gold Jewellery</span><span class="dot">◆</span>
-    <span>✦ Diamond Collections</span><span class="dot">◆</span>
-    <span>✦ Bridal Sets</span><span class="dot">◆</span>
-    <span>✦ Temple Jewellery</span><span class="dot">◆</span>
-    <span>✦ Custom Designs</span><span class="dot">◆</span>
-    <span>✦ BIS Hallmarked</span><span class="dot">◆</span>
-    <span>✦ Antique Jewellery</span><span class="dot">◆</span>
-    <span>✦ Silver Jewellery</span><span class="dot">◆</span>
-    <!-- duplicate for seamless loop -->
-    <span>✦ Gold Jewellery</span><span class="dot">◆</span>
-    <span>✦ Diamond Collections</span><span class="dot">◆</span>
-    <span>✦ Bridal Sets</span><span class="dot">◆</span>
-    <span>✦ Temple Jewellery</span><span class="dot">◆</span>
-    <span>✦ Custom Designs</span><span class="dot">◆</span>
-    <span>✦ BIS Hallmarked</span><span class="dot">◆</span>
-    <span>✦ Antique Jewellery</span><span class="dot">◆</span>
-    <span>✦ Silver Jewellery</span><span class="dot">◆</span>
+<!-- MARQUEE -->
+<div class="marquee-bar">
+  <div class="marquee-inner">
+    <span class="marquee-item">🌿 Pure Veg Options</span><span class="marquee-dot">•</span>
+    <span class="marquee-item">🔥 Freshly Cooked</span><span class="marquee-dot">•</span>
+    <span class="marquee-item">🌾 Farm Sourced Ingredients</span><span class="marquee-dot">•</span>
+    <span class="marquee-item">💛 No Preservatives</span><span class="marquee-dot">•</span>
+    <span class="marquee-item">⚡ Quick Service</span><span class="marquee-dot">•</span>
+    <span class="marquee-item">🏆 Award Winning Recipes</span><span class="marquee-dot">•</span>
+    <span class="marquee-item">🌿 Pure Veg Options</span><span class="marquee-dot">•</span>
+    <span class="marquee-item">🔥 Freshly Cooked</span><span class="marquee-dot">•</span>
+    <span class="marquee-item">🌾 Farm Sourced Ingredients</span><span class="marquee-dot">•</span>
+    <span class="marquee-item">💛 No Preservatives</span><span class="marquee-dot">•</span>
+    <span class="marquee-item">⚡ Quick Service</span><span class="marquee-dot">•</span>
+    <span class="marquee-item">🏆 Award Winning Recipes</span><span class="marquee-dot">•</span>
   </div>
 </div>
 
-<!-- ====== COLLECTIONS ====== -->
-<section id="collections">
-  <div class="section-eyebrow"><span>Our</span> Collections <span></span></div>
-  <h2 class="section-title">Crafted with <span>Love & Gold</span></h2>
-  <p class="section-sub">Explore our premium range of jewellery curated for every occasion — weddings, festivals, and everyday elegance.</p>
+<!-- MENU -->
+<section class="section" id="menu">
+  <div class="section-header reveal">
+    <span class="section-tag">Our Menu</span>
+    <h2 class="section-title">Crafted with <em>Passion</em></h2>
+    <p class="section-desc">Every dish made fresh to order with the finest farm-sourced ingredients and traditional recipes.</p>
+  </div>
 
-  <div class="collections-grid">
+  <div class="filter-tabs reveal">
+    <button class="filter-tab active" onclick="filterMenu(this,'all')">All Items</button>
+    <button class="filter-tab" onclick="filterMenu(this,'breakfast')">Breakfast</button>
+    <button class="filter-tab" onclick="filterMenu(this,'mains')">Mains</button>
+    <button class="filter-tab" onclick="filterMenu(this,'snacks')">Snacks</button>
+    <button class="filter-tab" onclick="filterMenu(this,'drinks')">Drinks</button>
+  </div>
 
-    <!-- Card 1: Bridal (tall) -->
-    <div class="collection-card fade-up" id="card-bridal">
-      <div class="card-bg card-bg-1">
-        <div class="card-circle" style="width:300px;height:300px;top:-80px;right:-80px;"></div>
-        <div class="card-circle" style="width:180px;height:180px;bottom:40px;left:20px;"></div>
-      </div>
-      <div class="card-icon">👰</div>
-      <div class="card-content">
-        <div class="card-label">Premium Collection</div>
-        <div class="card-title">Bridal Jewellery Sets</div>
-        <div class="card-arrow">View Collection <i class="fas fa-arrow-right"></i></div>
+  <div class="menu-grid" id="menuGrid">
+
+    <div class="menu-item reveal" data-cat="mains">
+      <div class="bestseller-tag">Best Seller</div>
+      <div class="menu-item-img bg-warm"><span>🍛</span><div class="veg-badge veg"></div></div>
+      <div class="menu-item-body">
+        <div class="item-name">Kissan Special Thali</div>
+        <div class="item-desc">Dal, sabzi, rice, roti, pickle, papad & dessert — a complete farm-fresh feast</div>
+        <div class="item-footer">
+          <div class="item-price"><sup>₹</sup>149</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
       </div>
     </div>
 
-    <!-- Card 2 -->
-    <div class="collection-card fade-up" id="card-necklace" style="transition-delay:0.1s">
-      <div class="card-bg card-bg-2">
-        <div class="card-circle" style="width:160px;height:160px;top:-40px;right:-40px;"></div>
-      </div>
-      <div class="card-icon">📿</div>
-      <div class="card-content">
-        <div class="card-label">Classics</div>
-        <div class="card-title">Necklaces & Chains</div>
-        <div class="card-arrow">View Collection <i class="fas fa-arrow-right"></i></div>
-      </div>
-    </div>
-
-    <!-- Card 3 -->
-    <div class="collection-card fade-up" id="card-bangles" style="transition-delay:0.15s">
-      <div class="card-bg card-bg-3">
-        <div class="card-circle" style="width:140px;height:140px;bottom:-30px;right:-30px;"></div>
-      </div>
-      <div class="card-icon">🔮</div>
-      <div class="card-content">
-        <div class="card-label">Tradition</div>
-        <div class="card-title">Bangles & Bracelets</div>
-        <div class="card-arrow">View Collection <i class="fas fa-arrow-right"></i></div>
+    <div class="menu-item reveal" data-cat="mains">
+      <div class="menu-item-img bg-spice"><span>🍜</span><div class="veg-badge veg"></div></div>
+      <div class="menu-item-body">
+        <div class="item-name">Pav Bhaji</div>
+        <div class="item-desc">Rich & buttery mixed vegetable bhaji with soft toasted pav</div>
+        <div class="item-footer">
+          <div class="item-price"><sup>₹</sup>89</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
       </div>
     </div>
 
-    <!-- Card 4 -->
-    <div class="collection-card fade-up" id="card-earrings" style="transition-delay:0.2s">
-      <div class="card-bg card-bg-4">
-        <div class="card-circle" style="width:100px;height:100px;top:-20px;left:30px;"></div>
-      </div>
-      <div class="card-icon">💎</div>
-      <div class="card-content">
-        <div class="card-label">Statement Pieces</div>
-        <div class="card-title">Earrings & Jhumkas</div>
-        <div class="card-arrow">View Collection <i class="fas fa-arrow-right"></i></div>
+    <div class="menu-item reveal" data-cat="snacks">
+      <div class="bestseller-tag">Popular</div>
+      <div class="menu-item-img bg-gold"><span>🥙</span><div class="veg-badge veg"></div></div>
+      <div class="menu-item-body">
+        <div class="item-name">Paneer Frankie</div>
+        <div class="item-desc">Spiced paneer filling wrapped in a crisp, fresh rolled roti</div>
+        <div class="item-footer">
+          <div class="item-price"><sup>₹</sup>79</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
       </div>
     </div>
 
-    <!-- Card 5 -->
-    <div class="collection-card fade-up" id="card-rings" style="transition-delay:0.25s">
-      <div class="card-bg card-bg-5">
-        <div class="card-circle" style="width:120px;height:120px;top:10px;right:10px;"></div>
+    <div class="menu-item reveal" data-cat="snacks">
+      <div class="menu-item-img bg-warm"><span>🍢</span><div class="veg-badge veg"></div></div>
+      <div class="menu-item-body">
+        <div class="item-name">Aloo Tikki Chaat</div>
+        <div class="item-desc">Crispy potato patties with chutneys, yoghurt & sev — classic street magic</div>
+        <div class="item-footer">
+          <div class="item-price"><sup>₹</sup>59</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
       </div>
-      <div class="card-icon">💍</div>
-      <div class="card-content">
-        <div class="card-label">Forever Love</div>
-        <div class="card-title">Rings & Noserings</div>
-        <div class="card-arrow">View Collection <i class="fas fa-arrow-right"></i></div>
+    </div>
+
+    <div class="menu-item reveal" data-cat="breakfast">
+      <div class="menu-item-img bg-green"><span>🥞</span><div class="veg-badge veg"></div></div>
+      <div class="menu-item-body">
+        <div class="item-name">Masala Dosa</div>
+        <div class="item-desc">Golden crisp dosa with spiced potato filling, sambar & three chutneys</div>
+        <div class="item-footer">
+          <div class="item-price"><sup>₹</sup>99</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-item reveal" data-cat="mains">
+      <div class="menu-item-img bg-spice"><span>🍗</span><div class="veg-badge nonveg"></div></div>
+      <div class="menu-item-body">
+        <div class="item-name">Chicken Biryani</div>
+        <div class="item-desc">Dum-cooked basmati rice with tender chicken, whole spices & saffron</div>
+        <div class="item-footer">
+          <div class="item-price"><sup>₹</sup>179</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-item reveal" data-cat="drinks">
+      <div class="menu-item-img bg-gold"><span>🥛</span><div class="veg-badge veg"></div></div>
+      <div class="menu-item-body">
+        <div class="item-name">Mango Lassi</div>
+        <div class="item-desc">Thick, creamy yoghurt blended with sweet Alphonso mango pulp</div>
+        <div class="item-footer">
+          <div class="item-price"><sup>₹</sup>69</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-item reveal" data-cat="breakfast">
+      <div class="menu-item-img bg-green"><span>🫓</span><div class="veg-badge veg"></div></div>
+      <div class="menu-item-body">
+        <div class="item-name">Poha Breakfast</div>
+        <div class="item-desc">Light flattened rice with peanuts, curry leaves, mustard & lemon</div>
+        <div class="item-footer">
+          <div class="item-price"><sup>₹</sup>49</div>
+          <button class="add-btn" onclick="addToCart(this)">+</button>
+        </div>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- ====== WHY US ====== -->
-<section id="why-us">
-  <div class="section-eyebrow" style="color:var(--gold-mid)"><span></span>Why Choose Us<span></span></div>
-  <h2 class="section-title" style="color:#fff">The <span>Lakshmi</span> Promise</h2>
-  <p class="section-sub">We've built our reputation on trust, purity, and unmatched craftsmanship across every piece we sell.</p>
-  <div class="features-grid">
-    <div class="feature-card fade-up" id="feat-hallmark">
-      <div class="feature-icon">🏅</div>
-      <h3>BIS Hallmarked</h3>
-      <p>All our gold jewellery is BIS hallmarked, ensuring 100% certified purity on every purchase you make.</p>
+<!-- ABOUT -->
+<section class="section about" id="about">
+  <div class="about-pattern"></div>
+  <div class="about-inner">
+    <div>
+      <span class="section-tag">Our Story</span>
+      <h2 class="section-title">Rooted in <em style="color:var(--saffron-light);">Tradition,</em><br>Made for Today</h2>
+      <p class="about-desc">Kissan Foods was born from a simple belief — that the best food comes from honest ingredients, cooked with care. We partner directly with local farmers to bring the freshest produce to your plate every single day.</p>
+      <div class="about-features">
+        <div class="feature-row">
+          <div class="feature-icon">🌾</div>
+          <div class="feature-text">
+            <strong>Farm to Fork Promise</strong>
+            <p>Direct sourcing from over 30 local farms within 100km radius</p>
+          </div>
+        </div>
+        <div class="feature-row">
+          <div class="feature-icon">👨‍🍳</div>
+          <div class="feature-text">
+            <strong>Master Chefs, Ancient Recipes</strong>
+            <p>Our kitchen team brings 20+ years of regional culinary expertise</p>
+          </div>
+        </div>
+        <div class="feature-row">
+          <div class="feature-icon">💚</div>
+          <div class="feature-text">
+            <strong>Zero Compromise on Quality</strong>
+            <p>No artificial preservatives, colours or MSG — ever</p>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="feature-card fade-up" id="feat-exchange" style="transition-delay:0.1s">
-      <div class="feature-icon">🔄</div>
-      <h3>Easy Exchange</h3>
-      <p>Upgrade your jewellery anytime with our hassle-free exchange scheme at the best market rates.</p>
-    </div>
-    <div class="feature-card fade-up" id="feat-custom" style="transition-delay:0.15s">
-      <div class="feature-icon">✏️</div>
-      <h3>Custom Designs</h3>
-      <p>Dream of a unique piece? We create fully bespoke jewellery tailored to your vision and occasion.</p>
-    </div>
-    <div class="feature-card fade-up" id="feat-price" style="transition-delay:0.2s">
-      <div class="feature-icon">💰</div>
-      <h3>Best Prices</h3>
-      <p>We offer transparent pricing with today's gold rate and no hidden making charges. Honesty first.</p>
+    <div class="about-right">
+      <div class="about-card featured">
+        <div class="about-card-icon">🏆</div>
+        <h4>Best Food Court 2024</h4>
+        <p>Awarded Best New Food Court Stall by City Food Awards for exceptional quality and service.</p>
+      </div>
+      <div class="about-card">
+        <div class="about-card-icon">⏱️</div>
+        <h4>Lightning Fast Service</h4>
+        <p>Average wait time under 8 minutes. Because your time is as precious as your food.</p>
+      </div>
+      <div class="about-card">
+        <div class="about-card-icon">♻️</div>
+        <h4>Eco-Friendly Packaging</h4>
+        <p>100% biodegradable packaging. We care for the planet as much as we care for flavour.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ====== TESTIMONIALS ====== -->
-<section id="testimonials">
-  <div class="section-eyebrow"><span></span>Customer Reviews<span></span></div>
-  <h2 class="section-title">What Our <span>Customers Say</span></h2>
-  <p class="section-sub">Thousands of happy customers trust Lakshmi Jewellery for their most cherished moments.</p>
+<!-- SPECIALS -->
+<section class="section" id="specials">
+  <div class="section-header reveal">
+    <span class="section-tag">Today's Specials</span>
+    <h2 class="section-title">Chef's <em>Picks</em></h2>
+    <p class="section-desc">Limited daily specials crafted from seasonal produce. Come early — they run out fast!</p>
+  </div>
+  <div class="specials-grid reveal">
+    <div class="special-hero">
+      <div class="special-hero-bg">🍛</div>
+      <div class="special-hero-tag">⭐ Combo of the Day</div>
+      <h3>Grand Kissan Combo Meal</h3>
+      <p>Full thali + chilled lassi + dessert of the day. The ultimate Kissan experience.</p>
+      <div class="special-price"><span class="old-price">₹249</span>₹189</div>
+    </div>
+    <div class="special-card">
+      <div>
+        <div class="special-card-icon">🫕</div>
+        <h4>Dal Makhani</h4>
+        <p>Slow-cooked overnight black dal in rich buttery tomato gravy. Served with naan.</p>
+      </div>
+      <div class="special-card-footer">
+        <div class="price">₹129</div>
+        <a href="#contact" class="order-link">Order →</a>
+      </div>
+    </div>
+    <div class="special-card">
+      <div>
+        <div class="special-card-icon">🍮</div>
+        <h4>Gulab Jamun</h4>
+        <p>Freshly made soft khoya dumplings soaked in rose saffron sugar syrup.</p>
+      </div>
+      <div class="special-card-footer">
+        <div class="price">₹49</div>
+        <a href="#contact" class="order-link">Order →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section testimonials">
+  <div class="section-header reveal">
+    <span class="section-tag">Reviews</span>
+    <h2 class="section-title">What Our Guests <em>Say</em></h2>
+  </div>
   <div class="testimonials-grid">
-
-    <div class="testi-card fade-up" id="testi-1">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">"Got my bridal set from Lakshmi Jewellery and I couldn't be happier! The design was stunning and the gold quality was top notch. Highly recommended!"</p>
-      <div class="testi-author">
-        <div class="testi-avatar av1">P</div>
-        <div><div class="testi-name">Priya Ramaswamy</div><div class="testi-loc">Chennai, Tamil Nadu</div></div>
+    <div class="testimonial-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"The Kissan Thali is absolutely incredible — felt like a home-cooked meal but better! The dal was perfectly spiced. Will definitely be a regular here."</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar" style="background:#E8821A;">RK</div>
+        <div>
+          <div class="reviewer-name">Ramesh Kumar</div>
+          <div class="reviewer-label">Regular Customer</div>
+        </div>
       </div>
     </div>
-
-    <div class="testi-card fade-up" id="testi-2" style="transition-delay:0.1s">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">"The best jewellery shop I have visited. Very honest pricing, beautiful designs and excellent customer service. My family buys only from Lakshmi Jewellery."</p>
-      <div class="testi-author">
-        <div class="testi-avatar av2">S</div>
-        <div><div class="testi-name">Sunita Krishnan</div><div class="testi-loc">Coimbatore, Tamil Nadu</div></div>
+    <div class="testimonial-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"Best food court in the city by far. The Paneer Frankie is heavenly — so fresh and packed with flavour. Love the fast service too, never waited more than 5 minutes."</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar" style="background:#C0392B;">PA</div>
+        <div>
+          <div class="reviewer-name">Priya Agarwal</div>
+          <div class="reviewer-label">Food Blogger</div>
+        </div>
       </div>
     </div>
-
-    <div class="testi-card fade-up" id="testi-3" style="transition-delay:0.2s">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">"Amazing custom design service! They created exactly what I had in mind for my daughter's wedding. The craftsmanship was extraordinary and the price was fair."</p>
-      <div class="testi-author">
-        <div class="testi-avatar av3">M</div>
-        <div><div class="testi-name">Meenakshi Iyer</div><div class="testi-loc">Madurai, Tamil Nadu</div></div>
+    <div class="testimonial-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"Genuinely surprised at the quality for the price. The Mango Lassi alone is worth the trip. Clean, hygienic, and the staff are always so warm and welcoming."</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar" style="background:#2D6A2D;">ST</div>
+        <div>
+          <div class="reviewer-name">Suresh Tiwari</div>
+          <div class="reviewer-label">Office Worker Nearby</div>
+        </div>
       </div>
     </div>
-
   </div>
 </section>
 
-<!-- ====== CONTACT ====== -->
-<section id="contact">
-  <div class="contact-wrapper">
-
-    <div class="contact-info fade-up">
-      <div class="section-eyebrow" style="color:var(--gold-mid);justify-content:flex-start">Get In Touch</div>
-      <h2>Visit Us or<br /><span style="color:var(--gold-bright)">Give Us a Call</span></h2>
-      <p>We'd love to help you find your perfect piece. Walk in to our showroom or reach out through any of the channels below.</p>
-
+<!-- CONTACT -->
+<section class="section contact-section" id="contact">
+  <div class="section-header reveal">
+    <span class="section-tag">Find Us</span>
+    <h2 class="section-title">Come <em>Visit</em> Us</h2>
+    <p class="section-desc">We'd love to serve you. Drop by, call us, or send a message!</p>
+  </div>
+  <div class="contact-inner">
+    <div class="contact-info reveal">
+      <h3>Kissan Foods Food Court</h3>
+      <p>Located in the heart of the city's most vibrant food court, we serve fresh meals from morning breakfast through late evening. Come hungry, leave happy.</p>
       <div class="contact-items">
-        <div class="contact-item" id="contact-phone">
-          <div class="contact-item-icon"><i class="fas fa-phone"></i></div>
-          <div class="contact-item-text">
-            <div class="label">Phone / WhatsApp</div>
-            <div class="value"><a href="tel:9444722677">9444722677</a></div>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <strong>Location</strong>
+            <span>Stall No. 12, Ground Floor, City Food Court, MG Road, Your City</span>
           </div>
         </div>
-        <div class="contact-item" id="contact-hours">
-          <div class="contact-item-icon"><i class="fas fa-clock"></i></div>
-          <div class="contact-item-text">
-            <div class="label">Shop Hours</div>
-            <div class="value">Mon–Sat: 9:00 AM – 8:00 PM</div>
+        <div class="contact-item">
+          <div class="contact-icon">🕐</div>
+          <div>
+            <strong>Opening Hours</strong>
+            <span>Mon–Sat: 8:00 AM – 10:00 PM &nbsp;|&nbsp; Sun: 9:00 AM – 9:00 PM</span>
           </div>
         </div>
-        <div class="contact-item" id="contact-location">
-          <div class="contact-item-icon"><i class="fas fa-map-marker-alt"></i></div>
-          <div class="contact-item-text">
-            <div class="label">Location</div>
-            <div class="value">Tamil Nadu, India</div>
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div>
+            <strong>Phone</strong>
+            <span>+91 98765 43210 &nbsp;|&nbsp; +91 91234 56789</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📧</div>
+          <div>
+            <strong>Email</strong>
+            <span>hello@kissanfoods.in</span>
           </div>
         </div>
       </div>
     </div>
-
-    <div class="fade-up" style="transition-delay:0.15s">
-      <form class="contact-form" id="enquiry-form" onsubmit="handleSubmit(event)">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="f-name">Your Name *</label>
-            <input type="text" id="f-name" placeholder="Eg: Priya Devi" required />
-          </div>
-          <div class="form-group">
-            <label for="f-mobile">Mobile Number *</label>
-            <input type="tel" id="f-mobile" placeholder="10-digit number" maxlength="10" required />
-          </div>
+    <div class="contact-form reveal">
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--spice);margin-bottom:1.5rem;">Pre-order or Enquiry</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" placeholder="e.g. Ramesh Kumar">
         </div>
         <div class="form-group">
-          <label for="f-interest">Interested In</label>
-          <select id="f-interest">
-            <option value="">Select a category</option>
-            <option>Gold Jewellery</option>
-            <option>Diamond Jewellery</option>
-            <option>Bridal Sets</option>
-            <option>Necklaces & Chains</option>
-            <option>Bangles & Bracelets</option>
-            <option>Earrings & Jhumkas</option>
-            <option>Rings</option>
-            <option>Custom Design</option>
-          </select>
+          <label>Phone</label>
+          <input type="tel" placeholder="+91 98765 43210">
         </div>
-        <div class="form-group">
-          <label for="f-msg">Message</label>
-          <textarea id="f-msg" placeholder="Tell us what you're looking for…"></textarea>
-        </div>
-        <button type="submit" class="form-submit" id="submit-enquiry-btn">Send Enquiry via WhatsApp</button>
-        <div class="success-msg" id="success-msg">✅ Redirecting you to WhatsApp…</div>
-      </form>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="you@example.com">
+      </div>
+      <div class="form-group">
+        <label>Enquiry Type</label>
+        <select>
+          <option>Pre-order a Meal</option>
+          <option>Bulk / Catering Order</option>
+          <option>Table Reservation</option>
+          <option>Feedback</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea placeholder="Tell us what you need..."></textarea>
+      </div>
+      <button class="submit-btn" onclick="submitForm(this)">🍽️ Send Message</button>
     </div>
-
   </div>
 </section>
 
-<!-- ====== FOOTER ====== -->
+<!-- FOOTER -->
 <footer>
-  <div class="footer-top">
+  <div class="footer-grid">
     <div class="footer-brand">
-      <div class="logo">💎 Lakshmi Jewellery</div>
-      <p>Bringing you timeless elegance and certified gold jewellery for every milestone — from the simplest ring to the grandest bridal set.</p>
+      <div class="logo">
+        <div class="logo-icon">KF</div>
+        <div>
+          <div class="logo-text">Kissan <span>Foods</span></div>
+          <div class="logo-sub" style="color:rgba(255,255,255,0.3)">Food Court</div>
+        </div>
+      </div>
+      <p>Farm-fresh flavours served with love at your favourite food court. Honest food for honest people.</p>
     </div>
     <div class="footer-col">
-      <h4>Collections</h4>
+      <h5>Menu</h5>
       <ul>
-        <li><a href="#collections">Bridal Jewellery</a></li>
-        <li><a href="#collections">Necklaces & Chains</a></li>
-        <li><a href="#collections">Bangles & Bracelets</a></li>
-        <li><a href="#collections">Earrings & Jhumkas</a></li>
-        <li><a href="#collections">Rings</a></li>
+        <li><a href="#menu">Breakfast</a></li>
+        <li><a href="#menu">Main Course</a></li>
+        <li><a href="#menu">Snacks & Chaat</a></li>
+        <li><a href="#menu">Drinks & Lassi</a></li>
+        <li><a href="#specials">Today's Specials</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Quick Links</h4>
+      <h5>Information</h5>
       <ul>
-        <li><a href="#why-us">Why Choose Us</a></li>
-        <li><a href="#testimonials">Customer Reviews</a></li>
-        <li><a href="#contact">Contact Us</a></li>
-        <li><a href="tel:9444722677">📞 9444722677</a></li>
-        <li><a href="https://wa.me/919444722677" target="_blank">💬 WhatsApp Us</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#about">Our Farmers</a></li>
+        <li><a href="#contact">Find Us</a></li>
+        <li><a href="#contact">Catering</a></li>
+        <li><a href="#contact">Franchise</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Follow Us</h5>
+      <ul>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Zomato</a></li>
+        <li><a href="#">Swiggy</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2024 Lakshmi Jewellery. All rights reserved.</p>
-    <div class="footer-socials">
-      <a href="https://wa.me/919444722677" target="_blank" title="WhatsApp" id="footer-wa"><i class="fab fa-whatsapp"></i></a>
-      <a href="tel:9444722677" title="Call Us" id="footer-call"><i class="fas fa-phone"></i></a>
-      <a href="https://www.instagram.com/s.lakshmi9444722677?igsh=MXhub2NvbXUybGYwaw==" title="Instagram" id="footer-ig"><i class="fab fa-instagram"></i></a>
-      <a href="#" title="Facebook" id="footer-fb"><i class="fab fa-facebook-f"></i></a>
-    </div>
+    <span>© 2025 Kissan Foods. All rights reserved.</span>
+    <span>Made with ❤️ for <a href="#">food lovers</a></span>
   </div>
 </footer>
 
-<!-- Floating WhatsApp -->
-<a href="https://wa.me/919444722677" class="whatsapp-float" target="_blank" id="whatsapp-fab" title="Chat on WhatsApp">
-  <i class="fab fa-whatsapp"></i>
-</a>
-
-<!-- Scroll to Top -->
-<div id="scrollTop" title="Back to top"><i class="fas fa-chevron-up"></i></div>
-
-<!-- ====== SCRIPTS ====== -->
 <script>
-  /* ---- Hamburger ---- */
-  const hamburger = document.getElementById('hamburger');
-  const mobileNav = document.getElementById('mobileNav');
-  const mobileClose = document.getElementById('mobileClose');
-
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('open');
-    mobileNav.classList.toggle('open');
-    document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
-  });
-  mobileClose.addEventListener('click', close);
-  document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', close));
-  function close() {
-    hamburger.classList.remove('open');
-    mobileNav.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  /* ---- Scroll to Top ---- */
-  const scrollBtn = document.getElementById('scrollTop');
-  window.addEventListener('scroll', () => {
-    scrollBtn.classList.toggle('visible', window.scrollY > 400);
-  });
-  scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-  /* ---- Fade Up Intersection Observer ---- */
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
 
-  /* ---- Form Submit ---- */
-  function handleSubmit(e) {
-    e.preventDefault();
-    const name = document.getElementById('f-name').value.trim();
-    const mobile = document.getElementById('f-mobile').value.trim();
-    if (!name || !mobile || mobile.length < 10) {
-      alert('Please enter your name and a valid 10-digit mobile number.');
-      return;
-    }
-    const interest = document.getElementById('f-interest').value;
-    const msg = document.getElementById('f-msg').value.trim();
-    const text = `Hello Lakshmi Jewellery! 👋\nName: ${name}\nMobile: ${mobile}${interest ? '\nInterested in: ' + interest : ''}${msg ? '\nMessage: ' + msg : ''}`;
-    document.getElementById('success-msg').style.display = 'block';
-    setTimeout(() => { window.open('https://wa.me/919444722677?text=' + encodeURIComponent(text), '_blank'); }, 600);
+  // Menu filter
+  function filterMenu(btn, cat) {
+    document.querySelectorAll('.filter-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.menu-item').forEach(item => {
+      const show = cat === 'all' || item.dataset.cat === cat;
+      item.style.display = show ? '' : 'none';
+    });
   }
 
-  /* ---- Navbar scroll opacity ---- */
-  window.addEventListener('scroll', () => {
-    document.getElementById('navbar').style.background =
-      window.scrollY > 60 ? 'rgba(26,14,0,0.98)' : 'rgba(26,14,0,0.92)';
-  });
+  // Add to cart feedback
+  let cartCount = 0;
+  function addToCart(btn) {
+    cartCount++;
+    btn.textContent = '✓';
+    btn.style.background = '#2D6A2D';
+    setTimeout(() => {
+      btn.textContent = '+';
+      btn.style.background = '';
+    }, 1200);
+  }
+
+  // Form submit
+  function submitForm(btn) {
+    btn.textContent = '✓ Message Sent!';
+    btn.style.background = '#2D6A2D';
+    setTimeout(() => {
+      btn.textContent = '🍽️ Send Message';
+      btn.style.background = '';
+    }, 3000);
+  }
 </script>
 </body>
 </html>
