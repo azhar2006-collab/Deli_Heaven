@@ -3,1033 +3,1105 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kissan Foods — Food Court</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+<title>Deli Heaven — Pure. Homemade. Nourishing.</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --saffron: #E8821A;
-    --saffron-light: #F5A94A;
-    --saffron-pale: #FDF0E0;
-    --crimson: #C0392B;
-    --crimson-dark: #8B1A11;
-    --cream: #FBF5EC;
-    --spice: #4A1C0A;
-    --spice-mid: #7A3A1E;
-    --leaf: #2D6A2D;
-    --leaf-light: #4A9B4A;
-    --gold: #D4A017;
-    --text-dark: #1E0E05;
-    --text-mid: #5C3A1E;
-    --text-light: #9B7355;
+    --cream: #FAF6EE;
+    --warm-brown: #7C4A2D;
+    --deep-brown: #3E2010;
+    --golden: #D4873A;
+    --sage: #6B7C5E;
+    --rust: #B5431E;
+    --terracotta: #C86B3C;
+    --light-sage: #EEF2E8;
+    --parchment: #F4EDD8;
+    --ink: #2A1A0E;
+    --muted: #8B7355;
+    --border: rgba(124,74,45,0.15);
   }
 
   html { scroll-behavior: smooth; }
 
   body {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Lato', sans-serif;
     background: var(--cream);
-    color: var(--text-dark);
+    color: var(--ink);
     overflow-x: hidden;
   }
 
-  /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 1rem 4vw;
-    background: rgba(251,245,236,0.92);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(232,130,26,0.2);
+  /* ── Grain texture overlay ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
   }
-  .logo {
-    display: flex; align-items: center; gap: 10px;
-  }
-  .logo-icon {
-    width: 42px; height: 42px; background: var(--saffron);
-    border-radius: 50%; display: flex; align-items: center; justify-content: center;
-    font-size: 20px; font-weight: 900; color: white;
-    font-family: 'Bebas Neue', cursive;
-    letter-spacing: 1px;
-  }
-  .logo-text {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem; font-weight: 900;
-    color: var(--spice);
-    line-height: 1;
-  }
-  .logo-text span { color: var(--saffron); }
-  .logo-sub {
-    font-size: 0.6rem; letter-spacing: 3px; text-transform: uppercase;
-    color: var(--text-light); font-family: 'DM Sans', sans-serif; font-weight: 500;
-  }
-  nav ul { list-style: none; display: flex; gap: 2.5rem; }
-  nav ul a {
-    text-decoration: none; color: var(--text-mid);
-    font-size: 0.875rem; font-weight: 500; letter-spacing: 0.5px;
-    text-transform: uppercase; transition: color 0.2s;
-  }
-  nav ul a:hover { color: var(--saffron); }
-  .nav-cta {
-    background: var(--saffron); color: white !important;
-    padding: 0.5rem 1.4rem; border-radius: 30px; transition: background 0.2s !important;
-  }
-  .nav-cta:hover { background: var(--crimson) !important; color: white !important; }
 
-  /* ── HERO ── */
+  /* ── Hero ── */
   .hero {
     min-height: 100vh;
-    display: grid; grid-template-columns: 1fr 1fr;
-    padding-top: 80px;
-    overflow: hidden;
+    background: var(--deep-brown);
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    overflow: hidden;
   }
+
   .hero-bg-pattern {
-    position: absolute; inset: 0; pointer-events: none;
-    background-image: radial-gradient(circle at 20% 50%, rgba(232,130,26,0.08) 0%, transparent 60%),
-                      radial-gradient(circle at 80% 20%, rgba(192,57,43,0.06) 0%, transparent 50%);
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(ellipse at 20% 50%, rgba(212,135,58,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 30%, rgba(107,124,94,0.15) 0%, transparent 55%);
   }
-  .hero-left {
-    display: flex; flex-direction: column; justify-content: center;
-    padding: 5rem 4rem 5rem 6vw;
-    position: relative; z-index: 1;
+
+  .hero-stamp {
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    border: 3px solid rgba(212,135,58,0.3);
+    border-radius: 50%;
+    top: 3rem;
+    right: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(15deg);
+    opacity: 0.6;
   }
-  .hero-badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(232,130,26,0.12); border: 1px solid rgba(232,130,26,0.3);
-    color: var(--saffron); font-size: 0.75rem; font-weight: 600;
-    letter-spacing: 2px; text-transform: uppercase;
-    padding: 0.4rem 1rem; border-radius: 30px;
-    width: fit-content; margin-bottom: 1.5rem;
-    animation: fadeUp 0.6s ease both;
+
+  .hero-stamp span {
+    font-family: 'Playfair Display', serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--golden);
+    text-align: center;
+    line-height: 1.6;
   }
-  .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--saffron); border-radius: 50%; }
+
+  .hero-stamp-inner {
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    border: 1px dashed rgba(212,135,58,0.4);
+    border-radius: 50%;
+  }
+
+  .badge {
+    display: inline-block;
+    background: var(--golden);
+    color: var(--deep-brown);
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 6px 18px;
+    border-radius: 2px;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
   .hero h1 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(2.8rem, 5vw, 4.2rem);
-    font-weight: 900; line-height: 1.1;
-    color: var(--spice);
-    animation: fadeUp 0.6s ease 0.1s both;
-  }
-  .hero h1 .highlight {
-    color: var(--saffron);
-    font-style: italic;
-  }
-  .hero-desc {
-    margin-top: 1.5rem; max-width: 420px;
-    font-size: 1.05rem; line-height: 1.75;
-    color: var(--text-mid); font-weight: 300;
-    animation: fadeUp 0.6s ease 0.2s both;
-  }
-  .hero-actions {
-    display: flex; gap: 1rem; margin-top: 2.5rem;
-    animation: fadeUp 0.6s ease 0.3s both;
-  }
-  .btn-primary {
-    background: var(--saffron); color: white;
-    padding: 0.85rem 2rem; border-radius: 50px;
-    font-weight: 600; font-size: 0.925rem;
-    text-decoration: none; letter-spacing: 0.3px;
-    transition: all 0.25s; border: none; cursor: pointer;
-    display: inline-flex; align-items: center; gap: 8px;
-  }
-  .btn-primary:hover { background: var(--crimson); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(192,57,43,0.3); }
-  .btn-secondary {
-    background: transparent; color: var(--spice);
-    padding: 0.85rem 2rem; border-radius: 50px;
-    font-weight: 600; font-size: 0.925rem;
-    text-decoration: none; letter-spacing: 0.3px;
-    transition: all 0.25s;
-    border: 1.5px solid rgba(74,28,10,0.3);
-  }
-  .btn-secondary:hover { border-color: var(--saffron); color: var(--saffron); }
-  .hero-stats {
-    display: flex; gap: 2.5rem; margin-top: 3.5rem;
-    animation: fadeUp 0.6s ease 0.4s both;
-  }
-  .stat-num {
-    font-family: 'Bebas Neue', cursive;
-    font-size: 2.2rem; color: var(--saffron); line-height: 1;
-  }
-  .stat-label {
-    font-size: 0.75rem; color: var(--text-light);
-    text-transform: uppercase; letter-spacing: 1px;
-    margin-top: 2px;
+    font-size: clamp(3.5rem, 9vw, 7rem);
+    color: var(--cream);
+    line-height: 0.95;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 0.5rem;
   }
 
-  .hero-right {
-    position: relative; display: flex; align-items: center; justify-content: center;
-    background: var(--spice);
+  .hero h1 em {
+    color: var(--golden);
+    font-style: italic;
+    display: block;
+  }
+
+  .hero-tagline {
+    font-size: 1.1rem;
+    color: rgba(250,246,238,0.65);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-tagline::before,
+  .hero-tagline::after {
+    content: '—';
+    margin: 0 12px;
+    color: var(--golden);
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: rgba(250,246,238,0.4);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, rgba(212,135,58,0.8), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 1; transform: scaleY(1); }
+    50% { opacity: 0.4; transform: scaleY(0.7); }
+  }
+
+  /* ── Nav strip ── */
+  .nav {
+    background: var(--deep-brown);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3rem;
+    height: 56px;
+    border-bottom: 1px solid rgba(212,135,58,0.2);
+  }
+
+  .nav-brand {
+    font-family: 'Playfair Display', serif;
+    color: var(--golden);
+    font-size: 1.1rem;
+    font-style: italic;
+    letter-spacing: 1px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(250,246,238,0.7);
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--golden); }
+
+  .nav-cta {
+    background: var(--golden);
+    color: var(--deep-brown) !important;
+    padding: 8px 20px;
+    border-radius: 2px;
+    font-weight: 700 !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--terracotta) !important; color: white !important; }
+
+  /* ── About strip ── */
+  .about-strip {
+    background: var(--parchment);
+    padding: 4rem 3rem;
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .about-strip h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--warm-brown);
+    flex-shrink: 0;
+  }
+
+  .about-strip p {
+    color: var(--muted);
+    line-height: 1.9;
+    font-size: 1.05rem;
+    max-width: 600px;
+  }
+
+  .about-pills {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+
+  .pill {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 6px 16px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: var(--warm-brown);
+    font-weight: 700;
+  }
+
+  /* ── Category nav ── */
+  .cat-nav {
+    background: white;
+    border-bottom: 1px solid var(--border);
+    padding: 0 3rem;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+  }
+
+  .cat-tab {
+    padding: 1.1rem 1.5rem;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+    background: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+  }
+
+  .cat-tab:hover { color: var(--warm-brown); }
+  .cat-tab.active { color: var(--warm-brown); border-bottom-color: var(--golden); }
+
+  /* ── Main content ── */
+  .main { padding: 4rem 3rem; }
+
+  /* ── Category section ── */
+  .category-section {
+    margin-bottom: 5rem;
+    display: none;
+  }
+
+  .category-section.visible { display: block; }
+
+  .cat-header {
+    display: flex;
+    align-items: flex-end;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .cat-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+  }
+
+  .cat-header-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: var(--deep-brown);
+  }
+
+  .cat-header-text p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin-top: 4px;
+  }
+
+  /* ── Product grid ── */
+  .product-grid {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-auto-flow: column;
+    grid-auto-columns: 260px;
+    gap: 1.5rem;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .product-grid::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .product-grid::-webkit-scrollbar-track {
+    background: var(--parchment);
+    border-radius: 10px;
+  }
+
+  .product-grid::-webkit-scrollbar-thumb {
+    background: var(--golden);
+    border-radius: 10px;
+  }
+
+  /* ── Product card ── */
+  .product-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s;
+    position: relative;
+    scroll-snap-align: start;
+  }
+
+  .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(62,32,16,0.12);
+  }
+
+  .card-ribbon {
+    position: absolute;
+    top: 14px;
+    right: -8px;
+    background: var(--rust);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 14px 4px 10px;
+    border-radius: 2px 0 0 2px;
+    z-index: 2;
+  }
+
+  .card-ribbon::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -6px;
+    border-top: 6px solid #7a2812;
+    border-right: 8px solid transparent;
+  }
+
+  .card-img {
+    height: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    position: relative;
     overflow: hidden;
   }
-  .hero-right-bg {
-    position: absolute; inset: 0;
-    background: linear-gradient(135deg, var(--spice) 0%, var(--crimson-dark) 60%, var(--spice-mid) 100%);
+
+  .card-img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center bottom, rgba(62,32,16,0.08) 0%, transparent 70%);
   }
-  .food-grid {
-    position: relative; z-index: 2;
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 1rem; padding: 2rem;
-    animation: fadeUp 0.6s ease 0.2s both;
+
+  .card-body { padding: 1.25rem 1.25rem 1.5rem; }
+
+  .card-tag {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--sage);
+    font-weight: 700;
+    margin-bottom: 6px;
   }
-  .food-card {
-    background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 16px; padding: 1.25rem;
-    text-align: center; transition: all 0.3s;
+
+  .card-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--deep-brown);
+    line-height: 1.3;
+    margin-bottom: 8px;
+  }
+
+  .card-desc {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.9rem 1.25rem;
+    background: var(--cream);
+    border-top: 1px solid var(--border);
+  }
+
+  .card-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--warm-brown);
+    font-weight: 700;
+  }
+
+  .card-weight {
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  .order-btn {
+    background: var(--deep-brown);
+    color: var(--cream);
+    border: none;
+    padding: 9px 18px;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-family: 'Lato', sans-serif;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .order-btn:hover { background: var(--golden); color: var(--deep-brown); }
+  .order-btn:active { transform: scale(0.97); }
+
+  .order-btn svg { width: 12px; height: 12px; }
+
+  /* ── Toast ── */
+  .toast {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--deep-brown);
+    color: var(--cream);
+    padding: 1rem 1.5rem;
+    border-radius: 4px;
+    border-left: 4px solid var(--golden);
+    font-size: 14px;
+    z-index: 9000;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    max-width: 300px;
+  }
+
+  .toast.show { transform: translateY(0); opacity: 1; }
+  .toast strong { color: var(--golden); display: block; margin-bottom: 3px; }
+
+  /* ── Cart badge ── */
+  .cart-count {
+    background: var(--rust);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+
+  /* ── Banner ── */
+  .promo-banner {
+    background: var(--golden);
+    color: var(--deep-brown);
+    text-align: center;
+    padding: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* ── Footer ── */
+  footer {
+    background: var(--deep-brown);
+    color: rgba(250,246,238,0.6);
+    text-align: center;
+    padding: 3rem 2rem;
+    margin-top: 4rem;
+    border-top: 3px solid var(--golden);
+  }
+
+  footer .footer-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--cream);
+    font-style: italic;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  footer p { font-size: 13px; line-height: 2; }
+
+  footer .footer-links {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  footer .footer-links a {
+    color: rgba(250,246,238,0.5);
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  footer .footer-links a:hover { color: var(--golden); }
+
+  /* ── Modal ── */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(30,15,5,0.75);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .modal-overlay.open { display: flex; }
+
+  .modal {
+    background: var(--cream);
+    border-radius: 4px;
+    max-width: 480px;
+    width: 100%;
+    padding: 2.5rem;
+    position: relative;
+    border-top: 4px solid var(--golden);
+    animation: modalIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  @keyframes modalIn {
+    from { opacity: 0; transform: scale(0.92) translateY(20px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+  }
+
+  .modal h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--deep-brown);
+    margin-bottom: 0.5rem;
+  }
+
+  .modal p { color: var(--muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.5rem; }
+
+  .modal-product {
+    background: var(--parchment);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .modal-product-icon { font-size: 2rem; display: flex; align-items: center; justify-content: center; }
+  .modal-product-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--deep-brown); }
+  .modal-product-price { font-size: 0.9rem; color: var(--muted); }
+
+  .modal-form input, .modal-form textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    background: white;
+    color: var(--ink);
+    margin-bottom: 12px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .modal-form input:focus, .modal-form textarea:focus {
+    border-color: var(--golden);
+  }
+
+  .modal-form textarea { resize: vertical; min-height: 80px; }
+
+  .modal-actions { display: flex; gap: 12px; }
+
+  .btn-primary {
+    flex: 1;
+    background: var(--deep-brown);
+    color: var(--cream);
+    border: none;
+    padding: 12px;
+    font-family: 'Lato', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--golden); color: var(--deep-brown); }
+
+  .btn-secondary {
+    background: white;
+    color: var(--warm-brown);
+    border: 1px solid var(--border);
+    padding: 12px 20px;
+    font-family: 'Lato', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-radius: 2px;
     cursor: pointer;
   }
-  .food-card:hover { background: rgba(255,255,255,0.14); transform: translateY(-4px); }
-  .food-emoji { font-size: 3rem; display: block; margin-bottom: 0.6rem; }
-  .food-card-name {
-    font-size: 0.8rem; font-weight: 600; color: rgba(255,255,255,0.9);
-    text-transform: uppercase; letter-spacing: 1px;
-  }
-  .food-card-price {
-    font-size: 0.85rem; color: var(--saffron-light); margin-top: 4px;
-    font-family: 'Bebas Neue', cursive; letter-spacing: 1px; font-size: 1rem;
-  }
-  .hero-label {
-    position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
-    font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase;
-    color: rgba(255,255,255,0.3); white-space: nowrap;
-  }
 
-  /* ── MARQUEE ── */
-  .marquee-bar {
-    background: var(--saffron); padding: 0.7rem 0;
-    overflow: hidden; white-space: nowrap;
-  }
-  .marquee-inner {
-    display: inline-flex; animation: marquee 20s linear infinite;
-  }
-  .marquee-item {
-    font-family: 'Bebas Neue', cursive;
-    font-size: 1.1rem; letter-spacing: 3px;
-    color: white; padding: 0 2.5rem;
-  }
-  .marquee-dot { color: rgba(255,255,255,0.5); }
-
-  /* ── MENU SECTION ── */
-  .section { padding: 6rem 6vw; }
-  .section-header { text-align: center; margin-bottom: 4rem; }
-  .section-tag {
-    font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase;
-    color: var(--saffron); font-weight: 700;
-    display: block; margin-bottom: 0.75rem;
-  }
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 4vw, 3rem); font-weight: 900;
-    color: var(--spice); line-height: 1.2;
-  }
-  .section-title em { color: var(--saffron); font-style: italic; }
-  .section-desc {
-    margin-top: 1rem; font-size: 1rem; color: var(--text-light);
-    max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.7;
-  }
-
-  /* Category Filter */
-  .filter-tabs {
-    display: flex; gap: 0.6rem; justify-content: center;
-    flex-wrap: wrap; margin-bottom: 3rem;
-  }
-  .filter-tab {
-    padding: 0.5rem 1.5rem; border-radius: 30px;
-    font-size: 0.825rem; font-weight: 600;
-    cursor: pointer; transition: all 0.2s;
-    border: 1.5px solid rgba(74,28,10,0.15);
-    background: transparent; color: var(--text-mid);
-    text-transform: uppercase; letter-spacing: 0.5px;
-  }
-  .filter-tab.active, .filter-tab:hover {
-    background: var(--saffron); color: white; border-color: var(--saffron);
-  }
-
-  .menu-grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 1.5rem;
-  }
-  .menu-item {
-    background: white; border-radius: 20px;
-    overflow: hidden; transition: all 0.3s;
-    border: 1px solid rgba(232,130,26,0.1);
-    position: relative;
-  }
-  .menu-item:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(74,28,10,0.12); }
-  .menu-item-img {
-    height: 160px; display: flex; align-items: center; justify-content: center;
-    font-size: 5rem;
-    position: relative; overflow: hidden;
-  }
-  .menu-item-img.bg-warm { background: linear-gradient(135deg, #FDF0E0, #FAD7A0); }
-  .menu-item-img.bg-spice { background: linear-gradient(135deg, #FADBD8, #F1948A22); }
-  .menu-item-img.bg-green { background: linear-gradient(135deg, #D5F5E3, #A9DFBF44); }
-  .menu-item-img.bg-gold { background: linear-gradient(135deg, #FEF9E7, #F9E79F44); }
-  .veg-badge {
-    position: absolute; top: 10px; right: 10px;
-    width: 20px; height: 20px; border-radius: 3px;
-    border: 1.5px solid;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .veg-badge.veg { border-color: var(--leaf); }
-  .veg-badge.veg::before { content: ''; width: 8px; height: 8px; background: var(--leaf); border-radius: 50%; }
-  .veg-badge.nonveg { border-color: var(--crimson); }
-  .veg-badge.nonveg::before { content: ''; width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-bottom: 8px solid var(--crimson); }
-  .menu-item-body { padding: 1.1rem 1.25rem 1.25rem; }
-  .item-name {
-    font-size: 1rem; font-weight: 600; color: var(--spice);
-    margin-bottom: 4px;
-  }
-  .item-desc {
-    font-size: 0.8rem; color: var(--text-light); line-height: 1.5; margin-bottom: 1rem;
-  }
-  .item-footer { display: flex; align-items: center; justify-content: space-between; }
-  .item-price {
-    font-family: 'Bebas Neue', cursive; font-size: 1.4rem;
-    color: var(--saffron); letter-spacing: 1px;
-  }
-  .item-price sup { font-family: 'DM Sans', sans-serif; font-size: 0.75rem; font-weight: 600; vertical-align: top; margin-top: 4px; }
-  .add-btn {
-    width: 34px; height: 34px; border-radius: 50%;
-    background: var(--saffron); color: white;
-    border: none; cursor: pointer; font-size: 1.2rem;
-    display: flex; align-items: center; justify-content: center;
-    transition: all 0.2s; line-height: 1;
-  }
-  .add-btn:hover { background: var(--crimson); transform: scale(1.1); }
-  .bestseller-tag {
-    position: absolute; top: 12px; left: -2px;
-    background: var(--crimson); color: white;
-    font-size: 0.65rem; font-weight: 700;
-    letter-spacing: 1.5px; text-transform: uppercase;
-    padding: 3px 10px 3px 8px;
-    border-radius: 0 4px 4px 0;
-  }
-
-  /* ── ABOUT ── */
-  .about { background: var(--spice); position: relative; overflow: hidden; }
-  .about-pattern {
-    position: absolute; inset: 0; opacity: 0.04;
-    background-image: repeating-linear-gradient(45deg, white 0px, white 1px, transparent 1px, transparent 20px),
-                      repeating-linear-gradient(-45deg, white 0px, white 1px, transparent 1px, transparent 20px);
-  }
-  .about-inner {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem;
-    align-items: center; position: relative; z-index: 1;
-  }
-  .about .section-tag { color: var(--saffron-light); text-align: left; }
-  .about .section-title { color: white; text-align: left; }
-  .about-desc {
-    color: rgba(255,255,255,0.65); line-height: 1.8; margin-top: 1.25rem; font-size: 0.975rem;
-  }
-  .about-features { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1rem; }
-  .feature-row {
-    display: flex; align-items: flex-start; gap: 1rem;
-  }
-  .feature-icon {
-    width: 44px; height: 44px; background: rgba(232,130,26,0.15);
-    border-radius: 12px; display: flex; align-items: center; justify-content: center;
-    font-size: 1.3rem; flex-shrink: 0;
-  }
-  .feature-text strong { color: white; font-weight: 600; font-size: 0.925rem; }
-  .feature-text p { color: rgba(255,255,255,0.5); font-size: 0.825rem; margin-top: 2px; line-height: 1.5; }
-  .about-right { display: flex; flex-direction: column; gap: 1.25rem; }
-  .about-card {
-    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 16px; padding: 1.5rem;
-  }
-  .about-card-icon { font-size: 2rem; margin-bottom: 0.75rem; }
-  .about-card h4 { color: white; font-weight: 600; margin-bottom: 6px; }
-  .about-card p { color: rgba(255,255,255,0.5); font-size: 0.85rem; line-height: 1.6; }
-  .about-card.featured { background: rgba(232,130,26,0.18); border-color: rgba(232,130,26,0.35); }
-
-  /* ── SPECIALS ── */
-  .specials-grid {
-    display: grid; grid-template-columns: 1.4fr 1fr 1fr;
-    gap: 1.5rem; margin-top: 3rem;
-  }
-  .special-hero {
-    background: var(--saffron); border-radius: 20px;
-    padding: 2.5rem; position: relative; overflow: hidden;
-    display: flex; flex-direction: column; justify-content: flex-end;
-    min-height: 360px;
-  }
-  .special-hero-bg {
-    position: absolute; top: -10%; right: -10%;
-    font-size: 12rem; opacity: 0.18; pointer-events: none;
+  .modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--muted);
     line-height: 1;
   }
-  .special-hero-tag {
-    font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase;
-    color: rgba(255,255,255,0.75); font-weight: 700; margin-bottom: 0.75rem;
-  }
-  .special-hero h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem; font-weight: 900; color: white;
-    line-height: 1.2; margin-bottom: 0.75rem;
-  }
-  .special-hero p { color: rgba(255,255,255,0.8); font-size: 0.875rem; line-height: 1.6; margin-bottom: 1.5rem; }
-  .special-price {
-    font-family: 'Bebas Neue', cursive; font-size: 2rem;
-    color: white; letter-spacing: 1px;
-  }
-  .special-price .old-price {
-    text-decoration: line-through; opacity: 0.5;
-    font-size: 1.2rem; margin-right: 8px;
-  }
-  .special-card {
-    background: white; border-radius: 20px; padding: 2rem;
-    display: flex; flex-direction: column; justify-content: space-between;
-    border: 1px solid rgba(232,130,26,0.1);
-    transition: all 0.3s;
-  }
-  .special-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(74,28,10,0.1); }
-  .special-card-icon { font-size: 3.5rem; margin-bottom: 1rem; }
-  .special-card h4 { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; color: var(--spice); margin-bottom: 6px; }
-  .special-card p { color: var(--text-light); font-size: 0.825rem; line-height: 1.6; flex: 1; }
-  .special-card-footer { margin-top: 1.5rem; display: flex; align-items: center; justify-content: space-between; }
-  .special-card .price { font-family: 'Bebas Neue', cursive; font-size: 1.5rem; color: var(--saffron); }
-  .order-link { font-size: 0.8rem; color: var(--saffron); font-weight: 600; text-decoration: none; }
-  .order-link:hover { color: var(--crimson); }
 
-  /* ── TESTIMONIALS ── */
-  .testimonials { background: #FBF5EC; }
-  .testimonials-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
-  }
-  .testimonial-card {
-    background: white; border-radius: 16px; padding: 1.75rem;
-    border: 1px solid rgba(232,130,26,0.1);
-  }
-  .stars { color: var(--gold); font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 1rem; }
-  .testimonial-text {
-    color: var(--text-mid); font-size: 0.9rem; line-height: 1.7;
-    font-style: italic; margin-bottom: 1.25rem;
-  }
-  .reviewer { display: flex; align-items: center; gap: 10px; }
-  .reviewer-avatar {
-    width: 38px; height: 38px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 700; font-size: 0.875rem; color: white;
-  }
-  .reviewer-name { font-weight: 600; font-size: 0.875rem; color: var(--spice); }
-  .reviewer-label { font-size: 0.75rem; color: var(--text-light); }
+  @media (max-width: 768px) {
+    /* About strip */
+    .about-strip { flex-direction: column; gap: 1.5rem; padding: 2.5rem 1.5rem; }
+    .about-strip h2 { font-size: 1.8rem; }
 
-  /* ── CONTACT ── */
-  .contact-section { background: var(--cream); }
-  .contact-inner {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;
-  }
-  .contact-info h3 {
-    font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700;
-    color: var(--spice); margin-bottom: 1rem;
-  }
-  .contact-info p { color: var(--text-mid); line-height: 1.8; font-size: 0.95rem; }
-  .contact-items { margin-top: 2rem; display: flex; flex-direction: column; gap: 1.25rem; }
-  .contact-item { display: flex; align-items: flex-start; gap: 1rem; }
-  .contact-icon {
-    width: 44px; height: 44px; background: rgba(232,130,26,0.1);
-    border-radius: 12px; display: flex; align-items: center; justify-content: center;
-    font-size: 1.2rem; flex-shrink: 0;
-  }
-  .contact-item strong { display: block; color: var(--spice); font-weight: 600; font-size: 0.875rem; margin-bottom: 2px; }
-  .contact-item span { color: var(--text-mid); font-size: 0.85rem; }
-  .contact-form { background: white; border-radius: 20px; padding: 2.5rem; border: 1px solid rgba(232,130,26,0.12); }
-  .form-group { margin-bottom: 1.25rem; }
-  .form-group label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--spice); letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 6px; }
-  .form-group input, .form-group textarea, .form-group select {
-    width: 100%; padding: 0.75rem 1rem;
-    border: 1.5px solid rgba(74,28,10,0.12); border-radius: 10px;
-    font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
-    color: var(--text-dark); background: var(--cream);
-    transition: border-color 0.2s; outline: none;
-  }
-  .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--saffron); }
-  .form-group textarea { resize: vertical; min-height: 100px; }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .submit-btn {
-    width: 100%; background: var(--saffron); color: white;
-    padding: 0.9rem; border-radius: 50px; border: none;
-    font-family: 'DM Sans', sans-serif; font-weight: 700;
-    font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;
-    cursor: pointer; transition: all 0.25s; margin-top: 0.5rem;
-  }
-  .submit-btn:hover { background: var(--crimson); }
+    /* Main padding */
+    .main { padding: 2rem 1rem; }
 
-  /* ── FOOTER ── */
-  footer {
-    background: var(--text-dark); color: rgba(255,255,255,0.65);
-    padding: 4rem 6vw 2rem;
-  }
-  .footer-grid {
-    display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr;
-    gap: 3rem; padding-bottom: 3rem;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-  }
-  .footer-brand .logo-text { color: white; }
-  .footer-brand p { font-size: 0.85rem; line-height: 1.7; margin-top: 1rem; }
-  .footer-col h5 {
-    color: white; font-size: 0.8rem; letter-spacing: 2px;
-    text-transform: uppercase; font-weight: 700; margin-bottom: 1.25rem;
-  }
-  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-  .footer-col ul a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; }
-  .footer-col ul a:hover { color: var(--saffron); }
-  .footer-bottom {
-    margin-top: 2rem; display: flex; justify-content: space-between; align-items: center;
-    font-size: 0.8rem;
-  }
-  .footer-bottom span { color: rgba(255,255,255,0.35); }
-  .footer-bottom a { color: var(--saffron); text-decoration: none; }
+    /* Nav */
+    .nav { padding: 0 1rem; }
+    .nav-links { display: none; }
 
-  /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes marquee {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
+    /* Hero */
+    .hero { padding: 1.5rem 1rem; }
+    .hero h1 { font-size: clamp(2.5rem, 12vw, 4rem); }
+    .hero-tagline { font-size: 0.85rem; letter-spacing: 1px; }
+    .hero-stamp { display: none; }
+
+    /* Category nav tabs */
+    .cat-nav { padding: 0 0.5rem; gap: 0; }
+    .cat-tab { padding: 0.8rem 0.9rem; font-size: 10px; letter-spacing: 1px; }
+
+    /* Product grid — 2 rows, cards 160px wide, finger-friendly */
+    .product-grid {
+      grid-auto-columns: 160px;
+      gap: 0.75rem;
+      padding-bottom: 0.75rem;
+    }
+
+    /* Product card */
+    .card-img { height: 120px; }
+    .card-body { padding: 0.75rem 0.75rem 0.5rem; }
+    .card-name { font-size: 1rem; }
+    .card-desc { font-size: 0.78rem; line-height: 1.5; }
+    .card-footer { padding: 0.6rem 0.75rem; flex-wrap: wrap; gap: 6px; }
+    .card-price { font-size: 1.05rem; }
+    .order-btn { padding: 7px 12px; font-size: 10px; }
+
+    /* Category header */
+    .cat-header { gap: 1rem; margin-bottom: 1.5rem; }
+    .cat-header-text h2 { font-size: 1.6rem; }
+    .cat-icon { width: 44px; height: 44px; font-size: 18px; }
+
+    /* Modal */
+    .modal { padding: 1.5rem; margin: 0; border-radius: 4px; }
+    .modal h3 { font-size: 1.4rem; }
+    .modal-overlay { padding: 1rem; align-items: flex-end; }
+    .modal-actions { flex-direction: column; }
+    .btn-secondary { order: 2; }
+    .btn-primary { order: 1; }
+
+    /* Toast */
+    .toast { right: 1rem; left: 1rem; max-width: none; }
+
+    /* Footer */
+    footer { padding: 2rem 1rem; }
+    footer .footer-brand { font-size: 1.5rem; }
+    footer .footer-links { gap: 1rem; }
+
+    /* About pills */
+    .about-pills { gap: 0.5rem; }
+    .pill { font-size: 11px; padding: 5px 12px; }
   }
 
-  /* ── SCROLL ANIMATION ── */
-  .reveal {
-    opacity: 0; transform: translateY(30px);
-    transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
-
-  /* ── MOBILE ── */
-  @media (max-width: 900px) {
-    .hero { grid-template-columns: 1fr; }
-    .hero-right { min-height: 350px; }
-    .hero-left { padding: 3rem 1.5rem; }
-    .about-inner, .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-    .specials-grid { grid-template-columns: 1fr; }
-    .testimonials-grid { grid-template-columns: 1fr; }
-    .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
-    nav ul { display: none; }
-    .section { padding: 4rem 5vw; }
+  @media (max-width: 480px) {
+    .promo-banner { font-size: 10px; letter-spacing: 1px; padding: 8px; }
+    .hero h1 { font-size: clamp(2rem, 14vw, 3rem); }
+    .badge { font-size: 9px; padding: 5px 14px; letter-spacing: 2px; }
+    .product-grid { grid-auto-columns: 145px; gap: 0.6rem; }
+    .card-img { height: 105px; }
   }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="logo">
-    <div class="logo-icon">KF</div>
-    <div>
-      <div class="logo-text">Kissan <span>Foods</span></div>
-      <div class="logo-sub">Food Court</div>
-    </div>
+<div class="promo-banner">
+  🌾 Free delivery on orders above ₹499 &nbsp;·&nbsp; Freshly made every week &nbsp;·&nbsp; 100% natural ingredients
+</div>
+
+<!-- ── Hero ── -->
+<section class="hero">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-stamp">
+    <div class="hero-stamp-inner"></div>
+    <span>Est. 2018<br>Chennai<br>Made with<br>Love</span>
   </div>
-  <ul>
-    <li><a href="#menu">Menu</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#specials">Specials</a></li>
-    <li><a href="#contact" class="nav-cta">Order Now</a></li>
+  <div class="badge">Homemade & Handcrafted</div>
+  <h1>Deli <em>Heaven</em></h1>
+  <p class="hero-tagline">Pure · Wholesome · Nourishing</p>
+  <div class="hero-scroll" onclick="document.querySelector('.nav').scrollIntoView({behavior:'smooth'})">
+    <div class="scroll-line"></div>
+    <span>Explore</span>
+  </div>
+</section>
+
+<!-- ── Nav ── -->
+<nav class="nav">
+  <span class="nav-brand">Deli Heaven</span>
+  <ul class="nav-links">
+    <li><a href="#products">Products</a></li>
+    <li><a href="#about">Our Story</a></li>
+    <li><a href="#" class="nav-cta">Order Now <span class="cart-count" id="cartCount">0</span></a></li>
   </ul>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-bg-pattern"></div>
-  <div class="hero-left">
-    <div class="hero-badge">Now Open at City Food Court</div>
-    <h1>Fresh from the<br><span class="highlight">Farmer's Heart</span><br>to Your Plate</h1>
-    <p class="hero-desc">Authentic farm-fresh flavours crafted with love. From sizzling street bites to wholesome meals — Kissan Foods brings the soul of India's kitchen to your table.</p>
-    <div class="hero-actions">
-      <a href="#menu" class="btn-primary">🍽️ Explore Menu</a>
-      <a href="#contact" class="btn-secondary">Reserve Table</a>
+<!-- ── About ── -->
+<section class="about-strip" id="about">
+  <h2>Made with<br>intention.</h2>
+  <div>
+    <p>Every product at Deli Heaven is crafted in small batches using time-honoured recipes and the finest natural ingredients. No preservatives. No shortcuts. Just honest, nourishing food made the way your grandmother would approve of.</p>
+    <div class="about-pills">
+      <span class="pill">🌿 No Preservatives</span>
+      <span class="pill">🤝 Small Batches</span>
+      <span class="pill">🌾 Whole Grains</span>
+      <span class="pill">✨ Stone Ground</span>
+      <span class="pill">🏡 Home Kitchen</span>
     </div>
-    <div class="hero-stats">
-      <div>
-        <div class="stat-num">50+</div>
-        <div class="stat-label">Menu Items</div>
-      </div>
-      <div>
-        <div class="stat-num">4.9★</div>
-        <div class="stat-label">Avg Rating</div>
-      </div>
-      <div>
-        <div class="stat-num">10K+</div>
-        <div class="stat-label">Happy Guests</div>
-      </div>
-    </div>
-  </div>
-  <div class="hero-right">
-    <div class="hero-right-bg"></div>
-    <div class="food-grid">
-      <div class="food-card">
-        <span class="food-emoji">🍛</span>
-        <div class="food-card-name">Thali</div>
-        <div class="food-card-price">₹149</div>
-      </div>
-      <div class="food-card">
-        <span class="food-emoji">🥙</span>
-        <div class="food-card-name">Wraps</div>
-        <div class="food-card-price">₹89</div>
-      </div>
-      <div class="food-card">
-        <span class="food-emoji">🍢</span>
-        <div class="food-card-name">Chaat</div>
-        <div class="food-card-price">₹59</div>
-      </div>
-      <div class="food-card">
-        <span class="food-emoji">🥤</span>
-        <div class="food-card-name">Lassi</div>
-        <div class="food-card-price">₹49</div>
-      </div>
-    </div>
-    <div class="hero-label">Freshly Made Every Day</div>
   </div>
 </section>
 
-<!-- MARQUEE -->
-<div class="marquee-bar">
-  <div class="marquee-inner">
-    <span class="marquee-item">🌿 Pure Veg Options</span><span class="marquee-dot">•</span>
-    <span class="marquee-item">🔥 Freshly Cooked</span><span class="marquee-dot">•</span>
-    <span class="marquee-item">🌾 Farm Sourced Ingredients</span><span class="marquee-dot">•</span>
-    <span class="marquee-item">💛 No Preservatives</span><span class="marquee-dot">•</span>
-    <span class="marquee-item">⚡ Quick Service</span><span class="marquee-dot">•</span>
-    <span class="marquee-item">🏆 Award Winning Recipes</span><span class="marquee-dot">•</span>
-    <span class="marquee-item">🌿 Pure Veg Options</span><span class="marquee-dot">•</span>
-    <span class="marquee-item">🔥 Freshly Cooked</span><span class="marquee-dot">•</span>
-    <span class="marquee-item">🌾 Farm Sourced Ingredients</span><span class="marquee-dot">•</span>
-    <span class="marquee-item">💛 No Preservatives</span><span class="marquee-dot">•</span>
-    <span class="marquee-item">⚡ Quick Service</span><span class="marquee-dot">•</span>
-    <span class="marquee-item">🏆 Award Winning Recipes</span><span class="marquee-dot">•</span>
+<!-- ── Category nav ── -->
+<div class="cat-nav" id="products">
+  <button class="cat-tab active" data-cat="all">All Products</button>
+  <button class="cat-tab" data-cat="protein">Protein Mixes</button>
+  <button class="cat-tab" data-cat="millet">Millet Products</button>
+  <button class="cat-tab" data-cat="pulse">Pulse Flours</button>
+  <button class="cat-tab" data-cat="wheat">Wheat & Multi-Grain</button>
+  <button class="cat-tab" data-cat="ready">Ready Mixes</button>
+  <button class="cat-tab" data-cat="nut">Nut & Seed Products</button>
+</div>
+
+<!-- ── Products ── -->
+<main class="main">
+
+  <!-- Protein Mixes -->
+  <section class="category-section visible" data-section="protein">
+    <div class="cat-header">
+      <div class="cat-icon" style="background:#FEF3E8;">💪</div>
+      <div class="cat-header-text">
+        <h2>Protein Mixes</h2>
+        <p>Power-packed blends to fuel your day, the natural way.</p>
+      </div>
+    </div>
+    <div class="product-grid">
+      <!-- cards injected by JS -->
+    </div>
+  </section>
+
+  <!-- Millet Products -->
+  <section class="category-section visible" data-section="millet">
+    <div class="cat-header">
+      <div class="cat-icon" style="background:#EEF5E0;">🌾</div>
+      <div class="cat-header-text">
+        <h2>Millet Products</h2>
+        <p>Ancient grains reimagined for modern kitchens.</p>
+      </div>
+    </div>
+    <div class="product-grid"></div>
+  </section>
+
+  <!-- Pulse Flours -->
+  <section class="category-section visible" data-section="pulse">
+    <div class="cat-header">
+      <div class="cat-icon" style="background:#F5EDE0;">🫘</div>
+      <div class="cat-header-text">
+        <h2>Pulse Flours</h2>
+        <p>Stone-ground legume flours rich in protein and flavour.</p>
+      </div>
+    </div>
+    <div class="product-grid"></div>
+  </section>
+
+  <!-- Wheat & Multi-Grain -->
+  <section class="category-section visible" data-section="wheat">
+    <div class="cat-header">
+      <div class="cat-icon" style="background:#FAF0D8;">🍞</div>
+      <div class="cat-header-text">
+        <h2>Wheat & Multi-Grain</h2>
+        <p>Wholesome flours milled fresh from the finest grains.</p>
+      </div>
+    </div>
+    <div class="product-grid"></div>
+  </section>
+
+  <!-- Ready Mixes -->
+  <section class="category-section visible" data-section="ready">
+    <div class="cat-header">
+      <div class="cat-icon" style="background:#EAF0F5;">🥣</div>
+      <div class="cat-header-text">
+        <h2>Ready Mixes</h2>
+        <p>Breakfast and snack mixes ready in minutes — no fuss.</p>
+      </div>
+    </div>
+    <div class="product-grid"></div>
+  </section>
+
+  <!-- Nut & Seed Products -->
+  <section class="category-section visible" data-section="nut">
+    <div class="cat-header">
+      <div class="cat-icon" style="background:#F5EDE8;">🥜</div>
+      <div class="cat-header-text">
+        <h2>Nut & Seed Products</h2>
+        <p>Cold-pressed, slow-roasted — nature's finest in every bite.</p>
+      </div>
+    </div>
+    <div class="product-grid"></div>
+  </section>
+
+</main>
+
+<!-- ── Footer ── -->
+<footer>
+  <span class="footer-brand">Deli Heaven</span>
+  <p>Handcrafted in Chennai · Made fresh every week<br>📞 +91 98765 43210 &nbsp;·&nbsp; ✉️ hello@deliheaven.in</p>
+  <div class="footer-links">
+    <a href="#">Our Story</a>
+    <a href="#">Ingredients</a>
+    <a href="#">FAQ</a>
+    <a href="#">Wholesale</a>
+    <a href="#">Contact</a>
+  </div>
+  <p style="margin-top:2rem;font-size:11px;opacity:0.4;">© 2025 Deli Heaven. Made with love & no artificial anything.</p>
+</footer>
+
+<!-- ── Toast ── -->
+<div class="toast" id="toast">
+  <strong id="toastTitle">Added to order!</strong>
+  <span id="toastMsg">We'll be in touch shortly.</span>
+</div>
+
+<!-- ── Order Modal ── -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <h3>Place Your Order</h3>
+    <p>Fill in your details and we'll contact you to confirm and arrange delivery.</p>
+    <div class="modal-product" id="modalProduct">
+      <div class="modal-product-icon" id="modalIcon">🌾</div>
+      <div>
+        <div class="modal-product-name" id="modalName">Product Name</div>
+        <div class="modal-product-price" id="modalPrice">₹ 0 · 250g</div>
+      </div>
+    </div>
+    <div class="modal-form">
+      <input type="text" placeholder="Your Name" id="orderName" />
+      <input type="tel" placeholder="WhatsApp / Phone Number" id="orderPhone" />
+      <input type="text" placeholder="Delivery Pincode" id="orderPin" />
+      <textarea placeholder="Any special notes or quantity?" id="orderNotes"></textarea>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-secondary" onclick="closeModal()">Cancel</button>
+      <button class="btn-primary" onclick="submitOrder()">Confirm Order →</button>
+    </div>
   </div>
 </div>
 
-<!-- MENU -->
-<section class="section" id="menu">
-  <div class="section-header reveal">
-    <span class="section-tag">Our Menu</span>
-    <h2 class="section-title">Crafted with <em>Passion</em></h2>
-    <p class="section-desc">Every dish made fresh to order with the finest farm-sourced ingredients and traditional recipes.</p>
-  </div>
-
-  <div class="filter-tabs reveal">
-    <button class="filter-tab active" onclick="filterMenu(this,'all')">All Items</button>
-    <button class="filter-tab" onclick="filterMenu(this,'breakfast')">Breakfast</button>
-    <button class="filter-tab" onclick="filterMenu(this,'mains')">Mains</button>
-    <button class="filter-tab" onclick="filterMenu(this,'snacks')">Snacks</button>
-    <button class="filter-tab" onclick="filterMenu(this,'drinks')">Drinks</button>
-  </div>
-
-  <div class="menu-grid" id="menuGrid">
-
-    <div class="menu-item reveal" data-cat="mains">
-      <div class="bestseller-tag">Best Seller</div>
-      <div class="menu-item-img bg-warm"><span>🍛</span><div class="veg-badge veg"></div></div>
-      <div class="menu-item-body">
-        <div class="item-name">Kissan Special Thali</div>
-        <div class="item-desc">Dal, sabzi, rice, roti, pickle, papad & dessert — a complete farm-fresh feast</div>
-        <div class="item-footer">
-          <div class="item-price"><sup>₹</sup>149</div>
-          <button class="add-btn" onclick="addToCart(this)">+</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="menu-item reveal" data-cat="mains">
-      <div class="menu-item-img bg-spice"><span>🍜</span><div class="veg-badge veg"></div></div>
-      <div class="menu-item-body">
-        <div class="item-name">Pav Bhaji</div>
-        <div class="item-desc">Rich & buttery mixed vegetable bhaji with soft toasted pav</div>
-        <div class="item-footer">
-          <div class="item-price"><sup>₹</sup>89</div>
-          <button class="add-btn" onclick="addToCart(this)">+</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="menu-item reveal" data-cat="snacks">
-      <div class="bestseller-tag">Popular</div>
-      <div class="menu-item-img bg-gold"><span>🥙</span><div class="veg-badge veg"></div></div>
-      <div class="menu-item-body">
-        <div class="item-name">Paneer Frankie</div>
-        <div class="item-desc">Spiced paneer filling wrapped in a crisp, fresh rolled roti</div>
-        <div class="item-footer">
-          <div class="item-price"><sup>₹</sup>79</div>
-          <button class="add-btn" onclick="addToCart(this)">+</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="menu-item reveal" data-cat="snacks">
-      <div class="menu-item-img bg-warm"><span>🍢</span><div class="veg-badge veg"></div></div>
-      <div class="menu-item-body">
-        <div class="item-name">Aloo Tikki Chaat</div>
-        <div class="item-desc">Crispy potato patties with chutneys, yoghurt & sev — classic street magic</div>
-        <div class="item-footer">
-          <div class="item-price"><sup>₹</sup>59</div>
-          <button class="add-btn" onclick="addToCart(this)">+</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="menu-item reveal" data-cat="breakfast">
-      <div class="menu-item-img bg-green"><span>🥞</span><div class="veg-badge veg"></div></div>
-      <div class="menu-item-body">
-        <div class="item-name">Masala Dosa</div>
-        <div class="item-desc">Golden crisp dosa with spiced potato filling, sambar & three chutneys</div>
-        <div class="item-footer">
-          <div class="item-price"><sup>₹</sup>99</div>
-          <button class="add-btn" onclick="addToCart(this)">+</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="menu-item reveal" data-cat="mains">
-      <div class="menu-item-img bg-spice"><span>🍗</span><div class="veg-badge nonveg"></div></div>
-      <div class="menu-item-body">
-        <div class="item-name">Chicken Biryani</div>
-        <div class="item-desc">Dum-cooked basmati rice with tender chicken, whole spices & saffron</div>
-        <div class="item-footer">
-          <div class="item-price"><sup>₹</sup>179</div>
-          <button class="add-btn" onclick="addToCart(this)">+</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="menu-item reveal" data-cat="drinks">
-      <div class="menu-item-img bg-gold"><span>🥛</span><div class="veg-badge veg"></div></div>
-      <div class="menu-item-body">
-        <div class="item-name">Mango Lassi</div>
-        <div class="item-desc">Thick, creamy yoghurt blended with sweet Alphonso mango pulp</div>
-        <div class="item-footer">
-          <div class="item-price"><sup>₹</sup>69</div>
-          <button class="add-btn" onclick="addToCart(this)">+</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="menu-item reveal" data-cat="breakfast">
-      <div class="menu-item-img bg-green"><span>🫓</span><div class="veg-badge veg"></div></div>
-      <div class="menu-item-body">
-        <div class="item-name">Poha Breakfast</div>
-        <div class="item-desc">Light flattened rice with peanuts, curry leaves, mustard & lemon</div>
-        <div class="item-footer">
-          <div class="item-price"><sup>₹</sup>49</div>
-          <button class="add-btn" onclick="addToCart(this)">+</button>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section class="section about" id="about">
-  <div class="about-pattern"></div>
-  <div class="about-inner">
-    <div>
-      <span class="section-tag">Our Story</span>
-      <h2 class="section-title">Rooted in <em style="color:var(--saffron-light);">Tradition,</em><br>Made for Today</h2>
-      <p class="about-desc">Kissan Foods was born from a simple belief — that the best food comes from honest ingredients, cooked with care. We partner directly with local farmers to bring the freshest produce to your plate every single day.</p>
-      <div class="about-features">
-        <div class="feature-row">
-          <div class="feature-icon">🌾</div>
-          <div class="feature-text">
-            <strong>Farm to Fork Promise</strong>
-            <p>Direct sourcing from over 30 local farms within 100km radius</p>
-          </div>
-        </div>
-        <div class="feature-row">
-          <div class="feature-icon">👨‍🍳</div>
-          <div class="feature-text">
-            <strong>Master Chefs, Ancient Recipes</strong>
-            <p>Our kitchen team brings 20+ years of regional culinary expertise</p>
-          </div>
-        </div>
-        <div class="feature-row">
-          <div class="feature-icon">💚</div>
-          <div class="feature-text">
-            <strong>Zero Compromise on Quality</strong>
-            <p>No artificial preservatives, colours or MSG — ever</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="about-right">
-      <div class="about-card featured">
-        <div class="about-card-icon">🏆</div>
-        <h4>Best Food Court 2024</h4>
-        <p>Awarded Best New Food Court Stall by City Food Awards for exceptional quality and service.</p>
-      </div>
-      <div class="about-card">
-        <div class="about-card-icon">⏱️</div>
-        <h4>Lightning Fast Service</h4>
-        <p>Average wait time under 8 minutes. Because your time is as precious as your food.</p>
-      </div>
-      <div class="about-card">
-        <div class="about-card-icon">♻️</div>
-        <h4>Eco-Friendly Packaging</h4>
-        <p>100% biodegradable packaging. We care for the planet as much as we care for flavour.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SPECIALS -->
-<section class="section" id="specials">
-  <div class="section-header reveal">
-    <span class="section-tag">Today's Specials</span>
-    <h2 class="section-title">Chef's <em>Picks</em></h2>
-    <p class="section-desc">Limited daily specials crafted from seasonal produce. Come early — they run out fast!</p>
-  </div>
-  <div class="specials-grid reveal">
-    <div class="special-hero">
-      <div class="special-hero-bg">🍛</div>
-      <div class="special-hero-tag">⭐ Combo of the Day</div>
-      <h3>Grand Kissan Combo Meal</h3>
-      <p>Full thali + chilled lassi + dessert of the day. The ultimate Kissan experience.</p>
-      <div class="special-price"><span class="old-price">₹249</span>₹189</div>
-    </div>
-    <div class="special-card">
-      <div>
-        <div class="special-card-icon">🫕</div>
-        <h4>Dal Makhani</h4>
-        <p>Slow-cooked overnight black dal in rich buttery tomato gravy. Served with naan.</p>
-      </div>
-      <div class="special-card-footer">
-        <div class="price">₹129</div>
-        <a href="#contact" class="order-link">Order →</a>
-      </div>
-    </div>
-    <div class="special-card">
-      <div>
-        <div class="special-card-icon">🍮</div>
-        <h4>Gulab Jamun</h4>
-        <p>Freshly made soft khoya dumplings soaked in rose saffron sugar syrup.</p>
-      </div>
-      <div class="special-card-footer">
-        <div class="price">₹49</div>
-        <a href="#contact" class="order-link">Order →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="section testimonials">
-  <div class="section-header reveal">
-    <span class="section-tag">Reviews</span>
-    <h2 class="section-title">What Our Guests <em>Say</em></h2>
-  </div>
-  <div class="testimonials-grid">
-    <div class="testimonial-card reveal">
-      <div class="stars">★★★★★</div>
-      <p class="testimonial-text">"The Kissan Thali is absolutely incredible — felt like a home-cooked meal but better! The dal was perfectly spiced. Will definitely be a regular here."</p>
-      <div class="reviewer">
-        <div class="reviewer-avatar" style="background:#E8821A;">RK</div>
-        <div>
-          <div class="reviewer-name">Ramesh Kumar</div>
-          <div class="reviewer-label">Regular Customer</div>
-        </div>
-      </div>
-    </div>
-    <div class="testimonial-card reveal">
-      <div class="stars">★★★★★</div>
-      <p class="testimonial-text">"Best food court in the city by far. The Paneer Frankie is heavenly — so fresh and packed with flavour. Love the fast service too, never waited more than 5 minutes."</p>
-      <div class="reviewer">
-        <div class="reviewer-avatar" style="background:#C0392B;">PA</div>
-        <div>
-          <div class="reviewer-name">Priya Agarwal</div>
-          <div class="reviewer-label">Food Blogger</div>
-        </div>
-      </div>
-    </div>
-    <div class="testimonial-card reveal">
-      <div class="stars">★★★★★</div>
-      <p class="testimonial-text">"Genuinely surprised at the quality for the price. The Mango Lassi alone is worth the trip. Clean, hygienic, and the staff are always so warm and welcoming."</p>
-      <div class="reviewer">
-        <div class="reviewer-avatar" style="background:#2D6A2D;">ST</div>
-        <div>
-          <div class="reviewer-name">Suresh Tiwari</div>
-          <div class="reviewer-label">Office Worker Nearby</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="section contact-section" id="contact">
-  <div class="section-header reveal">
-    <span class="section-tag">Find Us</span>
-    <h2 class="section-title">Come <em>Visit</em> Us</h2>
-    <p class="section-desc">We'd love to serve you. Drop by, call us, or send a message!</p>
-  </div>
-  <div class="contact-inner">
-    <div class="contact-info reveal">
-      <h3>Kissan Foods Food Court</h3>
-      <p>Located in the heart of the city's most vibrant food court, we serve fresh meals from morning breakfast through late evening. Come hungry, leave happy.</p>
-      <div class="contact-items">
-        <div class="contact-item">
-          <div class="contact-icon">📍</div>
-          <div>
-            <strong>Location</strong>
-            <span>Kalavai, palakkad Road , opp Bharath Petroleum Coimbatore-641008.</span>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon">🕐</div>
-          <div>
-            <strong>Opening Hours</strong>
-            <span>Mon–Sat: 8:00 AM – 10:00 PM &nbsp;|&nbsp; Sun: 9:00 AM – 9:00 PM</span>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon">📞</div>
-          <div>
-            <strong>Phone</strong>
-            <span>+91 98765 43210 &nbsp;|&nbsp; +91 9751777000</span>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon">📧</div>
-          <div>
-            <strong>Email</strong>
-            <span>hello@kissanfoods.in</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="contact-form reveal">
-      <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--spice);margin-bottom:1.5rem;">Pre-order or Enquiry</h3>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Your Name</label>
-          <input type="text" placeholder="e.g. Ramesh Kumar">
-        </div>
-        <div class="form-group">
-          <label>Phone</label>
-          <input type="tel" placeholder="+91 98765 43210">
-        </div>
-      </div>
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" placeholder="you@example.com">
-      </div>
-      <div class="form-group">
-        <label>Enquiry Type</label>
-        <select>
-          <option>Pre-order a Meal</option>
-          <option>Bulk / Catering Order</option>
-          <option>Table Reservation</option>
-          <option>Feedback</option>
-          <option>Other</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Message</label>
-        <textarea placeholder="Tell us what you need..."></textarea>
-      </div>
-      <button class="submit-btn" onclick="submitForm(this)">🍽️ Send Message</button>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <div class="logo">
-        <div class="logo-icon">KF</div>
-        <div>
-          <div class="logo-text">Kissan <span>Foods</span></div>
-          <div class="logo-sub" style="color:rgba(255,255,255,0.3)">Food Court</div>
-        </div>
-      </div>
-      <p>Farm-fresh flavours served with love at your favourite food court. Honest food for honest people.</p>
-    </div>
-    <div class="footer-col">
-      <h5>Menu</h5>
-      <ul>
-        <li><a href="#menu">Breakfast</a></li>
-        <li><a href="#menu">Main Course</a></li>
-        <li><a href="#menu">Snacks & Chaat</a></li>
-        <li><a href="#menu">Drinks & Lassi</a></li>
-        <li><a href="#specials">Today's Specials</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h5>Information</h5>
-      <ul>
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#about">Our Farmers</a></li>
-        <li><a href="#contact">Find Us</a></li>
-        <li><a href="#contact">Catering</a></li>
-        <li><a href="#contact">Franchise</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h5>Follow Us</h5>
-      <ul>
-        <li><a href="#">Instagram</a></li>
-        <li><a href="#">Facebook</a></li>
-        <li><a href="#">Zomato</a></li>
-        <li><a href="#">Swiggy</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2025 Kissan Foods. All rights reserved.</span>
-    <span>Made with ❤️ for <a href="#">food lovers</a></span>
-  </div>
-</footer>
-
 <script>
-  // Scroll reveal
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 80);
-        observer.unobserve(entry.target);
+const products = {
+  protein: [
+    { name: "Daily Power Protein Blend", desc: "A wholesome mix of horse gram, green gram & roasted flaxseed. Perfect stirred into milk or porridge.", price: "₹320", weight: "400g", icon: "💪", ribbon: "Best Seller", img: "WhatsApp Image 2026-05-01 at 5.51.15 PM.jpeg" },
+    { name: "Gym-Ready Super Shake Mix", desc: "Chickpea, soy flour, moringa & sunflower seeds — natural fuel without the chalky taste.", price: "₹380", weight: "400g", icon: "🏋️", img: "WhatsApp Image 2026-05-01 at 6.00.44 PM.jpeg" },
+    { name: "Sathu Maavu Classic", desc: "Grandma's multi-grain energy powder with 14 ingredients, lightly spiced & sweetened with jaggery.", price: "₹260", weight: "500g", icon: "🌟", ribbon: "Fan Fave", img: "WhatsApp Image 2026-05-01 at 5.53.38 PM.jpeg" },
+    { name: "Women's Wellness Blend", desc: "Fenugreek, horse gram, sesame & dry ginger for hormonal balance and iron boost.", price: "₹290", weight: "300g", icon: "🌸", img: "WhatsApp Image 2026-05-01 at 5.51.15 PM.jpeg" },
+  ],
+  millet: [
+    { name: "Pearl Millet Atta (Bajra)", desc: "Stone-ground from whole bajra. Earthy, nutty flavour — ideal for rotis and porridge.", price: "₹180", weight: "500g", icon: "🌾", img: "WhatsApp Image 2026-05-01 at 5.46.09 PM.jpeg" },
+    { name: "Finger Millet Flour (Ragi)", desc: "Cold-milled ragi flour packed with calcium. Smooth texture for dosas, rotis & porridge.", price: "₹165", weight: "500g", icon: "🟤", ribbon: "Popular", img: "WhatsApp Image 2026-05-01 at 5.46.09 PM.jpeg" },
+    { name: "Foxtail Millet Mix", desc: "Thinai flour blended with coconut milk powder — a delicious ready-to-cook breakfast base.", price: "₹220", weight: "400g", icon: "🌿", img: "WhatsApp Image 2026-05-01 at 5.46.09 PM.jpeg" },
+    { name: "Little Millet Porridge", desc: "Pre-cooked samai powder with cardamom & raw sugar. Just add warm milk — done in 2 minutes.", price: "₹210", weight: "300g", icon: "🥛", img: "WhatsApp Image 2026-05-01 at 5.46.09 PM.jpeg" },
+  ],
+  pulse: [
+    { name: "Chickpea Flour (Besan)", desc: "Freshly milled chana dal flour with a rich golden hue — perfect for pakodas, cheelas & sweets.", price: "₹140", weight: "500g", icon: "🟡", img: "WhatsApp Image 2026-05-01 at 5.46.50 PM.jpeg" },
+    { name: "Urad Dal Flour", desc: "White urad flour finely ground for fluffy idlis, crisp dosas and soft vada batter.", price: "₹155", weight: "500g", icon: "⚪", ribbon: "Fresh Milled", img: "WhatsApp Image 2026-05-01 at 5.46.50 PM.jpeg" },
+    { name: "Green Moong Dal Flour", desc: "Sprouted & dried green moong milled into a light, high-protein flour. Great for pancakes.", price: "₹175", weight: "400g", icon: "💚", img: "WhatsApp Image 2026-05-01 at 5.46.50 PM.jpeg" },
+    { name: "Horse Gram Flour", desc: "Nutrient-dense kollu flour with a distinct earthiness — ideal for soups and health drinks.", price: "₹160", weight: "400g", icon: "🫘", img: "WhatsApp Image 2026-05-01 at 5.46.50 PM.jpeg" },
+  ],
+  wheat: [
+    { name: "Whole Wheat Atta (Samba)", desc: "Stone-ground Samba wheat from Tamil Nadu farms. Dense, flavourful and slow to digest.", price: "₹130", weight: "1kg", icon: "🌿", ribbon: "Local Grain", img: "WhatsApp Image 2026-05-01 at 5.48.10 PM.jpeg" },
+    { name: "Multi-Grain Atta", desc: "9 grains in one — wheat, ragi, bajra, jowar, oats, barley and more. A family staple.", price: "₹195", weight: "1kg", icon: "🍞", img: "WhatsApp Image 2026-05-01 at 5.48.10 PM.jpeg" },
+    { name: "Emmer Wheat Flour", desc: "Ancient Khapli wheat stone-milled to a fine flour — low-gluten, nutritious & wonderfully nutty.", price: "₹230", weight: "500g", icon: "🌾", ribbon: "Rare Find", img: "WhatsApp Image 2026-05-01 at 5.48.10 PM.jpeg" },
+    { name: "Oats Porridge Blend", desc: "Rolled oats tossed with chia, flax & jaggery. Soak overnight or cook in 3 minutes.", price: "₹240", weight: "400g", icon: "🥣", img: "WhatsApp Image 2026-05-01 at 5.48.10 PM.jpeg" },
+  ],
+  ready: [
+    { name: "Instant Dosa Mix", desc: "Just add water! A blend of urad, ragi and rice flours — crisp dosas in 5 minutes, no fermenting.", price: "₹195", weight: "400g", icon: "🥞", ribbon: "No Soak", img: "WhatsApp Image 2026-05-01 at 5.55.44 PM.jpeg" },
+    { name: "Adai Batter Mix", desc: "Five dal mix with black pepper, cumin & curry leaf — healthy adai anytime, anyhow.", price: "₹185", weight: "400g", icon: "🫓", img: "WhatsApp Image 2026-05-01 at 5.55.44 PM.jpeg" },
+    { name: "Porridge Power Mix", desc: "A soothing morning blend of ragi, jowar, coconut & jaggery. Ready in 5 mins.", price: "₹220", weight: "500g", icon: "☀️", ribbon: "Best Seller", img: "WhatsApp Image 2026-05-01 at 5.55.44 PM.jpeg" },
+    { name: "Millet Pancake Mix", desc: "Whole-grain pancake mix sweetened lightly with dates & vanilla. Fluffy, nutty, perfect.", price: "₹210", weight: "350g", icon: "🥞", img: "WhatsApp Image 2026-05-01 at 5.55.44 PM.jpeg" },
+    { name: "Kozhukattai (Modak) Mix", desc: "Stone-ground rice flour spiced traditionally — ready-to-shape with no sticky mess.", price: "₹170", weight: "300g", icon: "🍡", img: "WhatsApp Image 2026-05-01 at 5.55.44 PM.jpeg" },
+  ],
+  nut: [
+    { name: "Groundnut Chikki Crumbles", desc: "Slow-cooked jaggery & groundnut brittle broken into bite-size crumbles. Old-school sweet.", price: "₹180", weight: "250g", icon: "🥜", ribbon: "Classic", img: "WhatsApp Image 2026-05-01 at 5.59.20 PM.jpeg" },
+    { name: "Roasted Seed Trail Mix", desc: "Pumpkin, sunflower, melon & chia seeds slow-roasted with Himalayan salt and pepper.", price: "₹220", weight: "200g", icon: "✨", img: "WhatsApp Image 2026-05-01 at 6.00.11 PM.jpeg" },
+    { name: "Almond & Cashew Flour", desc: "Cold-blanched & fine-milled nut flour blend. Exceptional for keto baking and gravies.", price: "₹340", weight: "250g", icon: "💛", img: "WhatsApp Image 2026-05-01 at 5.59.20 PM.jpeg" },
+    { name: "Sesame Seed Ladoo", desc: "Til & jaggery ladoos made the traditional way — no binders, no fillers, pure sesame joy.", price: "₹200", weight: "200g", icon: "⚫", ribbon: "Hand-Rolled", img: "WhatsApp Image 2026-05-01 at 6.00.11 PM.jpeg" },
+    { name: "Dry Fruit Energy Bites", desc: "Dates, almonds, pistachios & cardamom pressed into 20-calorie bites. No-bake, no sugar added.", price: "₹295", weight: "180g", icon: "🌰", img: "WhatsApp Image 2026-05-01 at 5.59.20 PM.jpeg" },
+  ],
+};
+
+let cartCount = 0;
+let currentProduct = null;
+
+// Build cards
+function buildCards() {
+  Object.keys(products).forEach(cat => {
+    const section = document.querySelector(`[data-section="${cat}"] .product-grid`);
+    if (!section) return;
+    products[cat].forEach(p => {
+      const card = document.createElement('div');
+      card.className = 'product-card';
+      const imgContent = p.img ? `<img src="${p.img}" alt="${p.name}" style="width: 100%; height: 100%; object-fit: cover;">` : p.icon;
+      card.innerHTML = `
+        ${p.ribbon ? `<div class="card-ribbon">${p.ribbon}</div>` : ''}
+        <div class="card-img" style="background: ${catBg(cat)}">${imgContent}</div>
+        <div class="card-body">
+          <div class="card-tag">${catLabel(cat)}</div>
+          <div class="card-name">${p.name}</div>
+          <div class="card-desc">${p.desc}</div>
+        </div>
+        <div class="card-footer">
+          <div>
+            <div class="card-price">${p.price}</div>
+            <div class="card-weight">${p.weight}</div>
+          </div>
+          <button class="order-btn" onclick='openModal(${JSON.stringify(p)})'>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            Order Now
+          </button>
+        </div>`;
+      section.appendChild(card);
+    });
+  });
+}
+
+function catBg(cat) {
+  return {protein:'#FEF5EA',millet:'#EEF4DF',pulse:'#F7EFE2',wheat:'#FBF4DC',ready:'#EBF2F7',nut:'#F7EDE5'}[cat] || '#F5F0E8';
+}
+
+function catLabel(cat) {
+  return {protein:'Protein Mix',millet:'Millet',pulse:'Pulse Flour',wheat:'Wheat & Grain',ready:'Ready Mix',nut:'Nut & Seed'}[cat] || cat;
+}
+
+// Tab filtering
+document.querySelectorAll('.cat-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    const cat = tab.dataset.cat;
+    document.querySelectorAll('.category-section').forEach(s => {
+      if (cat === 'all' || s.dataset.section === cat) {
+        s.classList.add('visible');
+      } else {
+        s.classList.remove('visible');
       }
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-  reveals.forEach(el => observer.observe(el));
+    document.querySelector('.main').scrollIntoView({behavior:'smooth'});
+  });
+});
 
-  // Menu filter
-  function filterMenu(btn, cat) {
-    document.querySelectorAll('.filter-tab').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    document.querySelectorAll('.menu-item').forEach(item => {
-      const show = cat === 'all' || item.dataset.cat === cat;
-      item.style.display = show ? '' : 'none';
-    });
-  }
+// Modal
+function openModal(p) {
+  currentProduct = p;
+  document.getElementById('modalIcon').innerHTML = p.img ? `<img src="${p.img}" alt="${p.name}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px;">` : p.icon;
+  document.getElementById('modalName').textContent = p.name;
+  document.getElementById('modalPrice').textContent = `${p.price} · ${p.weight}`;
+  document.getElementById('modalOverlay').classList.add('open');
+  document.getElementById('orderName').focus();
+}
 
-  // Add to cart feedback
-  let cartCount = 0;
-  function addToCart(btn) {
-    cartCount++;
-    btn.textContent = '✓';
-    btn.style.background = '#2D6A2D';
-    setTimeout(() => {
-      btn.textContent = '+';
-      btn.style.background = '';
-    }, 1200);
-  }
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+}
 
-  // Form submit
-  function submitForm(btn) {
-    btn.textContent = '✓ Message Sent!';
-    btn.style.background = '#2D6A2D';
-    setTimeout(() => {
-      btn.textContent = '🍽️ Send Message';
-      btn.style.background = '';
-    }, 3000);
+document.getElementById('modalOverlay').addEventListener('click', e => {
+  if (e.target === document.getElementById('modalOverlay')) closeModal();
+});
+
+function submitOrder() {
+  const name = document.getElementById('orderName').value.trim();
+  const phone = document.getElementById('orderPhone').value.trim();
+  if (!name || !phone) {
+    alert('Please enter your name and phone number.');
+    return;
   }
+  closeModal();
+  cartCount++;
+  document.getElementById('cartCount').textContent = cartCount;
+  showToast(`Order placed!`, `${currentProduct.name} — we'll WhatsApp you to confirm 🙏`);
+  ['orderName','orderPhone','orderPin','orderNotes'].forEach(id => document.getElementById(id).value = '');
+}
+
+function showToast(title, msg) {
+  const t = document.getElementById('toast');
+  document.getElementById('toastTitle').textContent = title;
+  document.getElementById('toastMsg').textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3800);
+}
+
+buildCards();
 </script>
 </body>
 </html>
