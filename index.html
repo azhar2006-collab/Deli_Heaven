@@ -57,29 +57,76 @@
     overflow: hidden;
   }
 
-  .hero-bg-pattern {
+  /* Animated gradient orbs */
+  .hero-orb {
     position: absolute;
-    inset: 0;
-    background-image:
-      radial-gradient(ellipse at 20% 50%, rgba(212,135,58,0.18) 0%, transparent 60%),
-      radial-gradient(ellipse at 80% 30%, rgba(107,124,94,0.15) 0%, transparent 55%);
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0;
+    animation: orbFloat 12s ease-in-out infinite;
+  }
+  .hero-orb-1 {
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(212,135,58,0.25), transparent);
+    top: -10%; left: -10%;
+    animation-delay: 0s;
+  }
+  .hero-orb-2 {
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(107,124,94,0.2), transparent);
+    bottom: -10%; right: -5%;
+    animation-delay: 4s;
+  }
+  .hero-orb-3 {
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(181,67,30,0.15), transparent);
+    top: 30%; left: 60%;
+    animation-delay: 2s;
+  }
+  @keyframes orbFloat {
+    0%   { opacity: 0; transform: scale(0.8) translate(0,0); }
+    20%  { opacity: 1; }
+    50%  { transform: scale(1.15) translate(20px,-30px); }
+    80%  { opacity: 1; }
+    100% { opacity: 0; transform: scale(0.8) translate(0,0); }
   }
 
+  /* Floating particles */
+  .hero-particles {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  .particle {
+    position: absolute;
+    border-radius: 50%;
+    background: var(--golden);
+    opacity: 0;
+    animation: particleDrift linear infinite;
+  }
+  @keyframes particleDrift {
+    0%   { opacity: 0; transform: translateY(100vh) scale(0); }
+    10%  { opacity: 0.6; }
+    90%  { opacity: 0.3; }
+    100% { opacity: 0; transform: translateY(-10vh) scale(1) rotate(360deg); }
+  }
+
+  /* Rotating stamp */
   .hero-stamp {
     position: absolute;
     width: 160px;
     height: 160px;
-    border: 3px solid rgba(212,135,58,0.3);
+    border: 3px solid rgba(212,135,58,0.4);
     border-radius: 50%;
     top: 3rem;
     right: 6rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    transform: rotate(15deg);
-    opacity: 0.6;
+    animation: stampSpin 20s linear infinite, stampFadeIn 1.5s ease forwards 0.5s;
+    opacity: 0;
   }
-
   .hero-stamp span {
     font-family: 'Playfair Display', serif;
     font-size: 11px;
@@ -89,90 +136,265 @@
     text-align: center;
     line-height: 1.6;
   }
-
   .hero-stamp-inner {
     position: absolute;
-    width: 130px;
-    height: 130px;
-    border: 1px dashed rgba(212,135,58,0.4);
+    width: 130px; height: 130px;
+    border: 1px dashed rgba(212,135,58,0.5);
     border-radius: 50%;
+    animation: stampSpinReverse 15s linear infinite;
   }
+  @keyframes stampSpin { to { transform: rotate(360deg); } }
+  @keyframes stampSpinReverse { to { transform: rotate(-360deg); } }
+  @keyframes stampFadeIn { to { opacity: 0.75; } }
 
+  /* Badge */
   .badge {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     background: var(--golden);
     color: var(--deep-brown);
     font-size: 11px;
     letter-spacing: 3px;
     text-transform: uppercase;
     font-weight: 700;
-    padding: 6px 18px;
-    border-radius: 2px;
+    padding: 7px 20px;
+    border-radius: 100px;
     margin-bottom: 2rem;
     position: relative;
     z-index: 1;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUp 0.8s cubic-bezier(0.34,1.56,0.64,1) forwards 0.3s;
+    box-shadow: 0 4px 20px rgba(212,135,58,0.4);
   }
+  .badge::before { content: '✦'; font-size: 9px; }
+  .badge::after  { content: '✦'; font-size: 9px; }
 
+  /* Hero heading */
   .hero h1 {
     font-family: 'Playfair Display', serif;
     font-size: clamp(3.5rem, 9vw, 7rem);
     color: var(--cream);
-    line-height: 0.95;
+    line-height: 0.92;
     position: relative;
     z-index: 1;
     margin-bottom: 0.5rem;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: slideUp 1s cubic-bezier(0.34,1.56,0.64,1) forwards 0.6s;
   }
-
   .hero h1 em {
     color: var(--golden);
     font-style: italic;
     display: block;
+    text-shadow: 0 0 60px rgba(212,135,58,0.3);
+  }
+  .hero h1 .word-deli {
+    display: block;
+    font-size: 0.55em;
+    letter-spacing: 0.3em;
+    font-style: normal;
+    color: rgba(250,246,238,0.7);
+    text-transform: uppercase;
+    font-weight: 400;
+    margin-bottom: 0.1em;
   }
 
+  /* Animated tagline */
   .hero-tagline {
-    font-size: 1.1rem;
-    color: rgba(250,246,238,0.65);
-    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    font-size: 1rem;
+    color: rgba(250,246,238,0.6);
+    letter-spacing: 3px;
     text-transform: uppercase;
-    margin-top: 1.5rem;
+    margin-top: 2rem;
     position: relative;
     z-index: 1;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards 1.2s;
   }
-
-  .hero-tagline::before,
-  .hero-tagline::after {
-    content: '—';
-    margin: 0 12px;
+  .tagline-word {
+    padding: 0 14px;
+    position: relative;
+    transition: color 0.3s;
+  }
+  .tagline-word:hover { color: var(--golden); }
+  .tagline-sep {
     color: var(--golden);
+    font-size: 1.2rem;
+    opacity: 0.7;
   }
 
+  /* Stats row */
+  .hero-stats {
+    display: flex;
+    gap: 3rem;
+    margin-top: 3rem;
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    animation: slideUp 0.8s ease forwards 1.5s;
+  }
+  .hero-stat {
+    text-align: center;
+  }
+  .hero-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--golden);
+    font-weight: 700;
+    line-height: 1;
+  }
+  .hero-stat-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(250,246,238,0.4);
+    margin-top: 4px;
+  }
+  .hero-stat-divider {
+    width: 1px;
+    background: rgba(212,135,58,0.25);
+    align-self: stretch;
+  }
+
+  /* CTA buttons */
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2.5rem;
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    animation: slideUp 0.8s ease forwards 1.8s;
+  }
+  .hero-btn-primary {
+    background: var(--golden);
+    color: var(--deep-brown);
+    border: none;
+    padding: 14px 32px;
+    font-family: 'Lato', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 6px 25px rgba(212,135,58,0.4);
+  }
+  .hero-btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(212,135,58,0.5);
+    background: #e8973f;
+  }
+  .hero-btn-secondary {
+    background: transparent;
+    color: rgba(250,246,238,0.8);
+    border: 1px solid rgba(212,135,58,0.4);
+    padding: 14px 32px;
+    font-family: 'Lato', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .hero-btn-secondary:hover {
+    border-color: var(--golden);
+    color: var(--golden);
+    transform: translateY(-3px);
+  }
+
+  /* Floating ingredients */
+  .hero-float {
+    position: absolute;
+    font-size: 2.2rem;
+    opacity: 0;
+    animation: floatItem ease-in-out infinite;
+    pointer-events: none;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+    z-index: 1;
+  }
+  @keyframes floatItem {
+    0%   { opacity: 0; transform: translateY(10px) rotate(0deg); }
+    20%  { opacity: 0.7; }
+    50%  { transform: translateY(-20px) rotate(8deg); opacity: 0.9; }
+    80%  { opacity: 0.7; }
+    100% { opacity: 0; transform: translateY(10px) rotate(0deg); }
+  }
+
+  /* Wave divider */
+  .hero-wave {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+  }
+
+  /* Scroll indicator */
   .hero-scroll {
     position: absolute;
-    bottom: 2.5rem;
+    bottom: 3.5rem;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 8px;
-    color: rgba(250,246,238,0.4);
-    font-size: 11px;
-    letter-spacing: 2px;
+    color: rgba(250,246,238,0.35);
+    font-size: 10px;
+    letter-spacing: 3px;
     text-transform: uppercase;
     cursor: pointer;
-    z-index: 1;
+    z-index: 3;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards 2.2s;
+    transition: color 0.3s;
+  }
+  .hero-scroll:hover { color: var(--golden); }
+  .scroll-mouse {
+    width: 22px; height: 36px;
+    border: 2px solid rgba(212,135,58,0.5);
+    border-radius: 11px;
+    display: flex;
+    justify-content: center;
+    padding-top: 6px;
+  }
+  .scroll-wheel {
+    width: 3px; height: 7px;
+    background: var(--golden);
+    border-radius: 2px;
+    animation: scrollWheel 1.8s ease-in-out infinite;
+  }
+  @keyframes scrollWheel {
+    0%,100% { transform: translateY(0); opacity: 1; }
+    50%      { transform: translateY(6px); opacity: 0.2; }
   }
 
-  .scroll-line {
-    width: 1px;
-    height: 40px;
-    background: linear-gradient(to bottom, rgba(212,135,58,0.8), transparent);
-    animation: scrollPulse 2s ease-in-out infinite;
+  /* Shared animations */
+  @keyframes slideUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    to { opacity: 1; }
   }
 
-  @keyframes scrollPulse {
-    0%, 100% { opacity: 1; transform: scaleY(1); }
-    50% { opacity: 0.4; transform: scaleY(0.7); }
+  @media (max-width: 768px) {
+    .hero-stamp { top: 1.5rem; right: 1.5rem; width: 110px; height: 110px; }
+    .hero-stamp span { font-size: 9px; }
+    .hero-stamp-inner { width: 88px; height: 88px; }
+    .hero-stats { gap: 1.5rem; }
+    .hero-stat-num { font-size: 1.5rem; }
+    .hero-ctas { flex-direction: column; align-items: center; gap: 0.75rem; }
+    .hero-float { font-size: 1.6rem; }
   }
 
   /* ── Nav strip ── */
@@ -727,7 +949,7 @@
 
     /* Product grid — 2 rows, cards 160px wide, finger-friendly */
     .product-grid {
-      grid-auto-columns: 160px;
+      grid-auto-columns: 260px;
       gap: 0.75rem;
       padding-bottom: 0.75rem;
     }
@@ -771,8 +993,35 @@
     .promo-banner { font-size: 10px; letter-spacing: 1px; padding: 8px; }
     .hero h1 { font-size: clamp(2rem, 14vw, 3rem); }
     .badge { font-size: 9px; padding: 5px 14px; letter-spacing: 2px; }
-    .product-grid { grid-auto-columns: 145px; gap: 0.6rem; }
-    .card-img { height: 105px; }
+
+    /* Override 2-row horizontal scroll — use a normal 2-column grid instead */
+    .product-grid {
+      display: grid;
+      grid-template-rows: unset;
+      grid-auto-flow: unset;
+      grid-auto-columns: unset;
+      grid-template-columns: repeat(2, 1fr);
+      overflow-x: unset;
+      scroll-snap-type: unset;
+      gap: 0.75rem;
+      padding-bottom: 0;
+    }
+
+    .product-card {
+      scroll-snap-align: unset;
+      min-width: unset;
+      max-width: 100%;
+      width: 100%;
+    }
+
+    .card-img { height: 130px; }
+    .card-body { padding: 0.65rem 0.65rem 0.4rem; }
+    .card-name { font-size: 0.9rem; }
+    .card-desc { font-size: 0.75rem; line-height: 1.4; margin-bottom: 0.5rem; }
+    .card-footer { padding: 0.5rem 0.65rem; flex-wrap: wrap; gap: 4px; }
+    .card-price { font-size: 1rem; }
+    .order-btn { padding: 6px 10px; font-size: 9px; letter-spacing: 1px; }
+    .card-ribbon { font-size: 9px; padding: 3px 10px 3px 8px; }
   }
 </style>
 </head>
@@ -783,19 +1032,81 @@
 </div>
 
 <!-- ── Hero ── -->
-<section class="hero">
-  <div class="hero-bg-pattern"></div>
+<section class="hero" id="home">
+
+  <!-- Animated orbs -->
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-orb hero-orb-3"></div>
+
+  <!-- Floating particles (JS-generated below) -->
+  <div class="hero-particles" id="heroParticles"></div>
+
+  <!-- Floating ingredients -->
+  <span class="hero-float" style="top:18%;left:8%;animation-duration:7s;animation-delay:0.5s;">🌾</span>
+  <span class="hero-float" style="top:60%;left:5%;animation-duration:9s;animation-delay:1s;">🫘</span>
+  <span class="hero-float" style="top:25%;right:10%;animation-duration:8s;animation-delay:0.2s;">🥜</span>
+  <span class="hero-float" style="top:65%;right:8%;animation-duration:6s;animation-delay:2s;">🌿</span>
+  <span class="hero-float" style="top:40%;left:12%;animation-duration:10s;animation-delay:1.5s;">✨</span>
+  <span class="hero-float" style="top:15%;right:22%;animation-duration:7.5s;animation-delay:3s;">🥣</span>
+
+  <!-- Rotating stamp -->
   <div class="hero-stamp">
     <div class="hero-stamp-inner"></div>
     <span>Est. 2018<br>Chennai<br>Made with<br>Love</span>
   </div>
-  <div class="badge">Homemade & Handcrafted</div>
-  <h1>Deli <em>Heaven</em></h1>
-  <p class="hero-tagline">Pure · Wholesome · Nourishing</p>
-  <div class="hero-scroll" onclick="document.querySelector('.nav').scrollIntoView({behavior:'smooth'})">
-    <div class="scroll-line"></div>
-    <span>Explore</span>
+
+  <!-- Content -->
+  <div class="badge">Homemade &amp; Handcrafted</div>
+
+  <h1>
+    <span class="word-deli">Deli</span>
+    <em>Heaven</em>
+  </h1>
+
+  <div class="hero-tagline">
+    <span class="tagline-word">Pure</span>
+    <span class="tagline-sep">✦</span>
+    <span class="tagline-word">Wholesome</span>
+    <span class="tagline-sep">✦</span>
+    <span class="tagline-word">Nourishing</span>
   </div>
+
+  <!-- Stats -->
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-num" data-target="14">0</div>
+      <div class="hero-stat-label">Ingredients</div>
+    </div>
+    <div class="hero-stat-divider"></div>
+    <div class="hero-stat">
+      <div class="hero-stat-num" data-target="100">0</div>
+      <div class="hero-stat-label">% Natural</div>
+    </div>
+    <div class="hero-stat-divider"></div>
+    <div class="hero-stat">
+      <div class="hero-stat-num" data-target="0">0</div>
+      <div class="hero-stat-label">Preservatives</div>
+    </div>
+  </div>
+
+  <!-- CTA Buttons -->
+  <div class="hero-ctas">
+    <button class="hero-btn-primary" onclick="document.querySelector('#products').scrollIntoView({behavior:'smooth'})">Shop Now →</button>
+    <button class="hero-btn-secondary" onclick="document.querySelector('#about').scrollIntoView({behavior:'smooth'})">Our Story</button>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="hero-scroll" onclick="document.querySelector('.nav').scrollIntoView({behavior:'smooth'})">
+    <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+    <span>Scroll</span>
+  </div>
+
+  <!-- Wave divider -->
+  <svg class="hero-wave" viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#FAF6EE"/>
+  </svg>
+
 </section>
 
 <!-- ── Nav ── -->
@@ -1102,6 +1413,57 @@ function showToast(title, msg) {
 }
 
 buildCards();
+
+// ── Hero particles ──
+(function() {
+  const container = document.getElementById('heroParticles');
+  if (!container) return;
+  const count = 25;
+  for (let i = 0; i < count; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    const size = Math.random() * 4 + 2;
+    p.style.cssText = `
+      width: ${size}px;
+      height: ${size}px;
+      left: ${Math.random() * 100}%;
+      animation-duration: ${Math.random() * 10 + 8}s;
+      animation-delay: ${Math.random() * 10}s;
+      opacity: 0;
+    `;
+    container.appendChild(p);
+  }
+})();
+
+// ── Hero stat counters ──
+function animateCounter(el, target, duration) {
+  const start = performance.now();
+  const update = (now) => {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.round(eased * target);
+    if (progress < 1) requestAnimationFrame(update);
+  };
+  requestAnimationFrame(update);
+}
+
+// Trigger counters when hero stats become visible
+const statsEl = document.querySelector('.hero-stats');
+if (statsEl) {
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        document.querySelectorAll('.hero-stat-num').forEach(el => {
+          const target = parseInt(el.dataset.target, 10);
+          animateCounter(el, target, 1800);
+        });
+        obs.disconnect();
+      }
+    });
+  }, { threshold: 0.5 });
+  obs.observe(statsEl);
+}
 </script>
 </body>
 </html>
